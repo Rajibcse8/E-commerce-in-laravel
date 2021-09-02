@@ -129,7 +129,7 @@
 	      <!-- User Account-->
           <li class="dropdown user user-menu">	
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown" title="User">
-				<img src="../images/avatar/1.jpg" alt="">
+				<img src="{{ asset('admin/images/avatar/1.jpg') }}" alt="">
 			</a>
 			<ul class="dropdown-menu animated flipInX">
 			  <li class="user-body">
@@ -162,7 +162,7 @@
 				 <a href="index.html">
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
-						  <img src="../images/logo-dark.png" alt="">
+						  <img src="{{ asset('admin/images/logo-dark.png') }}" alt="">
 						  <h3><b>Sunny</b> Admin</h3>
 					 </div>
 				</a>
@@ -582,9 +582,9 @@
 					</div>
 				</div>
 				<div class="col-xl-6 col-12">
-					<div class="box bg-info bg-img" style="background-image: url(../images/gallery/bg-1.png)">
+					<div class="box bg-info bg-img" style="background-image: url({{ asset('admin/images/gallery/bg-1.png') }})">
 						<div class="box-body text-center">							
-							<img src="../images/trophy.png" class="mt-50" alt="" />
+							<img src="{{ asset('admin/images/trophy.png') }}" class="mt-50" alt="" />
 							<div class="max-w-500 mx-auto">
 								<h2 class="text-white mb-20 font-weight-500">Best Employee Johen,</h2>
 								<p class="text-white-50 mb-10 font-size-20">You've got 50.5% more sales today. You've reached 8th milestone, checkout author section</p>
@@ -668,7 +668,7 @@
 									</div>
 								</div>
 								<div class="col-md-6 col-12">
-									<div class="box no-shadow mb-0 bg-img rounded-0" data-overlay="5" style="background-image: url(../images/gallery/landscape7.jpg)">
+									<div class="box no-shadow mb-0 bg-img rounded-0" data-overlay="5" style="background-image: url({{ asset('admin/images/gallery/landscape7.jpg') }})">
 										<div class="box-header no-border">
 											<h4 class="box-title mb-0">
 												<span class="avatar avatar-lg bg-success">DK</span>
@@ -726,7 +726,7 @@
 											<td class="pl-0 py-8">
 												<div class="d-flex align-items-center">
 													<div class="flex-shrink-0 mr-20">
-														<div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-1.jpg)"></div>
+														<div class="bg-img h-50 w-50" style="background-image: url({{ asset('images/gallery/creative/img-1.jpg') }})"></div>
 													</div>
 
 													<div>
@@ -771,7 +771,7 @@
 											<td class="pl-0 py-8">
 												<div class="d-flex align-items-center">
 													<div class="flex-shrink-0 mr-20">
-														<div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-2.jpg)"></div>
+														<div class="bg-img h-50 w-50" style="background-image: url({{ asset('admin/images/gallery/creative/img-2.jpg') }})"></div>
 													</div>
 
 													<div>
@@ -816,7 +816,7 @@
 											<td class="pl-0 py-8">
 												<div class="d-flex align-items-center">
 													<div class="flex-shrink-0 mr-20">
-														<div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-3.jpg)"></div>
+														<div class="bg-img h-50 w-50" style="background-image: url({{ asset('admin/images/gallery/creative/img-3.jpg') }})"></div>
 													</div>
 
 													<div>
@@ -861,7 +861,7 @@
 											<td class="pl-0 py-8">
 												<div class="d-flex align-items-center">
 													<div class="flex-shrink-0 mr-20">
-														<div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-4.jpg)"></div>
+														<div class="bg-img h-50 w-50" style="background-image: url({{ asset('admin/images/gallery/creative/img-4.jpg') }})"></div>
 													</div>
 
 													<div>
@@ -906,7 +906,7 @@
 											<td class="pl-0 py-8">
 												<div class="d-flex align-items-center">
 													<div class="flex-shrink-0 mr-20">
-														<div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-5.jpg)"></div>
+														<div class="bg-img h-50 w-50" style="background-image: url({{ asset('admin/images/gallery/creative/img-5.jpg') }})"></div>
 													</div>
 
 													<div>
@@ -996,7 +996,7 @@
           <div class="media-list media-list-hover mt-20">
 			<div class="media py-10 px-0">
 			  <a class="avatar avatar-lg status-success" href="#">
-				<img src="../images/avatar/1.jpg" alt="...">
+				<img src="{{ asset('admin/images/avatar/1.jpg') }}" alt="...">
 			  </a>
 			  <div class="media-body">
 				<p class="font-size-16">
@@ -1009,7 +1009,7 @@
 
 			<div class="media py-10 px-0">
 			  <a class="avatar avatar-lg status-danger" href="#">
-				<img src="../images/avatar/2.jpg" alt="...">
+				<img src="{{ asset('admin/images/avatar/2.jpg') }}" alt="...">
 			  </a>
 			  <div class="media-body">
 				<p class="font-size-16">
@@ -1022,7 +1022,7 @@
 
 			<div class="media py-10 px-0">
 			  <a class="avatar avatar-lg status-warning" href="#">
-				<img src="../images/avatar/3.jpg" alt="...">
+				<img src="{{ asset('admin/images/avatar/3.jpg') }}" alt="...">
 			  </a>
 			  <div class="media-body">
 				<p class="font-size-16">
@@ -1035,7 +1035,7 @@
 
 			<div class="media py-10 px-0">
 			  <a class="avatar avatar-lg status-primary" href="#">
-				<img src="../images/avatar/4.jpg" alt="...">
+				<img src="{{ asset('admin/images/avatar/4.jpg') }}" alt="...">
 			  </a>
 			  <div class="media-body">
 				<p class="font-size-16">
@@ -1048,7 +1048,7 @@
 			
 			<div class="media py-10 px-0">
 			  <a class="avatar avatar-lg status-success" href="#">
-				<img src="../images/avatar/1.jpg" alt="...">
+				<img src="{{ asset('admin/images/avatar/1.jpg') }}" alt="...">
 			  </a>
 			  <div class="media-body">
 				<p class="font-size-16">
@@ -1061,7 +1061,7 @@
 
 			<div class="media py-10 px-0">
 			  <a class="avatar avatar-lg status-danger" href="#">
-				<img src="../images/avatar/2.jpg" alt="...">
+				<img src="{{ asset('admin/images/avatar/2.jpg') }}" alt="...">
 			  </a>
 			  <div class="media-body">
 				<p class="font-size-16">
@@ -1074,7 +1074,7 @@
 
 			<div class="media py-10 px-0">
 			  <a class="avatar avatar-lg status-warning" href="#">
-				<img src="../images/avatar/3.jpg" alt="...">
+				<img src="{{ asset('admin/images/avatar/3.jpg') }}" alt="...">
 			  </a>
 			  <div class="media-body">
 				<p class="font-size-16">
@@ -1087,7 +1087,7 @@
 
 			<div class="media py-10 px-0">
 			  <a class="avatar avatar-lg status-primary" href="#">
-				<img src="../images/avatar/4.jpg" alt="...">
+				<img src="{{ asset('admin/images/avatar/4.jpg') }}" alt="...">
 			  </a>
 			  <div class="media-body">
 				<p class="font-size-16">
