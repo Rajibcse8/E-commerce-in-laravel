@@ -8,14 +8,14 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('admin/images/favicon.ico') }}">
 
-    <title>Sunny Admin - Dashboard</title>
+    <title>E-commerece Admin Dashboard</title>
     
 	<!-- Vendors Style-->
-	<link rel="stylesheet" href="{{ ('admin/css/vendors_css.css') }}">
+	<link rel="stylesheet" href="{{ asset('admin/css/vendors_css.css') }}">
 	  
 	<!-- Style-->  
-	<link rel="stylesheet" href="{{ ('admin/css/style.css') }}">
-	<link rel="stylesheet" href="{{ ('admin/css/skin_color.css') }}">
+	<link rel="stylesheet" href="{{asset ('admin/css/style.css') }}">
+	<link rel="stylesheet" href="{{asset ('admin/css/skin_color.css') }}">
      
   </head>
 
@@ -1242,14 +1242,13 @@
 	 
 	<!-- Vendor JS -->
 	<script src="{{ asset('admin/js/vendors.min.js') }}"></script>
-    <script src="{{ asset('admin/icons/feather-icons/feather.min.js') }}"></script>	
-	<script src="{{ asset('admin/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script>
-	<script src="{{ asset('admin/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
-	<script src="{{ asset('admin/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
-	
+    <script src="{{ asset('../assets/icons/feather-icons/feather.min.js') }}"></script>	
+	<script src="{{ asset('../assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script>
+	<script src="{{ asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
+	<script src="{{ asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
 	
 	<!-- Sunny Admin App -->
-	<script src="{{ asset('admin/js/template.js') }}"></=script>
+	<script src="{{ asset('admin/js/template.js') }}"></script>
 	<script src="{{ asset('admin/js/pages/dashboard.js') }}"></script>
 	
 	
