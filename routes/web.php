@@ -36,3 +36,6 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('admin/dashboard', fu
 Route::get('admin/theme',function(){
    return view('admin.index');
 });
+Route::get('home/theme',function(){
+    return view('frontend.frontend_master');
+});
