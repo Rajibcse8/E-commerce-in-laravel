@@ -1,6 +1,5 @@
 <?php
 
-//namespace Illuminate\Contracts\Auth;
 namespace App\Guards;
 interface AdminStatefulGuard extends Guard
 {

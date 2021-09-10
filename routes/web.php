@@ -25,6 +25,8 @@ Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
 
 });
 
+
+
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -33,6 +35,11 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('admin/dashboard', fu
     return view('dashboard');
 })->name('dashboard');
 
+
+
+
+
+//----------------------------------------------------------
 Route::get('admin/theme',function(){
    return view('admin.index');
 });
