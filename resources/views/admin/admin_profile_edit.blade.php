@@ -10,13 +10,14 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Admin profile Editr</h4>
+                    <h4 class="box-title">Admin profile Edit</h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form novalidate="">
+                            <form method="post" action={{ route('admin.profile.upadate') }}  enctype="multipart/form-data">
+                                @csrf
                                 <div class="row">
                                     <div class="col-12">
 
@@ -48,7 +49,7 @@
                                                 <div class="form-group">
                                                     <h5>File Input Field <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="file" name="file" class="form-control" required="" id="image">
+                                                        <input type="file" name="profile_photo_path" class="form-control" required="" id="image">
                                                         
                                                     </div>
                                                 </div>
@@ -57,7 +58,7 @@
                                         
                                             <div class="col-md-6">
                                                 <img id="Showimage" src="{{ (!empty($editData->profile_photo_path)) ?
-                                                    url('upload/admin_images').$editdata->profile_photo_path : url('upload/no_image.jpg')  }} "
+                                                    url('upload/admin_images').'/'.$editData->profile_photo_path : url('upload/no_image.jpg')  }} "
                                                     style="width:100px; height:100px;">
 
                                             </div>
