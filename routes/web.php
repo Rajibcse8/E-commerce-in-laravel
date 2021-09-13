@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Frontend\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,9 @@ use App\Http\Controllers\Backend\AdminProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
@@ -50,9 +51,5 @@ Route::post('admin/password/update',[AdminProfileController::class,'AdminPasswor
 
 
 //----------------------------------------------------------
-Route::get('admin/theme',function(){
-   return view('admin.index');
-});
-Route::get('home/theme',function(){
-    return view('frontend.frontend_master');
-});
+
+Route::get('/',[IndexController::class,'index']);
