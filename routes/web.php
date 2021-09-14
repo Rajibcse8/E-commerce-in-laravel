@@ -53,3 +53,5 @@ Route::post('admin/password/update',[AdminProfileController::class,'AdminPasswor
 //----------------------------------------------------------
 
 Route::get('/',[IndexController::class,'index']);
+Route::get('user/logoit',[IndexController::class,'logout'])->name('user.logout');
+Route::get('user/profile',[IndexController::class,'UserProfile'])->name('user.profile');
