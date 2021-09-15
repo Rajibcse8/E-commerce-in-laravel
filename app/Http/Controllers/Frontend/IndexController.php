@@ -41,7 +41,11 @@ class IndexController extends Controller
         }
 
          $data->save();
-         return redirect()->route('dashboard');
+         $notification=array(
+             'message'=>'User Profile Update Successfully',
+             'alert'=>'success',
+         );
+         return redirect()->route('dashboard')->with($notification);
         
     }
 }
