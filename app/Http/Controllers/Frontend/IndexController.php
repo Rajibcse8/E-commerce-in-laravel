@@ -21,7 +21,7 @@ class IndexController extends Controller
 
     public function UserProfile(){
         $user=User::find(Auth::user()->id);
-       return view('frontend.body.user_profile',compact('user'));
+       return view('frontend.profile.user_profile',compact('user'));
     }
 
     public function userprofileupdate(Request $request){
@@ -48,4 +48,9 @@ class IndexController extends Controller
          return redirect()->route('dashboard')->with($notification);
         
     }
+
+   public function userpasswordchange(){
+       $user=User::find(Auth::user()->id);
+      return  view('frontend.profile.change_password',compact('user'));
+   } 
 }
