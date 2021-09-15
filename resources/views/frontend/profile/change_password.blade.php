@@ -34,7 +34,7 @@ p
                             <strong>Upadete Your Password</strong>
                         </h3>
                         <div class="card-body">
-                            <form action="{{ route('user.profile.update') }}" method="POST" >
+                            <form action="{{ route('user.password.update') }}" method="post" >
                                 @csrf
 
                                 <div class="form-group">

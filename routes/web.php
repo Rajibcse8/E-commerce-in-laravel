@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,3 +65,4 @@ Route::get('user/logout',[IndexController::class,'logout'])->name('user.logout')
 Route::get('user/profile',[IndexController::class,'UserProfile'])->name('user.profile');
 Route::post('user/profile/update',[IndexController::class,'userprofileupdate'])->name('user.profile.update');
 Route::get('user/change/password',[IndexController::class,'userpasswordchange'])->name('user.change.password');
+Route::post('user/password/update',[IndexController::class,'Updatepass'])->name('user.password.update');
