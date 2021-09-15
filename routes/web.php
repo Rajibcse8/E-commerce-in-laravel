@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,13 +32,11 @@ Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
 
 
 
-Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
 
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('admin/dashboard', function () {
     return view('admin.index');
-})->name('dashboard');
+})->name('admin.dashboard');
 
 
 
@@ -50,8 +50,15 @@ Route::get('admin/password/change',[AdminProfileController::class,'AdminUpdatePa
 Route::post('admin/password/update',[AdminProfileController::class,'AdminPasswordupdate'])->name('admin.change.password');
 
 
-//----------------------------------------------------------
+//-------------------------------User Route---------------------------
+
+
+Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
+    $data=User::find(Auth::user()->id);
+    return view('dashboard',compact('data'));
+})->name('dashboard');
 
 Route::get('/',[IndexController::class,'index']);
-Route::get('user/logoit',[IndexController::class,'logout'])->name('user.logout');
+Route::get('user/logout',[IndexController::class,'logout'])->name('user.logout');
 Route::get('user/profile',[IndexController::class,'UserProfile'])->name('user.profile');
+Route::post('user/profile/update',[IndexController::class,'userprofileupdate'])->name('user.profile.update');
