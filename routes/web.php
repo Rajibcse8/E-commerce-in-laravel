@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Backend\BrandController;
 use App\Models\User;
 
 
@@ -44,6 +45,7 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('admin/dashboard', fu
 
 //-----------------------------Admin Route--------------------------------------
 
+//---------------------------Admin Profile
 Route::get('/logout',[AdminController::class,'destroy'])->name('admin.logout');
 Route::get('admin/profile',[AdminProfileController::class,'AdminProfile'])->name('admin.profile');
 Route::get('admin/profile/edit',[AdminProfileController::class,'AdminProfileEdit'])->name('admin.profileEdit');
@@ -51,7 +53,7 @@ Route::post('admin/profile/upadate',[AdminProfileController::class,'AdminProfile
 Route::get('admin/password/change',[AdminProfileController::class,'AdminUpdatePassword'])->name('admin.password.change');
 Route::post('admin/password/update',[AdminProfileController::class,'AdminPasswordupdate'])->name('admin.change.password');
 
-
+//-------------------------------------Admin Rourt End----------------------------------------------
 //-------------------------------User Route---------------------------
 
 
@@ -66,3 +68,10 @@ Route::get('user/profile',[IndexController::class,'UserProfile'])->name('user.pr
 Route::post('user/profile/update',[IndexController::class,'userprofileupdate'])->name('user.profile.update');
 Route::get('user/change/password',[IndexController::class,'userpasswordchange'])->name('user.change.password');
 Route::post('user/password/update',[IndexController::class,'Updatepass'])->name('user.password.update');
+
+//------------------------------------Brand------------------------------------------------
+//----------------------------Brand---------------
+
+Route::prefix('brand')->group(function(){
+    Route::get('/view',[BrandController::class,'viewBrand'])->name('all.brand');
+});
