@@ -74,5 +74,5 @@ Route::post('user/password/update',[IndexController::class,'Updatepass'])->name(
 
 Route::prefix('brand')->group(function(){
     Route::get('/view',[BrandController::class,'viewBrand'])->name('all.brand');
-    Route::post('/store',[BrandCotroller::class,'BrnadStore'])->name('brand_image');
+    Route::post('/store',[BrandCotroller::class,'BrnadStore'])->name('brand.store');
 });
