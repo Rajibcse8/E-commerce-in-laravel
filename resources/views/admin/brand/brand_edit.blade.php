@@ -9,63 +9,16 @@
         <section class="content">
             <div class="row">
 
-
-
-                <div class="col-8">
+                <div class="col-12">
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Brand Data</h3>
+                            <h3 class="box-title">Edit Brand Data</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Brand ENG</th>
-                                            <th>Brand Ban</th>
-                                            <th>Image</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($brands as $data)
-                                            <tr>
-                                                <td>{{ $data->brand_name_en }}</td>
-                                                <td>{{ $data->brand_name_ban }}</td>
-                                                <td><img src="{{ asset('upload/brand/'.$data->brand_image) }}"
-                                                        style="width:70px;height:50px;" alt=""></td>
-                                                        1711167103400955.png
-                                                <td>
-                                                    <a href="{{ route('brand.edit',$data->id) }}" class="btn btn-primary">Edit</a>
-                                                    <a href="" class="btn btn-danger">Delete</a>
-                                                </td>
-                                            </tr>
-
-                                        @endforeach
-
-                                    </tbody>
-
-                                </table>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-
-                </div>
-
-                <div class="col-4 ">
-
-                    <div class="box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Add Brand Data</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="table-responsive">
-                                <form method="Post" action="{{ route('brand.store') }}" enctype="multipart/form-data">
+                                <form method="Post" action="{{ route('brand.update.store',$brands->id) }}" enctype="multipart/form-data">
                                     @csrf
 
 
@@ -74,7 +27,7 @@
                                         <h5>Brand Name English<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="brand_name_en" class="form-control"
-                                                id="brand_name_en">
+                                                id="brand_name_en" value="{{ $brands->brand_name_en }}">
                                         </div>
                                         @error('brand_name_en')
                                             <span class="text-danger">{{ $message }}</span>
@@ -86,7 +39,7 @@
                                         <h5>Brnad Name bangla<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="brand_name_ban" class="form-control"
-                                                id="brand_name_ban">
+                                                id="brand_name_ban" value="{{ $brands->brand_name_ban }}">
                                         </div>
                                         @error('brand_name_ban')
                                             <span class="text-danger">{{ $message }}</span>
@@ -124,3 +77,6 @@
     </div>
 
 @endsection
+
+
+
