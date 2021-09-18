@@ -40,7 +40,7 @@
                                                 <td>{{ $data->category_name_ban }}</td>
                                                 <td>
                                                     <a href="{{ route('category.edit',$data->id) }}" class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a href="" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('category.delete',$data->id) }}" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
@@ -104,9 +104,7 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-
                                    
-
                                     <div class="text-xs-right">
                                         <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add category">
                                     </div>
