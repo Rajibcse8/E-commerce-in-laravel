@@ -2,8 +2,7 @@
 
 @section('admin')
 
-@extends('admin.admin_master')
-@section('admin')
+
 
     <div class="container-full">
         <!-- Content Header (Page header) -->
@@ -40,8 +39,8 @@
                                                 <td>{{ $data->category_name_en }}</td>
                                                 <td>{{ $data->category_name_ban }}</td>
                                                 <td>
-                                                    <a href="" class="" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a href="" class="" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                    <a href="" class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
@@ -127,9 +126,5 @@
         <!-- /.content -->
 
     </div>
-
-@endsection
-
-
 
 @endsection
