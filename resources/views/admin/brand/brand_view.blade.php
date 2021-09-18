@@ -36,10 +36,10 @@
                                                 <td>{{ $data->brand_name_ban }}</td>
                                                 <td><img src="{{ asset('upload/brand/'.$data->brand_image) }}"
                                                         style="width:70px;height:50px;" alt=""></td>
-                                                        1711167103400955.png
+                                                        
                                                 <td>
-                                                    <a href="{{ route('brand.edit',$data->id) }}" class="btn btn-primary">Edit</a>
-                                                    <a href="" class="btn btn-danger">Delete</a>
+                                                    <a href="{{ route('brand.edit',$data->id) }}" class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{{ route('brand.delete',$data->id) }}" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
