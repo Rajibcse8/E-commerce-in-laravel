@@ -98,7 +98,7 @@ class BrandController extends Controller
         
         $brand=Brand::findOrFail($id);
        
-        @unlink(public_path('upload/brand/').$brand->brand_image);
+        @unlink(public_path('upload/bran-d/').$brand->brand_image);
         $brand->delete();
 
          $notificaiton=array(

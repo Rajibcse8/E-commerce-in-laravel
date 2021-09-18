@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Models\User;
 
 
@@ -69,8 +70,8 @@ Route::post('user/profile/update',[IndexController::class,'userprofileupdate'])-
 Route::get('user/change/password',[IndexController::class,'userpasswordchange'])->name('user.change.password');
 Route::post('user/password/update',[IndexController::class,'Updatepass'])->name('user.password.update');
 
-//------------------------------------Brand------------------------------------------------
-//----------------------------Brand---------------
+
+//----------------------------Admin--Brand---------------
 
 Route::prefix('brand')->group(function(){
     Route::get('/view',[BrandController::class,'viewBrand'])->name('all.brand');
@@ -78,4 +79,11 @@ Route::prefix('brand')->group(function(){
     Route::get('brand/edit/{id}',[BrandController::class,'Editbrand'])->name('brand.edit');
     Route::post('brand/update/{id}',[BrandController::class,'Updatedata'])->name('brand.update.store');
     Route::get('brand/delete/{id}',[BrandController::class,'DeleteBrand'])->name('brand.delete');
+});
+
+
+//----------------------Admin--Category-----------------------------
+Route::prefix('category')->group(function(){
+    Route::get('/view',[CategoryController::class,'viewCategory'])->name('all.category');
+    Route::post('/store',[CategoryController::class,'CategoeryStore'])->name('category.store');
 });
