@@ -33,7 +33,7 @@
                                     <tbody>
                                         @foreach ($subcategory as $data)
                                             <tr>
-                                                <td>{{ $data->category_id }}</td>
+                                                <td>{{ $data->category->category_name_en }}</td>
                                                 <td>{{ $data->subcategory_name_en }}</td>
                                                 <td>{{ $data->subcategory_name_ban }}</td>
                                                 <td>
