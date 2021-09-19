@@ -66,7 +66,7 @@ class CategoryController extends Controller
         'category_name_en'=>$request->category_name_en,
         'category_name_ban'=>$request->category_name_ban,
         'category_slug_en'=>strtolower(str_replace(' ','-',$request->category_name_en)),
-        'category_name_en'=>str_replace(' ','-',$request->category_name_ban),
+        'category_slug_ban'=>str_replace(' ','-',$request->category_name_ban),
         'category_icon'=>$request->category_icon,
     ]);
     $notification=array(
