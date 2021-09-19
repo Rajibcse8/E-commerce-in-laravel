@@ -76,6 +76,7 @@ Route::prefix('subcategory')->group(function(){
     Route::post('/store',[SubcategoryController::class,'SubCategoryStore'])->name('subcategory.store');
     Route::get('edit/{id}',[SubCategoryController::class,'SubCategoryEdit'])->name('subcategory.edit');
     Route::post('/update/{id}',[SubCategoryController::class,'SubCategoryUpdate'])->name('subcategory.update');
+    Route::get('/delete/{id}',[SubCategoryController::class,'DeleteSubCategory'])->name('delete.subcategory');
 
 
 });

@@ -38,7 +38,7 @@
                                                 <td>{{ $data->subcategory_name_ban }}</td>
                                                 <td>
                                                     <a href="{{ route('subcategory.edit',$data->id) }}" class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a href="" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('delete.subcategory',$data->id) }}" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
