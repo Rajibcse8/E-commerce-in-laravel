@@ -17,5 +17,9 @@ class SubSubCategoryController extends Controller
         return view('admin.subsubcategory.subsubcategory_view',compact('subsubcategory','categories'));
     }
 
+    public function SubSubCategoryStore(Request $request){
+        
+    }
+
     
 }

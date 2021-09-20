@@ -82,9 +82,10 @@ Route::prefix('subcategory')->group(function(){
 
 });
 
-//---------------------Admin-Sub-Category-----------------------------
+//---------------------Admin-Sub-sub-Category-----------------------------
 Route::prefix('subsubcategory')->group(function(){
     Route::get('/view',[SubSubCategoryController::class,'viewSubSubcategory'])->name('all.sub.sub.category');
+    Route::post('/store',[SubSubCategoryController::class,'SubSubCategoryStore'])->name('subsubcategory.store');
    
 });
 
