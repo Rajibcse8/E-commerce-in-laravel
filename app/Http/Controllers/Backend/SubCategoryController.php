@@ -87,4 +87,11 @@ class SubCategoryController extends Controller
         
 
     }
+
+    public function SubcategoryFind($id){
+         
+       $subcategory=SubCategory::where('category_id',$id)->orderBy('subcategory_name_en','ASC')->get();
+       return json_encode($subcategory);
+
+    }
 }

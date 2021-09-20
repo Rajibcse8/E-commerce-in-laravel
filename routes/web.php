@@ -70,6 +70,8 @@ Route::prefix('category')->group(function(){
     Route::get('edit/{id}',[CategoryController::class,'CategoryEdit'])->name('category.edit');
     Route::post('/update/{id}',[CategoryController::class,'UpdateCategory'])->name('category.update');
     Route::get('/delete/{id}',[CategoryController::class,'DeleteCategory'])->name('category.delete');
+   
+    
 });
 //---------------------Admin-Sub-Category-----------------------------
 Route::prefix('subcategory')->group(function(){
@@ -78,7 +80,7 @@ Route::prefix('subcategory')->group(function(){
     Route::get('edit/{id}',[SubCategoryController::class,'SubCategoryEdit'])->name('subcategory.edit');
     Route::post('/update/{id}',[SubCategoryController::class,'SubCategoryUpdate'])->name('subcategory.update');
     Route::get('/delete/{id}',[SubCategoryController::class,'DeleteSubCategory'])->name('delete.subcategory');
-
+    Route::get('find/formcategory/{id}',[SubCategoryController::class,'SubcategoryFind']);
 
 });
 
