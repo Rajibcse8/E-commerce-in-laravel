@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Models\User;
 
 
@@ -79,6 +80,12 @@ Route::prefix('subcategory')->group(function(){
     Route::get('/delete/{id}',[SubCategoryController::class,'DeleteSubCategory'])->name('delete.subcategory');
 
 
+});
+
+//---------------------Admin-Sub-Category-----------------------------
+Route::prefix('subsubcategory')->group(function(){
+    Route::get('/view',[SubSubCategoryController::class,'viewSubSubcategory'])->name('all.sub.sub.category');
+   
 });
 
 
