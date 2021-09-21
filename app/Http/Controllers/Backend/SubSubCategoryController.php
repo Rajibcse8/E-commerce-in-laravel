@@ -78,8 +78,17 @@ class SubSubCategoryController extends Controller
         ]);
 
         $notification=array(
-            'message'=>'Data Added Successfully',
+            'message'=>'Data Updated Successfully',
             'alert'=>'success',
+        );
+        return redirect()->route('all.sub.sub.category')->with($notification);
+    }//Update
+
+    public function SubSubCategoryDelete($id){
+        SubSubCategory::findOrFail($id)->delete();
+        $notification=array(
+            'message'=>'Data Deleted Successfully',
+            'alert'=>'info',
         );
         return redirect()->route('all.sub.sub.category')->with($notification);
     }
