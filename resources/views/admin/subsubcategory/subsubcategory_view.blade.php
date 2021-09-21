@@ -37,7 +37,7 @@
                                                 <td>{{ $data->subcategory->subcategory_name_en }}</td>
                                                 <td>{{ $data->subsubcategory_name_en }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-info" title="Edit"><i
+                                                    <a href="{{ route('subsubcategory.edit',$data->id) }}" class="btn btn-info" title="Edit"><i
                                                             class="fa fa-pencil"></i></a>
                                                     <a href="" class="btn btn-danger" id="delete" title="Delete"><i
                                                             class="fa fa-trash"></i></a>
@@ -128,7 +128,7 @@
 
                                     <div class="text-xs-right">
                                         <input type="submit" class="btn btn-rounded btn-primary mb-5"
-                                            value="Add Sub-Category">
+                                            value="Add Sub-Sub-Category">
                                     </div>
                                 </form>
 

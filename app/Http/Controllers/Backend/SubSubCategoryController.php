@@ -43,6 +43,16 @@ class SubSubCategoryController extends Controller
         );
         return redirect()->back()->with($notification);
         
+    }//end of insert function
+
+    public function SubSubCategoryEdit($id){
+
+        $subsubcategory=SubSubCategory::find($id);
+        $categories=Category::orderBy('category_name_en','ASC')->get();
+        $subcategories=SubCategory::where('category_id',$subsubcategory->category_id)->orderBy('subcategory_name_en','ASC')->get();
+
+
+        return view('admin.subsubcategory.subsubcategory_edit',compact('subsubcategory','categories','subcategories'));
     }
 
     
