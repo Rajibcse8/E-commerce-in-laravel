@@ -53,6 +53,35 @@ class SubSubCategoryController extends Controller
 
 
         return view('admin.subsubcategory.subsubcategory_edit',compact('subsubcategory','categories','subcategories'));
+    }//Edit-------
+
+
+    public function SubSubCategoryUpdate(Request $request,$id){
+        //dd($request->all());
+
+        $request->validate([
+            'category_id'=>'required',
+            'subcategory_id'=>'required',
+            'subsubcategory_name_en'=>'required|unique:sub_sub_categories',
+            'subsubcategory_name_ban'=>'required|unique:sub_sub_categories',
+        ]);
+        ;
+
+        SubSubCategory::findOrFail($id)->Update([
+            'category_id'=>$request->category_id,
+            'subcategory_id'=>$request->subcategory_id,
+            'subsubcategory_name_en'=>$request->subsubcategory_name_en,
+            'subsubcategory_name_ban'=>$request->subsubcategory_name_ban,
+            'subsubcategory_slug_en'=>strtolower(str_replace(' ','-',$request->subsubcategory_name_en)),
+            'subsubcategory_slug_ban'=>str_replace(' ','-',$request->subsubcategory_name_ban),
+
+        ]);
+
+        $notification=array(
+            'message'=>'Data Added Successfully',
+            'alert'=>'success',
+        );
+        return redirect()->route('all.sub.sub.category')->with($notification);
     }
 
     

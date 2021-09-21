@@ -14,7 +14,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <form method="post" action="">
+                            <form method="post" action="{{ route('subsubcategory.update',$subsubcategory->id) }}">
                                 @csrf
 
                                 <div class="form-group">
@@ -42,7 +42,7 @@
                                         <select name="subcategory_id" class="form-control">
                                             <option value=""  selected="" disabled="">Select SubCategory</option> 
                                             @foreach ($subcategories as $subcategory)
-                                               <option value="{{ $subsubcategory->id }}" 
+                                               <option value="{{ $subcategory->id }}" 
                                                 {{ $subcategory->id==$subsubcategory->subcategory_id ? 'selected':'' }}>{{ $subcategory->subcategory_name_en }}</option>
                                             @endforeach
                                             
@@ -127,5 +127,12 @@
     });
 
   </script>
+  {{-- <script>
+      $('select[name="subcategory_id"]').on('change', function () {
+          var subcatid=$(this).val();
+          alert(subcatid);
+      });
+
+  </script> --}}
   
 @endsection
