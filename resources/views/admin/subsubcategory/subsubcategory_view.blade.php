@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <div class="container-full">
         <!-- Content Header (Page header) -->
@@ -26,7 +26,7 @@
                                         <tr>
                                             <th>Category</th>
                                             <th>Sub-Category English</th>
-                                            <th>Sub-Category Bangla</th>
+                                            <th>Sub-Sub-Category English</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -34,11 +34,13 @@
                                         @foreach ($subsubcategory as $data)
                                             <tr>
                                                 <td>{{ $data->category->category_name_en }}</td>
-                                                <td>{{ $data->subcategory_subcategory_name_en }}</td>
+                                                <td>{{ $data->subcategory->subcategory_name_en }}</td>
                                                 <td>{{ $data->subsubcategory_name_en }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a href="" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                    <a href="" class="btn btn-info" title="Edit"><i
+                                                            class="fa fa-pencil"></i></a>
+                                                    <a href="" class="btn btn-danger" id="delete" title="Delete"><i
+                                                            class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
@@ -64,7 +66,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="post" action="{{ route('subsubcategory.store') }}" >
+                                <form method="post" action="{{ route('subsubcategory.store') }}">
                                     @csrf
 
                                     <div class="form-group">
@@ -72,13 +74,14 @@
                                         <div class="controls">
                                             <select name="category_id" id="category_id" class="form-control">
                                                 <option value="" selected="" disabled="">Select Category</option>
-                                                @foreach ($categories as $category )
-                                                <option value="{{ $category->id }}">{{ $category->category_name_en }}</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}">
+                                                        {{ $category->category_name_en }}</option>
                                                 @endforeach
-                                                
+
 
                                             </select>
-                                            
+
                                         </div>
                                         @error('category_id')
                                             <span class="text-danger">{{ $message }}</span>
@@ -86,17 +89,16 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <h5>Sub-Category Name <span class="text-danger">*</span></h5>
+                                        <h5>SubCategory Select <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <select name="subcategory_id" id="subcategory_id" class="form-control">
-                                                <option value="" selected="" disabled="">Select Sub-Category</option>
-                                              
+                                            <select name="subcategory_id" class="form-control">
+                                                <option value="" selected="" disabled="">Select SubCategory</option>
+
                                             </select>
-                                                   
+                                            @error('subcategory_id')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
-                                        @error('subcategory_id')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
                                     </div>
 
                                     <div class="form-group">
@@ -122,10 +124,11 @@
                                         @enderror
                                     </div>
 
-                                   
-                                   
+
+
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Sub-Category">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5"
+                                            value="Add Sub-Category">
                                     </div>
                                 </form>
 
@@ -141,36 +144,36 @@
             <!-- /.row -->
         </section>
         <!-- /.content -->
-      
+
 
     </div>
-    
-      <script>
-         $(document).ready(function () {
-             $('select[name="category_id"]').on('change', function () {
-                 var category_id=$(this).val();
-                 if(category_id){
-                        $.ajax({
-                            type: "GET",
-                            url: "{{ url('subcategory/find/formcategory') }}/"+category_id,
-                            dataType: "json",
-                            success: function (data) {
-                               var d= $('select[name="subcategory_id"]').empty();
-                               $.each(data, function (key, value) { 
-                                   $('select[name="subcategory_id"]').append(
-                                       '<option name="'+value.id+'">'+value.subcategory_name_en+'</option>'
-                                   );
-                                    
-                               });
-                            },
-                        });
-                 }
-                 else{
-                     alert('error');
-                 }
-             });
-         });
-      </script>
+
+    <script>
+        $(document).ready(function() {
+            $('select[name="category_id"]').on('change', function() {
+                var category_id = $(this).val();
+                if (category_id) {
+                    $.ajax({
+                        type: "GET",
+                        url: "{{ url('subcategory/find/formcategory') }}/" + category_id,
+                        dataType: "json",
+                        success: function(data) {
+                            var d = $('select[name="subcategory_id"]').empty();
+                            $.each(data, function(key, value) {
+
+                                $('select[name="subcategory_id"]').append(
+                                    '<option value="' + value.id + '">' + value
+                                    .subcategory_name_en + '</option>');
+
+                            });
+                        },
+                    });
+                } else {
+                    alert('error');
+                }
+            });
+        });
+    </script>
 
 
 @endsection
