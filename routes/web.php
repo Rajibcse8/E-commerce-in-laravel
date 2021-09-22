@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
-use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Models\User;
 
 
@@ -93,6 +94,12 @@ Route::prefix('subsubcategory')->group(function(){
     Route::get('delete/{id}',[SubSubcategoryController::class,'SubSubCategoryDelete'])->name('subsubcategory.delete');
 });
 
+//------------Admin Add-Product--------------------------------------------
+Route::prefix('product')->group(function(){
+    Route::get('/add',[ProductController::class,'AddProduct'])->name('add.product');
+
+   
+});
 
 
 
