@@ -351,7 +351,7 @@
                                   <div class="form-group">
                                    
                                     <textarea id="editor1" name="logn_descp_en" rows="10" cols="80">
-                                        This is my textarea to be replaced with CKEditor</textarea>
+                                       Long Descriotion English</textarea>
                                     
                                   </div>
                               </div>
@@ -360,73 +360,46 @@
                                 <div class="form-group">
                                  
                                   <textarea id="editor2" name="logn_descp_ban" rows="10" cols="80">
-                                      This is my textarea to be replaced with CKEditor</textarea>
+                                    Long Descriotion Bangla</textarea>
                                   
                                 </div>
                             </div>
 
                            </div>
 
-                          <!--------------------------------------EndRow-------------------------------------->
-         
-                          
-                          
-                          
-                            <div class="row">
-
-                                        <div class="col-12">
-
-                                            <div class="form-group">
-                                                <h5>Email Field <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="email" name="email" class="form-control" required
-                                                        data-validation-required-message="This field is required">
-                                                </div>
-                                            </div>
-
-                                          
-                                        </div>
-                                    </div>
-
-
-
+                              <!--------------------------------------EndRow-------------------------------------->
+                                               
+              <!---------------------------------Hot Deals Features Special Offer Special Deals--------------------------------------->                    
+                       <hr><hr>
                                     <div class="row">
-
-                                        <div class="col-12">
-
-                                          
-                                            <div class="form-group">
-                                                <h5>Textarea <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <textarea name="textarea" id="textarea" class="form-control" required
-                                                        placeholder="Textarea text"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
+                                      
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Checkbox <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="checkbox" id="checkbox_1" required value="single">
-                                                    <label for="checkbox_1">Check this custom checkbox</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <h5>Checkbox Group <span class="text-danger">*</span></h5>
+                                               
                                                 <div class="controls">
                                                     <fieldset>
-                                                        <input type="checkbox" id="checkbox_2" required value="x">
-                                                        <label for="checkbox_2">I am unchecked Checkbox</label>
+                                                        <input type="checkbox" id="hot_deals"  value="1" name="hot_deals">
+                                                        <label for="hot_deals">Hot Deals</label>
                                                     </fieldset>
                                                     <fieldset>
-                                                        <input type="checkbox" id="checkbox_3" value="y">
-                                                        <label for="checkbox_3">I am unchecked too</label>
+                                                        <input type="checkbox" id="features" value="1" name="features">
+                                                        <label for="features">Features</label>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                               
+                                                <div class="controls">
+                                                    <fieldset>
+                                                        <input type="checkbox" id="special_offer"  value="1" name="special_offer">
+                                                        <label for="special_offer">Special Offer</label>
+                                                    </fieldset>
+                                                    <fieldset>
+                                                        <input type="checkbox" id="special_deals"  value="1" name="special_deals">
+                                                        <label for="special_deals">Special Deals</label>
                                                     </fieldset>
                                                 </div>
                                             </div>
@@ -436,7 +409,7 @@
 
 
                                     <div class="text-xs-right">
-                                        <button type="submit" class="btn btn-rounded btn-info">Submit</button>
+                                        <button type="submit" class="btn btn-rounded btn-info">Add Product</button>
                                     </div>
 
                             </form>
