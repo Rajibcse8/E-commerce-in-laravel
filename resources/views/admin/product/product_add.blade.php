@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <div class="container-full">
         <!-- Content Header (Page header) -->
 
@@ -223,54 +223,54 @@
 
 
                                 </div>
-             <!--------------------------------------EndRow-------------------------------------->
-<!------------------------------- Product Color Ban and Eng product  Selling Price --------------------------------------->
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Product Color Eng <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="text" name="product_color_en" value="Small,Medium,Large"
-                                                        data-role="tagsinput" />
-                                                </div>
-                                                @error('product_color_en')
-                                                    <span class="text text-danger">{{ $message }}</span>
-                                                @enderror
+                                <!--------------------------------------EndRow-------------------------------------->
+                                <!------------------------------- Product Color Ban and Eng product  Selling Price --------------------------------------->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <h5>Product Color Eng <span class="text-danger">*</span></h5>
+                                            <div class="controls">
+                                                <input type="text" name="product_color_en" value="Small,Medium,Large"
+                                                    data-role="tagsinput" />
                                             </div>
-    
+                                            @error('product_color_en')
+                                                <span class="text text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Product Color Bangla <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="text" name="product_color_ban" value="Small,Medium,Large"
-                                                        data-role="tagsinput" />
-                                                </div>
-                                                @error('product_color_ban')
-                                                    <span class="text text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-    
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Product Selling Price <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="text" name="seeling_price" class="form-control">
-                                                </div>
-                                                @error('seeling_price')
-                                                    <span class="text text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-    
-                                        </div>
                                     </div>
-                        <!--------------------------------------EndRow-------------------------------------->
-            <!------------------------------- discount_price main_thumbnail mnultiple Image row start--------------------------------------->
-           
-                                   <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <h5>Product Color Bangla <span class="text-danger">*</span></h5>
+                                            <div class="controls">
+                                                <input type="text" name="product_color_ban" value="Small,Medium,Large"
+                                                    data-role="tagsinput" />
+                                            </div>
+                                            @error('product_color_ban')
+                                                <span class="text text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <h5>Product Selling Price <span class="text-danger">*</span></h5>
+                                            <div class="controls">
+                                                <input type="text" name="seeling_price" class="form-control">
+                                            </div>
+                                            @error('seeling_price')
+                                                <span class="text text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--------------------------------------EndRow-------------------------------------->
+                                <!------------------------------- discount_price main_thumbnail mnultiple Image row start--------------------------------------->
+
+                                <div class="row">
 
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -284,133 +284,136 @@
                                         </div>
 
                                     </div>
-                                     <div class="col-md-4">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <h5>Product Main Thumbnail <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <input type="file" name="product_thumbnail" class="form-control" >
+                                                <input type="file" name="product_thumbnail" class="form-control">
                                             </div>
                                             @error('product_thumbnail')
-                                            <span class="text text-danger">{{ $message }}</span>
-                                                
+                                                <span class="text text-danger">{{ $message }}</span>
+
                                             @enderror
                                         </div>
-                                     </div>
-                                     <div class="col-md-4">
+                                    </div>
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <h5>Product Multiple Image <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <input type="file" name="multi_img[]" class="form-control" >
+                                                <input type="file" name="multi_img[]" class="form-control">
                                             </div>
                                             @error('multi_img')
-                                            <span class="text text-danger">{{ $message }}</span>
-                                                
+                                                <span class="text text-danger">{{ $message }}</span>
+
                                             @enderror
                                         </div>
-                                     </div>
+                                    </div>
 
 
-                                   </div>
-           
-                         <!--------------------------------------EndRow-------------------------------------->
+                                </div>
 
-             <!------------------------------- Short Description Eng and Bangla--------------------------------------->
-                             
-                                  <div class="row">
-                                      <div class="col-md-6">
+                                <!--------------------------------------EndRow-------------------------------------->
+
+                                <!------------------------------- Short Description Eng and Bangla--------------------------------------->
+
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <h5>Short Description Eng <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <textarea name="short_descp_en" id="short_descp_en" class="form-control" required
-                                                    placeholder="Textarea text"></textarea>
+                                                <textarea name="short_descp_en" id="short_descp_en" class="form-control"
+                                                    required placeholder="Textarea text"></textarea>
                                             </div>
                                         </div>
 
-                                      </div>
+                                    </div>
 
-                                      <div class="col-md-6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <h5>Short Description Bangla <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <textarea name="short_descp_ban" id="short_descp_ban" class="form-control" required
-                                                    placeholder="Textarea text"></textarea>
+                                                <textarea name="short_descp_ban" id="short_descp_ban"
+                                                    class="form-control" required placeholder="Textarea text"></textarea>
                                             </div>
                                         </div>
 
-                                      </div>
+                                    </div>
 
-                                  </div>
-                          
-                         <!--------------------------------------EndRow--------------------------------------> 
-                                   
-
-             <!------------------------------- Long Description Eng and Bangla--------------------------------------->
-                           <div class="row">
-
-                              <div class="col-md-6">
-                                  <div class="form-group">
-                                   
-                                    <textarea id="editor1" name="logn_descp_en" rows="10" cols="80">
-                                       Long Descriotion English</textarea>
-                                    
-                                  </div>
-                              </div>
-
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                 
-                                  <textarea id="editor2" name="logn_descp_ban" rows="10" cols="80">
-                                    Long Descriotion Bangla</textarea>
-                                  
                                 </div>
-                            </div>
 
-                           </div>
+                                <!--------------------------------------EndRow-------------------------------------->
 
-                              <!--------------------------------------EndRow-------------------------------------->
-                                               
-              <!---------------------------------Hot Deals Features Special Offer Special Deals--------------------------------------->                    
-                       <hr><hr>
-                                    <div class="row">
-                                      
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                               
-                                                <div class="controls">
-                                                    <fieldset>
-                                                        <input type="checkbox" id="hot_deals"  value="1" name="hot_deals">
-                                                        <label for="hot_deals">Hot Deals</label>
-                                                    </fieldset>
-                                                    <fieldset>
-                                                        <input type="checkbox" id="features" value="1" name="features">
-                                                        <label for="features">Features</label>
-                                                    </fieldset>
-                                                </div>
-                                            </div>
+
+                                <!------------------------------- Long Description Eng and Bangla--------------------------------------->
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <textarea id="editor1" name="logn_descp_en" rows="10" cols="80">
+                                               Long Descriotion English</textarea>
+
                                         </div>
+                                    </div>
 
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                               
-                                                <div class="controls">
-                                                    <fieldset>
-                                                        <input type="checkbox" id="special_offer"  value="1" name="special_offer">
-                                                        <label for="special_offer">Special Offer</label>
-                                                    </fieldset>
-                                                    <fieldset>
-                                                        <input type="checkbox" id="special_deals"  value="1" name="special_deals">
-                                                        <label for="special_deals">Special Deals</label>
-                                                    </fieldset>
-                                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <textarea id="editor2" name="logn_descp_ban" rows="10" cols="80">
+                                            Long Descriotion Bangla</textarea>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--------------------------------------EndRow-------------------------------------->
+
+                                <!---------------------------------Hot Deals Features Special Offer Special Deals--------------------------------------->
+                                <hr>
+                                <hr>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <div class="controls">
+                                                <fieldset>
+                                                    <input type="checkbox" id="hot_deals" value="1" name="hot_deals">
+                                                    <label for="hot_deals">Hot Deals</label>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <input type="checkbox" id="features" value="1" name="features">
+                                                    <label for="features">Features</label>
+                                                </fieldset>
                                             </div>
                                         </div>
                                     </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group">
 
-
-                                    <div class="text-xs-right">
-                                        <button type="submit" class="btn btn-rounded btn-info">Add Product</button>
+                                            <div class="controls">
+                                                <fieldset>
+                                                    <input type="checkbox" id="special_offer" value="1"
+                                                        name="special_offer">
+                                                    <label for="special_offer">Special Offer</label>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <input type="checkbox" id="special_deals" value="1"
+                                                        name="special_deals">
+                                                    <label for="special_deals">Special Deals</label>
+                                                </fieldset>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
+
+
+
+                                <div class="text-xs-right">
+                                    <button type="submit" class="btn btn-rounded btn-info">Add Product</button>
+                                </div>
 
                             </form>
 
@@ -438,18 +441,49 @@
                             success: function(data) {
                                 var d = $('select[name="subcategory_id"]').empty();
                                 $.each(data, function(key, value) {
-    
+
                                     $('select[name="subcategory_id"]').append(
                                         '<option value="' + value.id + '">' + value
                                         .subcategory_name_en + '</option>');
-    
+
                                 });
                             },
                         });
                     } else {
                         alert('error');
                     }
+
+
                 });
+
+                $('select[name="subcategory_id"]').on('change', function() {
+
+                    var subcategory_id = $(this).val();
+                    if (subcategory_id) {
+                        $.ajax({
+                            type: "GET",
+                            url: "{{ url('subsubcategory/find/formsubcategory') }}/" + subcategory_id,
+                            dataType: "json",
+                            success: function(data) {
+                                var da = $('select[name="subsubcategory_id"]').empty();
+                                $.each(data, function(key, value) {
+
+                                    $('select[name="subsubcategory_id"]').append(
+                                        '<option value="' + value.id + '">' + value
+                                        .subsubcategory_name_en + '</option>');
+
+                                });
+                            },
+                        });
+                    }
+
+
+
+                });
+
+
+
+
             });
         </script>
 

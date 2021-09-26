@@ -94,4 +94,6 @@ class SubCategoryController extends Controller
        return json_encode($subcategory);
 
     }
+
+    
 }

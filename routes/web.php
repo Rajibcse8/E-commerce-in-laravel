@@ -92,6 +92,7 @@ Route::prefix('subsubcategory')->group(function(){
     Route::get('/edit/{id}',[SubSubCategoryController::class,'SubSubCategoryEdit'])->name('subsubcategory.edit');
     Route::post('update/{id}',[SubSubCategoryController::class,'SubSubCategoryUpdate'])->name('subsubcategory.update');
     Route::get('delete/{id}',[SubSubcategoryController::class,'SubSubCategoryDelete'])->name('subsubcategory.delete');
+    Route::get('find/formsubcategory/{id}',[SubSubCategoryController::class,'SubSubCategoryFind']);
 });
 
 //------------Admin Add-Product--------------------------------------------

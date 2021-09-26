@@ -93,5 +93,11 @@ class SubSubCategoryController extends Controller
         return redirect()->route('all.sub.sub.category')->with($notification);
     }
 
+
+    public function SubSubCategoryFind($id){
+        $data=SubSubCategory::where('subcategory_id',$id)->orderBy('subsubcategory_name_en','ASC')->get();
+        return json_encode($data);
+    }
+
     
 }
