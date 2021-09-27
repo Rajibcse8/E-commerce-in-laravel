@@ -28,7 +28,7 @@
                                             <h5>Basic Brnad <span class="text-danger">*</span></h5>
                                             <div class="controls">
                                                 <select name="brnad_id" id="select" class="form-control">
-                                                    <option value="" selected="" disabled>Select Brand</option>
+                                                    <option value="" selected="" disabled id="id1">Select Brand</option>
                                                     @foreach ($brands as $brand)
                                                         <option value="{{ $brand->id }}">{{ $brand->brand_name_en }}
                                                         </option>
@@ -432,6 +432,8 @@
         <script>
             $(document).ready(function() {
                 $('select[name="category_id"]').on('change', function() {
+                    
+                    $('select[name="subsubcategory_id"]').append();
                     var category_id = $(this).val();
                     if (category_id) {
                         $.ajax({
@@ -475,14 +477,11 @@
                                 });
                             },
                         });
+                    }else{
+                        alert('danger');
                     }
 
-
-
                 });
-
-
-
 
             });
         </script>
