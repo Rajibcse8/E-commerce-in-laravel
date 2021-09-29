@@ -288,12 +288,13 @@
                                         <div class="form-group">
                                             <h5>Product Main Thumbnail <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <input type="file" name="product_thumbnail" class="form-control">
+                                                <input type="file" name="product_thumbnail" class="form-control" onchange="MainThumbUrl(this)">
                                             </div>
                                             @error('product_thumbnail')
                                                 <span class="text text-danger">{{ $message }}</span>
 
                                             @enderror
+                                            <img src="" alt="" id="mainthmb">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -433,7 +434,7 @@
             $(document).ready(function() {
                 $('select[name="category_id"]').on('change', function() {
                     
-                    $('select[name="subsubcategory_id"]').append();
+                    $('select[name="subsubcategory_id"]').empty();
                     var category_id = $(this).val();
                     if (category_id) {
                         $.ajax({
@@ -486,6 +487,25 @@
             });
         </script>
 
+        <script>
+
+                function MainThumbUrl(inp) {
+                    if(inp.files && inp.files[0]){
+                        var reader =new FileReader();
+                        reader.onload= function(e){
+
+                        $('#mainthmb').attr('src',e.target.result).width(75).height(75);
+                       
+                        };
+                        reader.readAsDataURL(inp.files[0]);
+                    }
+                } 
+
+              
+        </script>
+        
+    
+    
 
     </div>
 
