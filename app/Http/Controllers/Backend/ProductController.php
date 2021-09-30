@@ -17,11 +17,12 @@ class ProductController extends Controller
 
          $categories=Category::latest()->get();
          $brands=Brand::latest()->get();
-       
-        
-        
         return view('admin.product.product_add',compact('brands','categories'));
         
+    }
+
+    public function StoreProduct(Request $request){
+        dd('dddd');
     }
     
 }
