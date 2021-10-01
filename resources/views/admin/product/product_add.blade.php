@@ -28,7 +28,7 @@
                                         <div class="form-group">
                                             <h5>Basic Brnad <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <select name="brnad_id" id="select" class="form-control" required>
+                                                <select name="brand_id" id="select" class="form-control" required>
                                                     <option value="" selected="" disabled id="id1">Select Brand</option>
                                                     @foreach ($brands as $brand)
                                                         <option value="{{ $brand->id }}">{{ $brand->brand_name_en }}
@@ -161,7 +161,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <h5>Product Tags Eng <span class="text-danger">*</span></h5>
-                                            <div class="controls">
+                                            <div class="`   ">
                                                 <input type="text" name="product_tag_en" value="Lorem,Ipsum,Amet"
                                                     data-role="tagsinput" required />
                                             </div>
@@ -259,9 +259,9 @@
                                         <div class="form-group">
                                             <h5>Product Selling Price <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <input type="text" name="seeling_price" class="form-control" required>
+                                                <input type="text" name="selling_price" class="form-control" required>
                                             </div>
-                                            @error('seeling_price')
+                                            @error('selling_price')
                                                 <span class="text text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -353,7 +353,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
 
-                                            <textarea id="editor1" name="logn_descp_en" rows="10" cols="80" required>
+                                            <textarea id="editor1" name="long_descp_en" rows="10" cols="80" required>
                                                Long Descriotion English</textarea>
 
                                         </div>
@@ -362,7 +362,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
 
-                                            <textarea id="editor2" name="logn_descp_ban" rows="10" cols="80" required>
+                                            <textarea id="editor2" name="long_descp_ban" rows="10" cols="80" required>
                                             Long Descriotion Bangla</textarea>
 
                                         </div>
@@ -386,8 +386,8 @@
                                                     <label for="hot_deals">Hot Deals</label>
                                                 </fieldset>
                                                 <fieldset>
-                                                    <input type="checkbox" id="features" value="1" name="features">
-                                                    <label for="features">Features</label>
+                                                    <input type="checkbox" id="featured" value="1" name="featured">
+                                                    <label for="featured">Features</label>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -415,7 +415,8 @@
 
 
                                 <div class="text-xs-right">
-                                    <button type="submit" class="btn btn-rounded btn-info">Add Product</button>
+                                    <input type="submit" class="btn btn-rounded btn-info" value="Add-Product">
+                                    
                                 </div>
 
                             </form>
