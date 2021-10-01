@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
  use App\Models\SubCategoty;
  use App\Models\SubSubCategory;
  use App\Models\Brand;
+ use App\Models\MultiImg;
+
+ 
  use Image;
  use Carbon\Carbon;
  
@@ -28,11 +31,11 @@ class ProductController extends Controller
 
         $image=$request->file('product_thumbnail');
         $image_name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    	Image::make($image)->resize(300,300)->save('upload/produuct/thumbnail/'.$image_name);
+    	Image::make($image)->resize(900,1000)->save('upload/produuct/thumbnail/'.$image_name);
 
         $image_url='upload/product/thumbnail/'.$image_name;
 
-        Product::insert([
+        $product_id = Product::insertGetId([
             'brand_id' => $request->brand_id,
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
@@ -66,12 +69,34 @@ class ProductController extends Controller
             'product_thambnail' => $image_url,
             'status' => 1,
             'created_at' => Carbon::now(),   	 
-  
-  
-  
-  
-  
         ]);
+
+        //---------Multiple Image Insert----------------------------
+
+        $images = $request->file('multi_img');
+        foreach ($images as $img) {
+            $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+          Image::make($img)->resize(917,1000)->save('upload/products/multi-image/'.$make_name);
+          $uploadPath = 'upload/products/multi-image/'.$make_name;
+
+          MultiImg::insert([
+
+    		'product_id' => $product_id,
+    		'image_name' => $uploadPath,
+    		'created_at' => Carbon::now(), 
+
+    	]);
+
+      }
+
+      $notification = array(
+        'message' => 'Product Inserted Successfully',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->back()->with($notification);
+
+
   
         
     }
