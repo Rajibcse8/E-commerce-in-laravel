@@ -100,6 +100,12 @@ class ProductController extends Controller
 
   
         
+    }//Product-Add-End
+
+    public function ManageProduct(){
+          
+        $products=Product::latest()->get();
+        return view('admin.product.manage_product',compact('products'));
     }
-    
+
 }
