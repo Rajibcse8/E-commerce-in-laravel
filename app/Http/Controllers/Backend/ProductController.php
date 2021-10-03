@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
  use App\Models\Product;
  use App\Models\Category;
- use App\Models\SubCategoty;
+ use App\Models\SubCategory;
  use App\Models\SubSubCategory;
  use App\Models\Brand;
  use App\Models\MultiImg;
@@ -95,7 +95,7 @@ class ProductController extends Controller
         'alert-type' => 'success'
     );
 
-    return redirect()->back()->with($notification);
+    return redirect()->route('manage.product')->with($notification);
 
 
   
@@ -106,6 +106,18 @@ class ProductController extends Controller
           
         $products=Product::latest()->get();
         return view('admin.product.manage_product',compact('products'));
+    }//------------------------end functtion
+
+    public function EditProduct($id){
+
+
+        $product=Product::find($id)->first();
+        $brands=Brand::latest()->get();
+        $categories=Category::latest()->get();
+        $subcategories=SubCategory::where('category_id',$product->category_id)->orderBy('subcategory_name_en','ASC')->get();
+        $subsubcategories=SubSubCategory::where('subcategory_id',$product->subcategory_id)->orderBy('subsubcategory_name_en','ASC')->get();
+        return view('admin.product.edit_product',compact('product','brands','categories','subcategories','subsubcategories'));
+    
     }
 
 }

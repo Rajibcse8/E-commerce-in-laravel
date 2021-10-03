@@ -39,7 +39,7 @@
                                             <td>{{ $data->product_name_ban }}</td>
                                             <td>{{ $data->product_qty }}</td>
                                             <td>
-                                                <a href="" class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ route('product.edit',$data->id) }}" class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
                                                 <a href="" class="btn btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
