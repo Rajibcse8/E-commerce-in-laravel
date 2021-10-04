@@ -111,7 +111,7 @@ class ProductController extends Controller
     public function EditProduct($id){
 
 
-        $product=Product::find($id)->first();
+        $product=Product::find($id);
         $brands=Brand::latest()->get();
         $categories=Category::latest()->get();
         $subcategories=SubCategory::where('category_id',$product->category_id)->orderBy('subcategory_name_en','ASC')->get();
