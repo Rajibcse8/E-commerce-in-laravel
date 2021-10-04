@@ -118,6 +118,55 @@ class ProductController extends Controller
         $subsubcategories=SubSubCategory::where('subcategory_id',$product->subcategory_id)->orderBy('subsubcategory_name_en','ASC')->get();
         return view('admin.product.edit_product',compact('product','brands','categories','subcategories','subsubcategories'));
     
+    }//-----------end--function
+
+    public function UpdateProduct(Request $request,$id){
+             
+        Product::findOrFail($id)->update([
+
+            'brand_id' => $request->brand_id,
+            'category_id' => $request->category_id,
+            'subcategory_id' => $request->subcategory_id,
+            'subsubcategory_id' => $request->subsubcategory_id,
+            'product_name_en' => $request->product_name_en,
+            'product_name_ban' => $request->product_name_ban,
+            'product_slug_en' =>  strtolower(str_replace(' ', '-', $request->product_name_en)),
+            'product_slug_ban' => str_replace(' ', '-', $request->product_name_ban),
+            'product_code' => $request->product_code,
+  
+            'product_qty' => $request->product_qty,
+            'product_tag_en' => $request->product_tag_en,
+            'product_tag_ban' => $request->product_tag_ban,
+            'product_size_en' => $request->product_size_en,
+            'product_size_ban' => $request->product_size_ban,
+            'product_color_en' => $request->product_color_en,
+            'product_color_ban' => $request->product_color_ban,
+  
+            'selling_price' => $request->selling_price,
+            'discount_price' => $request->discount_price,
+            'short_descp_en' => $request->short_descp_en,
+            'short_descp_ban' => $request->short_descp_ban,
+            'long_descp_en' => $request->long_descp_en,
+            'long_descp_ban' => $request->long_descp_ban,
+  
+            'hot_deals' => $request->hot_deals,
+            'featured' => $request->featured,
+            'special_offer' => $request->special_offer,
+            'special_deals' => $request->special_deals,
+  
+           
+            'status' => 1,
+            'updated_at' => Carbon::now(),   	
+
+        ]);
+
+        $notification = array(
+            'message' => 'Product Update without Image Successfully',
+            'alert-type' => 'success'
+        );
+    
+        return redirect()->route('manage.product')->with($notification);
+    
     }
 
 }

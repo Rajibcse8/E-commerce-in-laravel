@@ -18,7 +18,7 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form method="POST" action="" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('product.update',$product->id) }}" enctype="multipart/form-data">
                                 
                                 @csrf
                                 <!---=------------Brand,Categoty,SuBCategory Row Start--------------------------->
