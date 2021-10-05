@@ -222,6 +222,22 @@ class ProductController extends Controller
 		return redirect()->back()->with($notification);
 
           
+    }//----------end function-------------------------------------------------
+
+
+    public function DeletemultiImage($id){
+        //dd($id);
+        $old_image=MultiImg::find($id);
+        @unlink($old_image->image_name);
+        MultiImg::findOrFail($id)->delete();
+
+        $notification = array(
+			'message' => 'Product Image Updated Successfully',
+			'alert-type' => 'info'
+		);
+
+		return redirect()->back()->with($notification);
+
     }
 
 }
