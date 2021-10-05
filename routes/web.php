@@ -102,6 +102,7 @@ Route::prefix('product')->group(function(){
     Route::get('/manage',[ProductController::class,'ManageProduct'])->name('manage.product');
     Route::get('/edit/{id}',[ProductController::class,'EditProduct'])->name('product.edit');
     Route::post('/update/{id}',[ProductController::class,'UpdateProduct'])->name('product.update');
+    Route::post('/update/multiple/image',[ProductController::class,'UpdateImage'])->name('multiple.image.update');
 
    
 });
