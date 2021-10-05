@@ -487,7 +487,59 @@
 
         </section>
 
+
+
         <!-----------------end Section--------------------------------------------------------------->
+
+        <!--Start Product Main Image Update----------------------------------------------------------->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box bt-3 border-info">
+
+                        <div class="box-header">
+                            <h4 class="box-title">Main  Thamble <strong>Update</strong></h4>
+                        </div>
+
+                        <form action="{{ route('main.image.update',$product->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                              <div class="row row-sm">
+                               
+                                  <div class="col-md-3">
+                                    <div class="card" >
+                                        <img src="{{ asset($product->product_thumbnail) }}" class="card-img-top" style="height: 130px; width:230px;">
+                                        <div class="card-body">
+                                        
+                                          <p class="card-text">
+                                              <label for="" class="form-control-label">Change Image <span>*</span></label>
+                                              <input  type="file" name="product_thumbnail" onchange="MainThumbUrl(this)">
+                                              <img src="" id="mainthmb"> 
+                                            </p>
+                                        
+                                        </div>
+                                      </div>
+                                  </div>  
+                                                       
+                              </div>
+                              
+                              <br>
+                              
+                              <div class="text-xs-right">
+                                <input type="submit" class="btn btn-rounded btn-info" value="Update-Main-Thamble">
+
+                              </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+        <!--end Section-->
         <script>
             $(document).ready(function() {
                 $('select[name="category_id"]').on('change', function() {
