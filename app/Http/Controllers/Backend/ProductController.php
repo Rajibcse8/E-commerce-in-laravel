@@ -110,13 +110,14 @@ class ProductController extends Controller
 
     public function EditProduct($id){
 
-
+         
         $product=Product::find($id);
         $brands=Brand::latest()->get();
         $categories=Category::latest()->get();
         $subcategories=SubCategory::where('category_id',$product->category_id)->orderBy('subcategory_name_en','ASC')->get();
         $subsubcategories=SubSubCategory::where('subcategory_id',$product->subcategory_id)->orderBy('subsubcategory_name_en','ASC')->get();
-        return view('admin.product.edit_product',compact('product','brands','categories','subcategories','subsubcategories'));
+        $multi_img=MultiImg::where('product_id',$id)->get();
+        return view('admin.product.edit_product',compact('product','brands','categories','subcategories','subsubcategories','multi_img'));
     
     }//-----------end--function
 
