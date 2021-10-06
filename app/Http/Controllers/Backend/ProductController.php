@@ -106,6 +106,7 @@ class ProductController extends Controller
           
         $products=Product::latest()->get();
         return view('admin.product.manage_product',compact('products'));
+    
     }//------------------------end functtion
 
     public function EditProduct($id){
@@ -238,6 +239,34 @@ class ProductController extends Controller
 
 		return redirect()->back()->with($notification);
 
+    }
+
+    public function Inactive($id)
+    {
+        Product::findOrFail($id)->update([
+            'status'=>'0'
+        ]);
+
+        $notification = array(
+			'message' => 'Product Inactivaition Successful',
+			'alert-type' => 'info'
+		);
+
+		return redirect()->back()->with($notification);
+    }
+
+    public function Active($id)
+    {
+        Product::findOrFail($id)->update([
+            'status'=>'1'
+        ]);
+
+        $notification = array(
+			'message' => 'Product Activaition Successful',
+			'alert-type' => 'info'
+		);
+
+        return redirect()->back()->with($notification);
     }
 
 }
