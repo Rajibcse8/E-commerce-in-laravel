@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\SliderController;
 use App\Models\User;
 
 
@@ -42,7 +43,7 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('admin/dashboard', fu
     return view('admin.index');
 })->name('admin.dashboard');
 
-//-----------------------------Admin Route--------------------------------------
+//-----------------------------Admin Route----------------------------------------------------------------------------------
 
 //---------------------------Admin Profile
 Route::get('/logout',[AdminController::class,'destroy'])->name('admin.logout');
@@ -111,6 +112,14 @@ Route::prefix('product')->group(function(){
 
     
 });
+
+//-------------------SLider Route------------------------------------------------------------------
+
+ Route::prefix('slider')->group(function(){
+
+    Route::get('/view',[SliderController::class,'ViewSlider'])->name('manage.slider');
+
+ });
 
 
 
