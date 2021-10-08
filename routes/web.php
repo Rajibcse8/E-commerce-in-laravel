@@ -118,6 +118,7 @@ Route::prefix('product')->group(function(){
  Route::prefix('slider')->group(function(){
 
     Route::get('/view',[SliderController::class,'ViewSlider'])->name('manage.slider');
+    Route::post('/store',[SliderController::class,'StoreSlider'])->name('slider.store');
 
  });
 
