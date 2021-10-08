@@ -98,4 +98,35 @@ class SliderController extends Controller
         return redirect()->route('manage.slider')->with($notification);
     }//end--function---------------------------------------------------------------
 
+    public function MakeInActive($id){
+       Slider::findOrFail($id)->update([
+           'status'=>'0',
+       ]);
+
+       $notification=array(
+        'alert'=>'danger',
+        'message'=>'Slider DeActivated',
+     );
+
+     return redirect()->route('manage.slider')->with($notification);
+
+    }
+
+    public function MakeActive($id){
+
+        
+       Slider::findOrFail($id)->update([
+        'status'=>'1',
+    ]);
+
+    $notification=array(
+     'alert'=>'info',
+     'message'=>'Slider Activated',
+  );
+
+  return redirect()->route('manage.slider')->with($notification);
+
+
+    }
+
 }
