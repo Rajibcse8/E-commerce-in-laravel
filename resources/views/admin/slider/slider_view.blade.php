@@ -56,7 +56,7 @@
                                             <td width="26%">
                                                
                                                 <a href="{{ route('slider.edit',$data->id) }}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                <a href="" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ route('slider.delete',$data->id) }}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 @if($data->status==1)
                                                 <a href="" class="btn btn-danger btn-sm" id="pactive" title="In-Active"><i class="fa fa-arrow-down"></i></a>
                                                 @else

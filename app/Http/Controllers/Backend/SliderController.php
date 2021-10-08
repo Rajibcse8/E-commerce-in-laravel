@@ -78,10 +78,24 @@ class SliderController extends Controller
         }
 
         $notification=array(
-            'alert'=>'success',
-            'message'=>'Slider Added Sucessfully',
+            'alert'=>'info',
+            'message'=>'Slider Edited Sucessfully',
          );
 
         return redirect()->route('manage.slider')->with($notification);
-    }
+    }//end--function-------------------------------------------------------------
+
+    public function DeleteSlider($id){
+        $slider=Slider::find($id);
+        @unlink($slider->slider_img);
+        Slider::findOrFail($id)->delete();
+       
+        $notification=array(
+            'alert'=>'info',
+            'message'=>'Slider Deleted Sucessfully',
+         );
+
+        return redirect()->route('manage.slider')->with($notification);
+    }//end--function---------------------------------------------------------------
+
 }
