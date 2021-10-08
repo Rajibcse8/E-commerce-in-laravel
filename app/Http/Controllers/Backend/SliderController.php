@@ -46,10 +46,42 @@ class SliderController extends Controller
         );
 
         return redirect()->bacK()->with($notification);
+    }//end function------------------------------------
 
+    public function EditSlider($id){
+         $slider=Slider::find($id);
+         return view('admin.slider.edit_slider',compact('slider'));
+    }
 
+    public function UpdateSlider(Request $request,$id){
+        
+        if($request->file('slider_img')){
+            @unlink($request->old_image);
+            $image=$request->file('slider_img');
+            $image_name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(350,300)->save('upload/slider/'.$image_name);
+            $img_url='upload/slider/'.$image_name;
+            
+            slider::findOrFail($id)->update([
+                'title'=>$request->title,
+                'description'=>$request->description,
+                'slider_img'=>$img_url,
+            ]);
 
+        }
+        else{
 
+            slider::findOrFail($id)->update([
+                'title'=>$request->title,
+                'description'=>$request->description,
+            ]);
+        }
 
+        $notification=array(
+            'alert'=>'success',
+            'message'=>'Slider Added Sucessfully',
+         );
+
+        return redirect()->route('manage.slider')->with($notification);
     }
 }

@@ -16,7 +16,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Brand Data</h3>
+                        <h3 class="box-title">Slider Data</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -55,7 +55,7 @@
                                             </td>
                                             <td width="26%">
                                                
-                                                <a href="" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ route('slider.edit',$data->id) }}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
                                                 <a href="" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 @if($data->status==1)
                                                 <a href="" class="btn btn-danger btn-sm" id="pactive" title="In-Active"><i class="fa fa-arrow-down"></i></a>
@@ -83,7 +83,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Add Slider</h3>
+                        <h3 class="box-title">Edit Slider</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
