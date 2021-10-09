@@ -31,11 +31,13 @@
                   <li><a href="#">GBP</a></li>
                 </ul>
               </li>
-              <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
+              <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">Select Language </span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">English</a></li>
-                  <li><a href="#">French</a></li>
-                  <li><a href="#">German</a></li>
+                  @if(session()->get('language')=='bangla')
+                  <li><a href="{{ route('english.language') }}">English</a></li>
+                  @else
+                  <li><a href="{{ route('bangla.language') }}">বাংলা</a></li>
+                  @endif     
                 </ul>
               </li>
             </ul>

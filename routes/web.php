@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\IndexController;
+
+//------------------Backend Controller----------------------------
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
@@ -10,6 +11,14 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
+//------------------------------------------------------------------
+
+
+//------------------Frontend Controller-----------------------------
+use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\LanguageController;
+//-------------------------------------------------------------------
+
 use App\Models\User;
 
 
@@ -150,3 +159,13 @@ Route::get('user/profile',[IndexController::class,'UserProfile'])->name('user.pr
 Route::post('user/profile/update',[IndexController::class,'userprofileupdate'])->name('user.profile.update');
 Route::get('user/change/password',[IndexController::class,'userpasswordchange'])->name('user.change.password');
 Route::post('user/password/update',[IndexController::class,'Updatepass'])->name('user.password.update');
+
+
+
+
+//------------------------------------Frontend Route------------------------------------------------------
+
+Route::get('/language/bangla',[LanguageController::class,'Bangla'])->name('bangla.language');
+Route::get('/language/english',[LanguageController::class,'English'])->name('english.language');
+
+//--------------------------------------------------------------------------------------------------------
