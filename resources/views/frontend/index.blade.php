@@ -21,20 +21,31 @@
                   <ul class="dropdown-menu mega-menu">
                     <li class="yamm-content">
                       <div class="row">
+
+                     @php
+                       $sub=App\Models\SubCategory::where('category_id',$category->id)->OrderBy('subcategory_name_en','ASC')->get();
+                     @endphp
+                       @foreach ( $sub as  $subcategory)
+                         
+                      
                         <div class="col-sm-12 col-md-3">
-                          <h2 class="title">SubCategory Name</h2>
+                          <h2 class="title">{{ session()->get('language')=='bangla'? $subcategory->subcategory_name_ban: $subcategory->subcategory_name_en }}</h2>
+
+                          @php
+                            $subsub=App\Models\SubSubCategory::where('subcategory_id',$subcategory->id)->OrderBy('subsubcategory_name_en','ASC')->get();
+                          @endphp
+                          @foreach ($subsub as $subsubcategory)
+                      
                           <ul class="links list-unstyled">
-                            <li><a href="#">Dresses</a></li>
-                            <li><a href="#">Shoes </a></li>
-                            <li><a href="#">Jackets</a></li>
-                            <li><a href="#">Sunglasses</a></li>
-                            <li><a href="#">Sport Wear</a></li>
-                            <li><a href="#">Blazers</a></li>
-                            <li><a href="#">Shirts</a></li>
-                            <li><a href="#">Shorts</a></li>
+                            <li><a href="#">{{ session()->get('language')=='bangla'?  $subsubcategory->subsubcategory_name_ban:
+                            $subsubcategory->subsubcategory_name_en }}</a></li>
+                            
                           </ul>
+                          @endforeach
                         </div>
                         <!-- /.col -->
+
+                        @endforeach
 
                      
                    
