@@ -4,18 +4,25 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use Auth;
-
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
+use App\Models\Category;
+use App\Models\SubCategory;
+use App\Models\SubSubCategory;
 
 class IndexController extends Controller
 {
     
     public function index(){
-       return view('frontend.index');
+
+        $categories=Category::OrderBy('category_name_en','ASC')->get();
+        $subcategories=SubCategory::OrderBy('subcategory_name_en','ASC')->get();
+        $subsubcategories=SubSubCategory::OrderBy('subsubcategory_name_en','ASC')->get();
+
+       return view('frontend.index',compact('categories','subcategories','subsubcategories'));
     }
 
     public function logout(){
