@@ -177,7 +177,7 @@
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw"> <a href="{{ route('home') }}"
-                                        data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{ session()->get('language') == 'bangla'? '':'হোম'  }}</a>
+                                        data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{ session()->get('language') == 'bangla' ? 'হোম':'Home'  }}</a>
                                 </li>
 
 
