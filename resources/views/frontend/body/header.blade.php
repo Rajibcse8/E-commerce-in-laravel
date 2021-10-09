@@ -177,14 +177,14 @@
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw"> <a href="{{ route('home') }}"
-                                        data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                                        data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{ session()->get('language') == 'bangla'? '':'হোম'  }}</a>
                                 </li>
 
 
                                 @foreach ($categories as $category)
                                     <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown"
                                             class="dropdown-toggle"
-                                            data-toggle="dropdown">{{ $category->category_name_en }}</a>
+                                            data-toggle="dropdown">{{ session()->get('language') == 'bangla' ?  $category->category_name_ban  :  $category->category_name_en }}</a>
                                         <ul class="dropdown-menu container">
                                             <li>
                                                 <div class="yamm-content ">
@@ -202,7 +202,8 @@
 
 
                                                                 <h2 class="title">
-                                                                    {{ $subcategory->subcategory_name_en }}</h2>
+                                                                  {{ session()->get('language') == 'bangla' ?  $subcategory->subcategory_name_ban  :  $subcategory->subcategory_name_en }}
+                                                                </h2>
 
 
                                                                 <!--   // Get SubSubCategory Table Data -->
@@ -215,7 +216,9 @@
                                                                 @foreach ($subsubcategories as $subsubcategory)
                                                                     <ul class="links">
                                                                         <li><a
-                                                                                href="#">{{ $subsubcategory->subsubcategory_name_en }}</a>
+                                                                                href="#">
+                                                                                {{ session()->get('language') == 'bangla' ?   $subsubcategory->subsubcategory_name_ban  :   $subsubcategory->subsubcategory_name_en }}
+                                                                               </a>
                                                                         </li>
 
                                                                     </ul>
