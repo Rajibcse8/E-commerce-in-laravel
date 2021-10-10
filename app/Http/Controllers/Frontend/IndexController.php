@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\SubSubCategory;
+use App\Models\Slider;
 
 class IndexController extends Controller
 {
@@ -21,8 +22,9 @@ class IndexController extends Controller
         $categories=Category::OrderBy('category_name_en','ASC')->get();
         $subcategories=SubCategory::OrderBy('subcategory_name_en','ASC')->get();
         $subsubcategories=SubSubCategory::OrderBy('subsubcategory_name_en','ASC')->get();
+        $sliders=Slider::where('status',1)->OrderBy('id','DESC')->limit(3)->get();
 
-       return view('frontend.index',compact('categories','subcategories','subsubcategories'));
+       return view('frontend.index',compact('categories','subcategories','subsubcategories','sliders'));
     }
 
     public function logout(){
