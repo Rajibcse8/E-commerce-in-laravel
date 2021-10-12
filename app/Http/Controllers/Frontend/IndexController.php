@@ -13,6 +13,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\SubSubCategory;
 use App\Models\Slider;
+use App\Models\Product;
 
 class IndexController extends Controller
 {
@@ -23,8 +24,9 @@ class IndexController extends Controller
         $subcategories=SubCategory::OrderBy('subcategory_name_en','ASC')->get();
         $subsubcategories=SubSubCategory::OrderBy('subsubcategory_name_en','ASC')->get();
         $sliders=Slider::where('status',1)->OrderBy('id','DESC')->limit(3)->get();
+        $products=Product::where('status',1)->OrderBy('id','DESC')->limit(3)->get();
 
-       return view('frontend.index',compact('categories','subcategories','subsubcategories','sliders'));
+       return view('frontend.index',compact('categories','subcategories','subsubcategories','sliders','products'));
     }
 
     public function logout(){
