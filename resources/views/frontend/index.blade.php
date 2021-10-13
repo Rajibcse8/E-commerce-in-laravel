@@ -933,9 +933,9 @@
             <div class="more-info-tab clearfix ">
               <h3 class="new-product-title pull-left">New Products</h3>
               <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
-                <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li>
+                <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">{{  session()->get('language')=='bangla' ? 'সব':'ALL'}}</a></li>
                 @foreach ($categories as $category)
-                <li><a data-transition-type="backSlide" href="#category{{ $category->id }}" data-toggle="tab">{{ $category->category_name_en }}</a></li>
+                <li><a data-transition-type="backSlide" href="#category{{ $category->id }}" data-toggle="tab">{{ session()->get('language')=='bangla' ? $category->category_name_ban:$category->category_name_en}}</a></li>
                   
                 @endforeach
                 
@@ -952,7 +952,7 @@
                 <div class="product-slider">
                   <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
 
-                    $@foreach ($products as $product)
+                  @foreach ($products as $product)
                         
                   
                     
@@ -962,18 +962,26 @@
                           <div class="product-image">
                             <div class="image"> <a href="detail.html"><img  src="{{asset ($product->product_thumbnail	) }}" alt=""></a> </div>
                             <!-- /.image -->
+
+                            @php
+                              $discount=round(($product->discount_price/$product->selling_price)*100)
+                            @endphp
                             
-                            <div class="tag new"><span>new</span></div>
+                            <div class="tag new"><span>{{ $product->discount_price =='NULL' ? 'NEW' :$discount.'%' }}</span></div>
                           </div>
                           <!-- /.product-image -->
                           
                           <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">{{ $product->product_name_en }}</a></h3>
+                            <h3 class="name"><a href="detail.html">{{  session()->get('language')=='bangla' ? $category->category_name_ban:$category->category_name_en }}</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="description"></div>
-                            <div class="product-price"> <span class="price"> {{ $product->selling_price }} </span> <span class="price-before-discount">$ 800</span> </div>
+                            @if($product->discount_price)
+                            <div class="product-price"> <span class="price"> {{ $product->selling_price-$product->discount_price }} </span> <span class="price-before-discount">{{ $product->selling_price }}</span> </div>
                             <!-- /.product-price --> 
-                            
+                            @else
+                            <div class="product-price"> <span class="price"> {{ $product->selling_price }} </span> </div>
+
+                            @endif
                           </div>
                           <!-- /.product-info -->
                           <div class="cart clearfix animate-effect">
@@ -1038,7 +1046,7 @@
                           <!-- /.product-image -->
                           
                           <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">{{ $product->product_name_en }}</a></h3>
+                            <h3 class="name"><a href="detail.html">{{ session()->get('language')=='bangla' ? $product->product_name_ban:$product->product_name_en }}</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="description"></div>
                             <div class="product-price"> <span class="price"> {{ $product->selling_price }} </span> <span class="price-before-discount">$ 800</span> </div>
