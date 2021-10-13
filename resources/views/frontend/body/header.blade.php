@@ -180,7 +180,9 @@
                                         data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{ session()->get('language') == 'bangla' ? 'হোম':'Home'  }}</a>
                                 </li>
 
-
+                               @php
+                                   $categories=App\Models\Category::OrderBy('category_name_en','ASC')->get();
+                               @endphp
                                 @foreach ($categories as $category)
                                     <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown"
                                             class="dropdown-toggle"

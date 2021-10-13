@@ -159,6 +159,8 @@ Route::get('user/profile',[IndexController::class,'UserProfile'])->name('user.pr
 Route::post('user/profile/update',[IndexController::class,'userprofileupdate'])->name('user.profile.update');
 Route::get('user/change/password',[IndexController::class,'userpasswordchange'])->name('user.change.password');
 Route::post('user/password/update',[IndexController::class,'Updatepass'])->name('user.password.update');
+//Product-view-Route-------------------------------
+Route::get('product/view/{id}',[IndexController::class,'ProductView'])->name('product.details');
 
 
 

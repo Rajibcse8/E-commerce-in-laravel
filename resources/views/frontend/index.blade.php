@@ -960,7 +960,7 @@
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="{{asset ($product->product_thumbnail	) }}" alt=""></a> </div>
+                            <div class="image"> <a href="{{ route('product.details',$product->id) }}"><img  src="{{asset ($product->product_thumbnail	) }}" alt=""></a> </div>
                             <!-- /.image -->
 
                             @php
@@ -972,7 +972,7 @@
                           <!-- /.product-image -->
                           
                           <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">{{  session()->get('language')=='bangla' ? $category->category_name_ban:$category->category_name_en }}</a></h3>
+                            <h3 class="name"><a href="{{ route('product.details',$product->id) }}">{{  session()->get('language')=='bangla' ? $product->product_name_ban:$product->product_name_en }}</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="description"></div>
                             @if($product->discount_price)
@@ -1038,7 +1038,7 @@
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="{{asset ($product->product_thumbnail	) }}" alt=""></a> </div>
+                            <div class="image"> <a href="{{ route('product.details',$product->id) }}"> <img  src="{{asset ($product->product_thumbnail	) }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             @php
@@ -1050,7 +1050,7 @@
                           <!-- /.product-image -->
                           
                           <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">{{ session()->get('language')=='bangla' ? $product->product_name_ban:$product->product_name_en }}</a></h3>
+                            <h3 class="name"><a href="{{ route('product.details',$product->id) }}">{{ session()->get('language')=='bangla' ? $product->product_name_ban:$product->product_name_en }}</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="description"></div>
                             @if($product->discount_price)
