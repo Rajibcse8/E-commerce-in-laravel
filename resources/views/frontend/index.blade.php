@@ -1041,7 +1041,11 @@
                             <div class="image"> <a href="detail.html"><img  src="{{asset ($product->product_thumbnail	) }}" alt=""></a> </div>
                             <!-- /.image -->
                             
-                            <div class="tag new"><span>new</span></div>
+                            @php
+                            $discount=round(($product->discount_price/$product->selling_price)*100)
+                          @endphp
+                          
+                          <div class="tag new"><span>{{ $product->discount_price =='NULL' ? 'NEW' :$discount.'%' }}</span></div>
                           </div>
                           <!-- /.product-image -->
                           
@@ -1049,7 +1053,13 @@
                             <h3 class="name"><a href="detail.html">{{ session()->get('language')=='bangla' ? $product->product_name_ban:$product->product_name_en }}</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="description"></div>
-                            <div class="product-price"> <span class="price"> {{ $product->selling_price }} </span> <span class="price-before-discount">$ 800</span> </div>
+                            @if($product->discount_price)
+                            <div class="product-price"> <span class="price"> {{ $product->selling_price-$product->discount_price }} </span> <span class="price-before-discount">{{ $product->selling_price }}</span> </div>
+                            <!-- /.product-price --> 
+                            @else
+                            <div class="product-price"> <span class="price"> {{ $product->selling_price }} </span> </div>
+
+                            @endif
                             <!-- /.product-price --> 
                             
                           </div>
