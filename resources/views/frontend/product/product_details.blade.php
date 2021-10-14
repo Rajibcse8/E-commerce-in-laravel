@@ -1,19 +1,23 @@
 @extends('frontend.frontend_master')
+@section('title')
+  {{ $products->product_name_en }}
+@endsection
 @section('content')
 
     <div class="breadcrumb">
         <div class="container">
             <div class="breadcrumb-inner">
                 <ul class="list-inline list-unstyled">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="#">Clothing</a></li>
-                    <li class='active'>Floral Print Buttoned</li>
+                    <li class='active'>{{ $products->product_name_en }}</li>
                 </ul>
             </div><!-- /.breadcrumb-inner -->
         </div><!-- /.container -->
     </div><!-- /.breadcrumb -->
     <div class="body-content outer-top-xs">
         <div class='container'>
+
             <div class='row single-product'>
                 <div class='col-md-3 sidebar'>
                     <div class="sidebar-module-container">
@@ -301,6 +305,8 @@
 
                     </div>
                 </div><!-- /.sidebar -->
+
+
                 <div class='col-md-9'>
                     <div class="detail-block">
                         <div class="row  wow fadeInUp">
@@ -311,57 +317,57 @@
                                     <div id="owl-single-product">
                                         <div class="single-product-gallery-item" id="slide1">
                                             <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p8.jpg">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p8.jpg" />
+                                                href="{{ asset('frontend/assets/images/products/p8.jpg') }}">
+                                                <img class="img-responsive" alt="" src="{{ asset('frontend/assets/images/blank.gif') }}"
+                                                    data-echo="{{ asset('frontend/assets/images/products/p8.jpg') }}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
 
                                         <div class="single-product-gallery-item" id="slide2">
                                             <a data-lightbox="image-1" data-title="Gallery"
                                                 href="assets/images/products/p9.jpg">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p9.jpg" />
+                                                <img class="img-responsive" alt="" src="{{ asset('frontend/assets/images/blank.gif') }}"
+                                                    data-echo="{{ asset('frontend/assets/images/products/p9.jpg') }}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
 
                                         <div class="single-product-gallery-item" id="slide3">
                                             <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p10.jpg">
+                                                href="{{ asset('frontend/assets/images/products/p10.jpg') }}">
                                                 <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p10.jpg" />
+                                                    data-echo="{{asset ('frontend/assets/images/products/p10.jpg') }}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
 
                                         <div class="single-product-gallery-item" id="slide4">
                                             <a data-lightbox="image-1" data-title="Gallery"
                                                 href="assets/images/products/p11.jpg">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p11.jpg" />
+                                                <img class="img-responsive" alt="" src="{{ asset('frontend/assets/images/blank.gif') }}"
+                                                    data-echo="{{asset ('frontend/assets/images/products/p11.jpg') }}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
 
                                         <div class="single-product-gallery-item" id="slide5">
                                             <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p12.jpg">
+                                                href="{{asset ('frontend/assets/images/products/p12.jpg') }}">
                                                 <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p12.jpg" />
+                                                    data-echo="{{asset ('frontend/assets/images/products/p12.jpg') }}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
 
                                         <div class="single-product-gallery-item" id="slide6">
                                             <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p13.jpg">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p13.jpg" />
+                                                href="{{asset ('frontend/assets/images/products/p13.jpg') }}">
+                                                <img class="img-responsive" alt="" src="{{ asset('frontend/assets/images/blank.gif') }}"
+                                                    data-echo="{{ asset('frontend/assets/images/products/p13.jpg') }}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
 
                                         <div class="single-product-gallery-item" id="slide7">
                                             <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p14.jpg">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p14.jpg" />
+                                                href="{{ asset('frontend/assets/images/products/p14.jpg') }}">
+                                                <img class="img-responsive" alt="" src="{{asset ('frontend/assets/images/blank.gif') }}"
+                                                    data-echo="{{asset ('frontend/assets/images/products/p14.jpg') }}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
 
@@ -477,7 +483,7 @@
                             </div><!-- /.gallery-holder -->
                             <div class='col-sm-6 col-md-7 product-info-block'>
                                 <div class="product-info">
-                                    <h1 class="name">Floral Print Buttoned</h1>
+                                    <h1 class="name">{{ session()->get('language')=='bangla'? $products->product_name_ban: $products->product_name_en }}</h1>
 
                                     <div class="rating-reviews m-t-20">
                                         <div class="row">
@@ -508,22 +514,30 @@
                                     </div><!-- /.stock-container -->
 
                                     <div class="description-container m-t-20">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                           {{ session()->get('language')=='bangla'? $products->short_descp_ban:$products->short_descp_en }}
                                     </div><!-- /.description-container -->
 
                                     <div class="price-container info-container m-t-20">
                                         <div class="row">
-
-
-                                            <div class="col-sm-6">
+                                          
+                                          @if($products->discount_price)
+                                          <div class="col-sm-6">
                                                 <div class="price-box">
-                                                    <span class="price">$800.00</span>
-                                                    <span class="price-strike">$900.00</span>
+                                                    <span class="price">{{ $products->selling_price-$products->discount_price }}</span>
+                                                    <span class="price-strike">{{ $products->selling_price }}</span>
                                                 </div>
                                             </div>
+                                          @else
+                                          <div class="col-sm-6">
+                                                <div class="price-box">
+                                                    <span class="price">{{ $products->selling_price }}</span>
+                                                 
+                                                </div>
+                                            </div>
+                                          @endif
+                                           
 
+                
                                             <div class="col-sm-6">
                                                 <div class="favorite-button m-t-10">
                                                     <a class="btn btn-primary" data-toggle="tooltip" data-placement="right"
@@ -602,19 +616,7 @@
 
                                     <div id="description" class="tab-pane in active">
                                         <div class="product-tab">
-                                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                                                anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat.<br><br> Duis aute irure dolor in
-                                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                                officia deserunt mollit anim id est laborum.</p>
+                                            <p class="text">{{ session()->get('language')=='bangla'? strip_tags($products->long_descp_ban):strip_tags($products->long_descp_en) }}</p>
                                         </div>
                                     </div><!-- /.tab-pane -->
 

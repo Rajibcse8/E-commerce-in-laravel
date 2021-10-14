@@ -1,4 +1,7 @@
 @extends('frontend.frontend_master')
+@section('title')
+Rajib's E-Commerce
+@endsection
 @section('content')
 
 <div class="body-content outer-top-xs" id="top-banner-and-menu">
