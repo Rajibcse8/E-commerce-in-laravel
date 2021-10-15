@@ -934,7 +934,7 @@ Rajib's E-Commerce
           <!-- ============================================== SCROLL TABS ============================================== -->
           <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
             <div class="more-info-tab clearfix ">
-              <h3 class="new-product-title pull-left">New Products</h3>
+              <h3 class="new-product-title pull-left">{{ session()->get('language')=='bangla'? 'নতুন পণ্য':'New Products' }}</h3>
               <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
                 <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">{{  session()->get('language')=='bangla' ? 'সব':'ALL'}}</a></li>
                 @foreach ($categories as $category)
@@ -1137,7 +1137,7 @@ Rajib's E-Commerce
           <!-- ============================================== WIDE PRODUCTS : END ============================================== --> 
           <!-- ============================================== FEATURED PRODUCTS ============================================== -->
           <section class="section featured-product wow fadeInUp">
-            <h3 class="section-title">Featured products</h3>
+            <h3 class="section-title">{{ session()->get('language')=='bangla'? 'ফিচার পণ্য': 'Featured products'}}</h3>
             <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
 
                @forelse ($featureds as $product )
