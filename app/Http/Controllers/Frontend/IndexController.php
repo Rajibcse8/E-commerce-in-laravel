@@ -26,8 +26,10 @@ class IndexController extends Controller
         $subsubcategories=SubSubCategory::OrderBy('subsubcategory_name_en','ASC')->get();
         $sliders=Slider::where('status',1)->OrderBy('id','DESC')->limit(3)->get();
         $products=Product::where('status',1)->OrderBy('id','DESC')->limit(3)->get();
+        $featureds=Product::where('status',1)->where('featured',1)->OrderBy('id','DESC')->limit(6)->get();
         
-       return view('frontend.index',compact('categories','subcategories','subsubcategories','sliders','products'));
+       return view('frontend.index',compact('categories','subcategories','subsubcategories','sliders','products',
+       'featureds'));
     }
 
     public function logout(){
@@ -92,9 +94,8 @@ class IndexController extends Controller
 
    public function ProductView($id){
        $products=Product::findOrFail($id);
-       $multiimgs=MultiImg::where('product_id',$id)->get();
-    //    var_dump($products);
-        return view('frontend.product.product_details',compact('products','multiimgs'));  
+       $multiimgs=MultiImg::where('product_id',$id)->get(); 
+       return view('frontend.product.product_details',compact('products','multiimgs'));  
    }
 
 
