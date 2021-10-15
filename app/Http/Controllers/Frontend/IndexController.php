@@ -14,6 +14,7 @@ use App\Models\SubCategory;
 use App\Models\SubSubCategory;
 use App\Models\Slider;
 use App\Models\Product;
+use App\Models\MultiImg;
 
 class IndexController extends Controller
 {
@@ -25,7 +26,7 @@ class IndexController extends Controller
         $subsubcategories=SubSubCategory::OrderBy('subsubcategory_name_en','ASC')->get();
         $sliders=Slider::where('status',1)->OrderBy('id','DESC')->limit(3)->get();
         $products=Product::where('status',1)->OrderBy('id','DESC')->limit(3)->get();
-
+        
        return view('frontend.index',compact('categories','subcategories','subsubcategories','sliders','products'));
     }
 
@@ -91,8 +92,9 @@ class IndexController extends Controller
 
    public function ProductView($id){
        $products=Product::findOrFail($id);
+       $multiimgs=MultiImg::where('product_id',$id)->get();
     //    var_dump($products);
-        return view('frontend.product.product_details',compact('products'));  
+        return view('frontend.product.product_details',compact('products','multiimgs'));  
    }
 
 

@@ -1,6 +1,6 @@
 @extends('frontend.frontend_master')
 @section('title')
-  {{ $products->product_name_en }}
+    {{ $products->product_name_en }}
 @endsection
 @section('content')
 
@@ -266,15 +266,18 @@
                         <!-- ============================================== NEWSLETTER: END ============================================== -->
 
                         <!-- ============================================== Testimonials============================================== -->
-                        <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
+                        {{-- <div class="sidebar-widget  wow fadeInUp outer-top-vs">
                             <div id="advertisement" class="advertisement">
                                 <div class="item">
                                     <div class="avatar"><img
                                             src="{{ asset('frontend/assets/images/testimonials/member1.png') }}"
-                                            alt="Image"></div>
+                                            alt="Image">
+                                    </div>
                                     <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
-                                        mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                    <div class="clients_author">John Doe <span>Abc Company</span> </div>
+                                        mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em>
+                                    </div>
+                                    <div class="clients_author">John Doe <span>Abc Company</span> 
+                                    </div>
                                     <!-- /.container-fluid -->
                                 </div><!-- /.item -->
 
@@ -288,7 +291,8 @@
                                 </div><!-- /.item -->
 
                                 <div class="item">
-                                    <div class="avatar"><img src="assets/images/testimonials/member2.png"
+                                    <div class="avatar"><img
+                                            src="{{ asset('frontend/assets/images/testimonials/member2.png') }}"
                                             alt="Image"></div>
                                     <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
                                         mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
@@ -297,7 +301,7 @@
                                 </div><!-- /.item -->
 
                             </div><!-- /.owl-carousel -->
-                        </div>
+                        </div> --}}
 
                         <!-- ============================================== Testimonials: END ============================================== -->
 
@@ -315,77 +319,18 @@
                                 <div class="product-item-holder size-big single-product-gallery small-gallery">
 
                                     <div id="owl-single-product">
-                                        <div class="single-product-gallery-item" id="slide1">
+                                        @foreach ($multiimgs as $img )
+                                             
+                                        <div class="single-product-gallery-item" id="slide{{ $img->id }}">
                                             <a data-lightbox="image-1" data-title="Gallery"
-                                                href="{{ asset('frontend/assets/images/products/p8.jpg') }}">
-                                                <img class="img-responsive" alt="" src="{{ asset('frontend/assets/images/blank.gif') }}"
-                                                    data-echo="{{ asset('frontend/assets/images/products/p8.jpg') }}" />
+                                                href="{{ asset($img->image_name) }}">
+                                                <img class="img-responsive" alt=""
+                                                    src="{{ asset($img->image_name) }}"
+                                                    data-echo="{{ asset($img->image_name) }}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
+                                        @endforeach
 
-                                        <div class="single-product-gallery-item" id="slide2">
-                                            <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p9.jpg">
-                                                <img class="img-responsive" alt="" src="{{ asset('frontend/assets/images/blank.gif') }}"
-                                                    data-echo="{{ asset('frontend/assets/images/products/p9.jpg') }}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
-
-                                        <div class="single-product-gallery-item" id="slide3">
-                                            <a data-lightbox="image-1" data-title="Gallery"
-                                                href="{{ asset('frontend/assets/images/products/p10.jpg') }}">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="{{asset ('frontend/assets/images/products/p10.jpg') }}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
-
-                                        <div class="single-product-gallery-item" id="slide4">
-                                            <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p11.jpg">
-                                                <img class="img-responsive" alt="" src="{{ asset('frontend/assets/images/blank.gif') }}"
-                                                    data-echo="{{asset ('frontend/assets/images/products/p11.jpg') }}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
-
-                                        <div class="single-product-gallery-item" id="slide5">
-                                            <a data-lightbox="image-1" data-title="Gallery"
-                                                href="{{asset ('frontend/assets/images/products/p12.jpg') }}">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="{{asset ('frontend/assets/images/products/p12.jpg') }}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
-
-                                        <div class="single-product-gallery-item" id="slide6">
-                                            <a data-lightbox="image-1" data-title="Gallery"
-                                                href="{{asset ('frontend/assets/images/products/p13.jpg') }}">
-                                                <img class="img-responsive" alt="" src="{{ asset('frontend/assets/images/blank.gif') }}"
-                                                    data-echo="{{ asset('frontend/assets/images/products/p13.jpg') }}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
-
-                                        <div class="single-product-gallery-item" id="slide7">
-                                            <a data-lightbox="image-1" data-title="Gallery"
-                                                href="{{ asset('frontend/assets/images/products/p14.jpg') }}">
-                                                <img class="img-responsive" alt="" src="{{asset ('frontend/assets/images/blank.gif') }}"
-                                                    data-echo="{{asset ('frontend/assets/images/products/p14.jpg') }}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
-
-                                        <div class="single-product-gallery-item" id="slide8">
-                                            <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p15.jpg">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p15.jpg" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
-
-                                        <div class="single-product-gallery-item" id="slide9">
-                                            <a data-lightbox="image-1" data-title="Gallery"
-                                                href="assets/images/products/p16.jpg">
-                                                <img class="img-responsive" alt="" src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/p16.jpg" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
 
                                     </div><!-- /.single-product-slider -->
 
@@ -393,86 +338,16 @@
                                     <div class="single-product-gallery-thumbs gallery-thumbs">
 
                                         <div id="owl-single-product-thumbnails">
+                                            @foreach ( $multiimgs as $img )
                                             <div class="item">
                                                 <a class="horizontal-thumb active" data-target="#owl-single-product"
-                                                    data-slide="1" href="#slide1">
+                                                    data-slide="1" href="#slide{{ $img->id }}">
                                                     <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p17.jpg" />
+                                                        src="{{asset ($img->image_name) }}"
+                                                        data-echo="{{asset ($img->image_name) }}" />
                                                 </a>
                                             </div>
-
-                                            <div class="item">
-                                                <a class="horizontal-thumb" data-target="#owl-single-product"
-                                                    data-slide="2" href="#slide2">
-                                                    <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p18.jpg" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product"
-                                                    data-slide="3" href="#slide3">
-                                                    <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p19.jpg" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product"
-                                                    data-slide="4" href="#slide4">
-                                                    <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p20.jpg" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product"
-                                                    data-slide="5" href="#slide5">
-                                                    <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p21.jpg" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product"
-                                                    data-slide="6" href="#slide6">
-                                                    <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p22.jpg" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product"
-                                                    data-slide="7" href="#slide7">
-                                                    <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p23.jpg" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product"
-                                                    data-slide="8" href="#slide8">
-                                                    <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p24.jpg" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product"
-                                                    data-slide="9" href="#slide9">
-                                                    <img class="img-responsive" width="85" alt=""
-                                                        src="assets/images/blank.gif"
-                                                        data-echo="assets/images/products/p25.jpg" />
-                                                </a>
-                                            </div>
+                                            @endforeach
                                         </div><!-- /#owl-single-product-thumbnails -->
 
 
@@ -483,7 +358,9 @@
                             </div><!-- /.gallery-holder -->
                             <div class='col-sm-6 col-md-7 product-info-block'>
                                 <div class="product-info">
-                                    <h1 class="name">{{ session()->get('language')=='bangla'? $products->product_name_ban: $products->product_name_en }}</h1>
+                                    <h1 class="name">
+                                        {{ session()->get('language') == 'bangla' ? $products->product_name_ban : $products->product_name_en }}
+                                    </h1>
 
                                     <div class="rating-reviews m-t-20">
                                         <div class="row">
@@ -514,30 +391,33 @@
                                     </div><!-- /.stock-container -->
 
                                     <div class="description-container m-t-20">
-                                           {{ session()->get('language')=='bangla'? $products->short_descp_ban:$products->short_descp_en }}
+                                        {{ session()->get('language') == 'bangla' ? $products->short_descp_ban : $products->short_descp_en }}
                                     </div><!-- /.description-container -->
 
                                     <div class="price-container info-container m-t-20">
                                         <div class="row">
-                                          
-                                          @if($products->discount_price)
-                                          <div class="col-sm-6">
-                                                <div class="price-box">
-                                                    <span class="price">{{ $products->selling_price-$products->discount_price }}</span>
-                                                    <span class="price-strike">{{ $products->selling_price }}</span>
-                                                </div>
-                                            </div>
-                                          @else
-                                          <div class="col-sm-6">
-                                                <div class="price-box">
-                                                    <span class="price">{{ $products->selling_price }}</span>
-                                                 
-                                                </div>
-                                            </div>
-                                          @endif
-                                           
 
-                
+                                            @if ($products->discount_price)
+                                                <div class="col-sm-6">
+                                                    <div class="price-box">
+                                                        <span
+                                                            class="price">{{ $products->selling_price - $products->discount_price }}</span>
+                                                        <span
+                                                            class="price-strike">{{ $products->selling_price }}</span>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <div class="col-sm-6">
+                                                    <div class="price-box">
+                                                        <span
+                                                            class="price">{{ $products->selling_price }}</span>
+
+                                                    </div>
+                                                </div>
+                                            @endif
+
+
+
                                             <div class="col-sm-6">
                                                 <div class="favorite-button m-t-10">
                                                     <a class="btn btn-primary" data-toggle="tooltip" data-placement="right"
@@ -616,7 +496,9 @@
 
                                     <div id="description" class="tab-pane in active">
                                         <div class="product-tab">
-                                            <p class="text">{{ session()->get('language')=='bangla'? strip_tags($products->long_descp_ban):strip_tags($products->long_descp_en) }}</p>
+                                            <p class="text">
+                                                {{ session()->get('language') == 'bangla' ? strip_tags($products->long_descp_ban) : strip_tags($products->long_descp_en) }}
+                                            </p>
                                         </div>
                                     </div><!-- /.tab-pane -->
 
@@ -1146,30 +1028,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- ==== ================== BRANDS CAROUSEL ============================================== -->
-            @include('frontend.body.footer')
+             {{-- @include('frontend.body.footer')--}}
             <!-- == = BRANDS CAROUSEL : END = -->
         </div><!-- /.container -->
     </div><!-- /.body-content -->
