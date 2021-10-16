@@ -30,9 +30,12 @@ class IndexController extends Controller
         $hot_deals=Product::where('status',1)->where('featured',1)->OrderBy('id','DESC')->limit(6)->get();
         $special_offer=Product::where('status',1)->where('special_offer',1)->OrderBy('id','DESC')->limit(6)->get();
         $special_deals=Product::where('status',1)->where('special_deals',1)->OrderBy('id','DESC')->limit(6)->get();
-        
+        $skip_category_0=Category::skip(0)->first();
+        $skip_product_0=Product::where('status',1)->where('category_id',$skip_category_0->id)->OrderBY('id','DESC')->get();
+
+
        return view('frontend.index',compact('categories','subcategories','subsubcategories','sliders','products',
-       'featureds','hot_deals','special_offer','special_deals'));
+       'featureds','hot_deals','special_offer','special_deals','skip_category_0','skip_product_0'));
     }
 
     public function logout(){

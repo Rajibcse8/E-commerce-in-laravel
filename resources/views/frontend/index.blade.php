@@ -810,6 +810,79 @@ Rajib's E-Commerce
           </div>
           <!-- /.wide-banners --> 
           <!-- ============================================== WIDE PRODUCTS : END ============================================== --> 
+
+
+                <!-- ============================================== Category Wise PRODUCTS ============================================== -->
+                <section class="section featured-product wow fadeInUp">
+                  <h3 class="section-title">{{ session()->get('language')=='bangla'? $skip_category_0->category_name_ban.' পণ্য': $skip_category_0->category_name_en.' Product'}}</h3>
+                  <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+      
+                     @forelse ($skip_product_0 as $product )
+                     <div class="item item-carousel">
+                      <div class="products">
+                        <div class="product">
+                          <div class="product-image">
+                            <div class="image"> <a href="{{ route('product.details',$product->id) }}"> <img  src="{{asset ($product->product_thumbnail	) }}" alt=""></a> </div>
+                            <!-- /.image -->
+                            
+                            @php
+                            $discount=round(($product->discount_price/$product->selling_price)*100)
+                          @endphp
+                          
+                          <div class="tag new"><span>{{ $product->discount_price =='NULL' ? 'NEW' :$discount.'%' }}</span></div>
+                          </div>
+                          <!-- /.product-image -->
+                          
+                          <div class="product-info text-left">
+                            <h3 class="name"><a href="{{ route('product.details',$product->id) }}">{{ session()->get('language')=='bangla' ? $product->product_name_ban:$product->product_name_en }}</a></h3>
+                            <div class="rating rateit-small"></div>
+                            <div class="description"></div>
+                            @if($product->discount_price)
+                            <div class="product-price"> <span class="price"> {{ $product->selling_price-$product->discount_price }} </span> <span class="price-before-discount">{{ $product->selling_price }}</span> </div>
+                            <!-- /.product-price --> 
+                            @else
+                            <div class="product-price"> <span class="price"> {{ $product->selling_price }} </span> </div>
+      
+                            @endif
+                            <!-- /.product-price --> 
+                            
+                          </div>
+                          <!-- /.product-info -->
+                          <div class="cart clearfix animate-effect">
+                            <div class="action">
+                              <ul class="list-unstyled">
+                                <li class="add-cart-button btn-group">
+                                  <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
+                                  <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                </li>
+                                <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+                              </ul>
+                            </div>
+                            <!-- /.action --> 
+                          </div>
+                          <!-- /.cart --> 
+                        </div>
+                        <!-- /.product --> 
+                        
+                      </div>
+                      <!-- /.products --> 
+                    </div>
+                     @empty
+                       <h5 class="text text-danger">No Product Found</h5>
+                     @endforelse
+                    
+                    <!-- /.item -->
+                    
+                  
+                    
+                 
+                  </div>
+                  <!-- /.home-owl-carousel --> 
+                </section>
+                <!-- /.section --> 
+                <!-- ============================================== Category Wise  PRODUCTS : END ============================================== --> 
+
           <!-- ============================================== BEST SELLER ============================================== -->
           
           <div class="best-deal wow fadeInUp outer-bottom-xs">
