@@ -102,6 +102,14 @@ class IndexController extends Controller
        $products=Product::findOrFail($id);
        $multiimgs=MultiImg::where('product_id',$id)->get(); 
        return view('frontend.product.product_details',compact('products','multiimgs'));  
+   }//end function----------------------------------------------------------------------
+
+   public function ProductTagsView($tags){
+
+       $products=Product::where('product_tag_en',$tags)->where('product_tag_ban',$tags)->
+       OrderBY('id','DESC')->get();
+
+       return view('frontend.product.tagwise_product_view',compact('products'));
    }
 
 

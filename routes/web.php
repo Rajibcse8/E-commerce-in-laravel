@@ -160,7 +160,7 @@ Route::post('user/profile/update',[IndexController::class,'userprofileupdate'])-
 Route::get('user/change/password',[IndexController::class,'userpasswordchange'])->name('user.change.password');
 Route::post('user/password/update',[IndexController::class,'Updatepass'])->name('user.password.update');
 //Product-view-Route-------------------------------
-Route::get('product/view/{id}',[IndexController::class,'ProductView'])->name('product.details');
+
 
 
 
@@ -169,5 +169,7 @@ Route::get('product/view/{id}',[IndexController::class,'ProductView'])->name('pr
 
 Route::get('/language/bangla',[LanguageController::class,'Bangla'])->name('bangla.language');
 Route::get('/language/english',[LanguageController::class,'English'])->name('english.language');
+Route::get('product/view/{id}',[IndexController::class,'ProductView'])->name('product.details');
+Route::get('product/tag/view/{tags}',[IndexController::class,'ProductTagsView'])->name('tagwise.product.view');
 
 //--------------------------------------------------------------------------------------------------------

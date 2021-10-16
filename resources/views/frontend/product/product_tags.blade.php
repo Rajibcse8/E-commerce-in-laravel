@@ -16,13 +16,13 @@ $product_tag_ban = App\Models\Product::groupBy('product_tag_ban')
 
         <div class="tag-list">
             @if(session()->get('language')=='bangla')
-            @foreach ($product_tag_en as $tag)
-            <a class="item" title="Phone" href="category.html">{{ str_replace(',','',$tag->product_tag_en) }}</a>
+            @foreach ($product_tag_ban as $tag)
+            <a class="item active"  title="Phone" href="{{ route('tagwise.product.view',$tag->product_tag_ban) }}">{{ str_replace(',','',$tag->product_tag_ban) }}</a>
     
             @endforeach
             @else
-            @foreach ($product_tag_ban as $tag)
-            <a class="item" title="Phone" href="category.html">{{ $tag->product_tag_ban }}</a>
+            @foreach ($product_tag_en as $tag)
+            <a class="item active" title="Phone" href="{{ route('tagwise.product.view',$tag->product_tag_en) }}">{{ str_replace(',','',$tag->product_tag_en)  }}</a>
     
             @endforeach
 
