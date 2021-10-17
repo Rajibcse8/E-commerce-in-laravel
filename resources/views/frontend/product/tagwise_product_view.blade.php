@@ -31,20 +31,35 @@ Tags Wise Product Show
               <div class="sidebar-widget wow fadeInUp">
                 <h3 class="section-title">shop by</h3>
                 <div class="widget-header">
-                  <h4 class="widget-title">Category</h4>
+                  <h4 class="widget-title">{{ session()->get('language')=='bangla'? 'ক্যাটাগরি' : 'Category' }}</h4>
                 </div>
                 <div class="sidebar-widget-body">
                   <div class="accordion">
+                    @foreach ($categories as $category)
+
+                   
+                   
+                        
+                      
+ 
                     <div class="accordion-group">
-                      <div class="accordion-heading"> <a href="#collapseOne" data-toggle="collapse" class="accordion-toggle collapsed"> Camera </a> </div>
+                      <div class="accordion-heading"> <a href="#collapse{{ $category->id }}" data-toggle="collapse" class="accordion-toggle collapsed"> {{ session()->get('language')=='bangla'? $category->category_name_ban : $category->category_name_en }} </a> </div>
                       <!-- /.accordion-heading -->
-                      <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
+                      @php
+                      $sub_categories=App\Models\SubCategory::where('category_id',$category->id)->OrderBy('subcategory_name_en','ASC')->get();
+                    @endphp
+
+                      <div class="accordion-body collapse" id="collapse{{ $category->id }}" style="height: 0px;">
+
                         <div class="accordion-inner">
                           <ul>
-                            <li><a href="#">gaming</a></li>
-                            <li><a href="#">office</a></li>
-                            <li><a href="#">kids</a></li>
-                            <li><a href="#">for women</a></li>
+                           @foreach($sub_categories as $sub_category)
+                           <li><a href="#">{{ session()->get('language')=='bangla'? $sub_category->subcategory_name_ban:$sub_category->subcategory_name_en }}</a></li>
+                             
+                           @endforeach
+                           
+
+                           
                           </ul>
                         </div>
                         <!-- /.accordion-inner --> 
@@ -52,96 +67,11 @@ Tags Wise Product Show
                       <!-- /.accordion-body --> 
                     </div>
                     <!-- /.accordion-group -->
+                    @endforeach
+                  
                     
-                    <div class="accordion-group">
-                      <div class="accordion-heading"> <a href="#collapseTwo" data-toggle="collapse" class="accordion-toggle collapsed"> Desktops </a> </div>
-                      <!-- /.accordion-heading -->
-                      <div class="accordion-body collapse" id="collapseTwo" style="height: 0px;">
-                        <div class="accordion-inner">
-                          <ul>
-                            <li><a href="#">gaming</a></li>
-                            <li><a href="#">office</a></li>
-                            <li><a href="#">kids</a></li>
-                            <li><a href="#">for women</a></li>
-                          </ul>
-                        </div>
-                        <!-- /.accordion-inner --> 
-                      </div>
-                      <!-- /.accordion-body --> 
-                    </div>
-                    <!-- /.accordion-group -->
                     
-                    <div class="accordion-group">
-                      <div class="accordion-heading"> <a href="#collapseThree" data-toggle="collapse" class="accordion-toggle collapsed"> Pants </a> </div>
-                      <!-- /.accordion-heading -->
-                      <div class="accordion-body collapse" id="collapseThree" style="height: 0px;">
-                        <div class="accordion-inner">
-                          <ul>
-                            <li><a href="#">gaming</a></li>
-                            <li><a href="#">office</a></li>
-                            <li><a href="#">kids</a></li>
-                            <li><a href="#">for women</a></li>
-                          </ul>
-                        </div>
-                        <!-- /.accordion-inner --> 
-                      </div>
-                      <!-- /.accordion-body --> 
-                    </div>
-                    <!-- /.accordion-group -->
-                    
-                    <div class="accordion-group">
-                      <div class="accordion-heading"> <a href="#collapseFour" data-toggle="collapse" class="accordion-toggle collapsed"> Bags </a> </div>
-                      <!-- /.accordion-heading -->
-                      <div class="accordion-body collapse" id="collapseFour" style="height: 0px;">
-                        <div class="accordion-inner">
-                          <ul>
-                            <li><a href="#">gaming</a></li>
-                            <li><a href="#">office</a></li>
-                            <li><a href="#">kids</a></li>
-                            <li><a href="#">for women</a></li>
-                          </ul>
-                        </div>
-                        <!-- /.accordion-inner --> 
-                      </div>
-                      <!-- /.accordion-body --> 
-                    </div>
-                    <!-- /.accordion-group -->
-                    
-                    <div class="accordion-group">
-                      <div class="accordion-heading"> <a href="#collapseFive" data-toggle="collapse" class="accordion-toggle collapsed"> Hats </a> </div>
-                      <!-- /.accordion-heading -->
-                      <div class="accordion-body collapse" id="collapseFive" style="height: 0px;">
-                        <div class="accordion-inner">
-                          <ul>
-                            <li><a href="#">gaming</a></li>
-                            <li><a href="#">office</a></li>
-                            <li><a href="#">kids</a></li>
-                            <li><a href="#">for women</a></li>
-                          </ul>
-                        </div>
-                        <!-- /.accordion-inner --> 
-                      </div>
-                      <!-- /.accordion-body --> 
-                    </div>
-                    <!-- /.accordion-group -->
-                    
-                    <div class="accordion-group">
-                      <div class="accordion-heading"> <a href="#collapseSix" data-toggle="collapse" class="accordion-toggle collapsed"> Accessories </a> </div>
-                      <!-- /.accordion-heading -->
-                      <div class="accordion-body collapse" id="collapseSix" style="height: 0px;">
-                        <div class="accordion-inner">
-                          <ul>
-                            <li><a href="#">gaming</a></li>
-                            <li><a href="#">office</a></li>
-                            <li><a href="#">kids</a></li>
-                            <li><a href="#">for women</a></li>
-                          </ul>
-                        </div>
-                        <!-- /.accordion-inner --> 
-                      </div>
-                      <!-- /.accordion-body --> 
-                    </div>
-                    <!-- /.accordion-group --> 
+                   
                     
                   </div>
                   <!-- /.accordion --> 
@@ -220,17 +150,12 @@ Tags Wise Product Show
               <!-- /.sidebar-widget --> 
               <!-- ============================================== COMPARE: END ============================================== --> 
               <!-- ============================================== PRODUCT TAGS ============================================== -->
-              <div class="sidebar-widget product-tag wow fadeInUp outer-top-vs">
-                <h3 class="section-title">Product tags</h3>
-                <div class="sidebar-widget-body outer-top-xs">
-                  <div class="tag-list"> <a class="item" title="Phone" href="category.html">Phone</a> <a class="item active" title="Vest" href="category.html">Vest</a> <a class="item" title="Smartphone" href="category.html">Smartphone</a> <a class="item" title="Furniture" href="category.html">Furniture</a> <a class="item" title="T-shirt" href="category.html">T-shirt</a> <a class="item" title="Sweatpants" href="category.html">Sweatpants</a> <a class="item" title="Sneaker" href="category.html">Sneaker</a> <a class="item" title="Toys" href="category.html">Toys</a> <a class="item" title="Rose" href="category.html">Rose</a> </div>
-                  <!-- /.tag-list --> 
-                </div>
-                <!-- /.sidebar-widget-body --> 
-              </div>
+              @include('frontend.product.product_tags')
               <!-- /.sidebar-widget --> 
             <!----------- Testimonials------------->
-              <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
+
+
+              {{-- <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
                 <div id="advertisement" class="advertisement">
                   <div class="item">
                     <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image"></div>
@@ -258,7 +183,9 @@ Tags Wise Product Show
                 </div>
                 <!-- /.owl-carousel --> 
               </div>
-              
+               --}}
+
+               
               <!-- ============================================== Testimonials: END ============================================== -->
               
               <div class="home-banner"> <img src="assets/images/banners/LHS-banner.jpg" alt="Image"> </div>

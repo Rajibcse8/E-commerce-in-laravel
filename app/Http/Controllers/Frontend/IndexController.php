@@ -108,8 +108,9 @@ class IndexController extends Controller
 
        $products=Product::where('product_tag_en',$tags)->where('product_tag_ban',$tags)->
        OrderBY('id','DESC')->get();
+       $categories=Category::OrderBy('category_name_en','ASC')->get();
 
-       return view('frontend.product.tagwise_product_view',compact('products'));
+       return view('frontend.product.tagwise_product_view',compact('products','categories'));
    }
 
 
