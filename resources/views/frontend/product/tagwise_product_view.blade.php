@@ -188,7 +188,7 @@ Tags Wise Product Show
                
               <!-- ============================================== Testimonials: END ============================================== -->
               
-              <div class="home-banner"> <img src="assets/images/banners/LHS-banner.jpg" alt="Image"> </div>
+              <div class="home-banner"> <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image"> </div>
             </div>
             <!-- /.sidebar-filter --> 
           </div>
@@ -200,7 +200,7 @@ Tags Wise Product Show
           
           <div id="category" class="category-carousel hidden-xs">
             <div class="item">
-              <div class="image"> <img src="assets/images/banners/cat-banner-1.jpg" alt="" class="img-responsive"> </div>
+              <div class="image"> <img src="{{ asset ('frontend/assets/images/banners/cat-banner-1.jpg') }}" alt="" class="img-responsive"> </div>
               <div class="container-fluid">
                 <div class="caption vertical-top text-left">
                   <div class="big-text"> Big Sale </div>
@@ -297,7 +297,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p5.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p5.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag new"><span>new</span></div>
@@ -339,7 +339,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p1.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p1.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag sale"><span>sale</span></div>
@@ -381,7 +381,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p6.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p6.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag hot"><span>hot</span></div>
@@ -423,7 +423,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p6.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p6.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag hot"><span>hot</span></div>
@@ -465,7 +465,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p7.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p7.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag sale"><span>sale</span></div>
@@ -507,7 +507,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p8.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p8.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag new"><span>new</span></div>
@@ -549,7 +549,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p9.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{ asset('frontend/assets/images/products/p9.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag new"><span>new</span></div>
@@ -591,7 +591,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p10.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p10.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag sale"><span>sale</span></div>
@@ -633,7 +633,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p2.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p2.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag hot"><span>hot</span></div>
@@ -675,7 +675,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p11.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p11.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag new"><span>new</span></div>
@@ -717,7 +717,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p12.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p12.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag sale"><span>sale</span></div>
@@ -759,7 +759,7 @@ Tags Wise Product Show
                       <div class="products">
                         <div class="product">
                           <div class="product-image">
-                            <div class="image"> <a href="detail.html"><img  src="assets/images/products/p14.jpg" alt=""></a> </div>
+                            <div class="image"> <a href="detail.html"><img  src="{{asset ('frontend/assets/images/products/p14.jpg') }}" alt=""></a> </div>
                             <!-- /.image -->
                             
                             <div class="tag hot"><span>hot</span></div>
@@ -812,7 +812,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p3.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{ asset ('frontend/assets/images/products/p3.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -859,7 +859,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p4.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{ asset('frontend/assets/images/products/p4.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -906,7 +906,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p5.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{ asset('frontend/assets/images/products/p5.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -953,7 +953,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p6.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{asset ('frontend/assets/images/products/p6.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -1000,7 +1000,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p7.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{ asset('frontend/assets/images/products/p7.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -1047,7 +1047,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p8.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{asset ('frontend/assets/images/products/p8.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -1094,7 +1094,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p9.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{asset ('frontend/assets/images/products/p9.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -1141,7 +1141,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p10.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{asset ('frontend/assets/images/products/p10.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -1188,7 +1188,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p11.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{asset ('frontend/assets/images/products/p11.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -1235,7 +1235,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p12.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{asset ('frontend/assets/images/products/p12.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -1282,7 +1282,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p13.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{asset ('frontend/assets/images/products/p13.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
@@ -1329,7 +1329,7 @@ Tags Wise Product Show
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="assets/images/products/p14.jpg" alt=""> </div>
+                              <div class="image"> <img src="{{asset ('frontend/assets/images/products/p14.jpg') }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
