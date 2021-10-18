@@ -368,24 +368,37 @@ Tags Wise Product Show
               <div class="tab-pane "  id="list-container">
                 <div class="category-product">
 
+                  @foreach ($products as $product)
+
+                      @php
+                             
+                       $discount=round(($product->discount_price/$product->selling_price)*100)
+                      @endphp
+
                   <div class="category-product-inner wow fadeInUp">
                     <div class="products">
                       <div class="product-list product">
                         <div class="row product-list-row">
                           <div class="col col-sm-4 col-lg-4">
                             <div class="product-image">
-                              <div class="image"> <img src="{{ asset ('frontend/assets/images/products/p3.jpg') }}" alt=""> </div>
+                              <div class="image"> <img src="{{ asset ($product->product_thumbnail) }}" alt=""> </div>
                             </div>
                             <!-- /.product-image --> 
                           </div>
                           <!-- /.col -->
                           <div class="col col-sm-8 col-lg-8">
                             <div class="product-info">
-                              <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                              <h3 class="name"><a href="{{ route('product.details',$product->id) }}">{{ session()->get('language')=='bangla'? $product->product_name_ban: $product->product_name_en}}</a></h3>
                               <div class="rating rateit-small"></div>
-                              <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+                              @if($product->discount_price)
+                           
+                              <div class="product-price"> <span class="price"> {{ $product->selling_price-$product->discount_price }} </span> <span class="price-before-discount">{{ $product->selling_price }}</span> </div>
+                              @else
+                              <div class="product-price"> <span class="price"> {{ $product->selling_price }} </span> </div>
+  
+                              @endif
                               <!-- /.product-price -->
-                              <div class="description m-t-10">Suspendisse posuere arcu diam, id accumsan eros pharetra ac. Nulla enim risus, facilisis bibendum gravida eget, lacinia id purus. Suspendisse posuere arcu diam, id accumsan eros pharetra ac. Nulla enim risus, facilisis bibendum gravida eget.</div>
+                              <div class="description m-t-10">{{ session()->get('language')=='bangla'? $product->short_descp_ban: $product->short_descp_en}}</div>
                               <div class="cart clearfix animate-effect">
                                 <div class="action">
                                   <ul class="list-unstyled">
@@ -407,13 +420,17 @@ Tags Wise Product Show
                           <!-- /.col --> 
                         </div>
                         <!-- /.product-list-row -->
-                        <div class="tag new"><span>new</span></div>
+                        <div class="tag new"><span>{{ $product->discount_price!=NULL ? $discount.'%' :'New' }}</span></div>
                       </div>
                       <!-- /.product-list --> 
                     </div>
                     <!-- /.products --> 
                   </div>
                   <!-- /.category-product-inner -->
+                    
+                  @endforeach
+
+                
                   
           
              
