@@ -272,17 +272,7 @@ Tags Wise Product Show
               </div>
               <!-- /.col -->
               <div class="col col-sm-6 col-md-4 text-right">
-                <div class="pagination-container">
-                  <ul class="list-inline list-unstyled">
-                    <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                    <li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                  </ul>
-                  <!-- /.list-inline --> 
-                </div>
+               
                 <!-- /.pagination-container --> 
               </div>
               <!-- /.col --> 
@@ -293,6 +283,10 @@ Tags Wise Product Show
 
           <div class="search-result-container ">
             <div id="myTabContent" class="tab-content category-list">
+
+                <!------------------------------------Product Grid View Start--------------------------------------->
+
+
               <div class="tab-pane active " id="grid-container">
                 <div class="category-product">
                   <div class="row">
@@ -362,7 +356,7 @@ Tags Wise Product Show
                 
               </div>
               <!-- /.tab-pane -->
-
+        <!------------------------------------Product Grid View End---------------------------------------> 
       <!------------------------------------Product List View Start--------------------------------------->
               
               <div class="tab-pane "  id="list-container">
@@ -451,12 +445,8 @@ Tags Wise Product Show
               <div class="text-right">
                 <div class="pagination-container">
                   <ul class="list-inline list-unstyled">
-                    <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                    <li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+               
+                    {{ $products->links() }}
                   </ul>
                   <!-- /.list-inline --> 
                 </div>

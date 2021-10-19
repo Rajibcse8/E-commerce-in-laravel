@@ -109,7 +109,7 @@ class IndexController extends Controller
    
 
        $products=Product::where('status',1)->where('product_tag_en',$tags)->
-       orderBY('id','DESC')->get();
+       orderBY('id','DESC')->paginate(4)->get();
 
     //    dd(var_dump($products));
 
