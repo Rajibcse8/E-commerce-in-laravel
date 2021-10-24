@@ -107,7 +107,6 @@ class IndexController extends Controller
    public function ProductTagsView($tags){
 
    
-
        $products=Product::where('status',1)->where('product_tag_en',$tags)->
        orderBY('id','DESC')->paginate(4)->get();
 
@@ -116,6 +115,15 @@ class IndexController extends Controller
        $categories=Category::OrderBy('category_name_en','ASC')->get();
 
        return view('frontend.product.tagwise_product_view',compact('products','categories'));
+   }//----------------------------------------------------------end-function
+
+   public  function ProductSubCategoryView($id){
+
+    $products=Product::where('status',1)->where('subcategory_id',$id)->OrderBy('product_name_en','ASC')->paginate(3);
+    $categories=Category::OrderBy('category_name_en','ASC')->get();
+
+    return view('frontend.product.subcategory_view',compact('products','categories'));
+
    }
 
 

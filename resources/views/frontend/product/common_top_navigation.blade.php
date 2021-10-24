@@ -22,7 +22,9 @@
                  
               
                 <div class="col-sm-12 col-md-3">
-                  <h2 class="title">{{ session()->get('language')=='bangla'? $subcategory->subcategory_name_ban: $subcategory->subcategory_name_en }}</h2>
+                  <a href="{{ route('subcategory.product.view',$subcategory->id) }}">
+                     <h2 class="title">{{ session()->get('language')=='bangla'? $subcategory->subcategory_name_ban: $subcategory->subcategory_name_en }}</h2>
+                  </a>
 
                   @php
                     $subsub=App\Models\SubSubCategory::where('subcategory_id',$subcategory->id)->OrderBy('subsubcategory_name_en','ASC')->get();
