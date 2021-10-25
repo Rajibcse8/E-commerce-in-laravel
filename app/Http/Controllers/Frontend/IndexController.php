@@ -119,10 +119,18 @@ class IndexController extends Controller
 
    public  function ProductSubCategoryView($id){
 
-    $products=Product::where('status',1)->where('subcategory_id',$id)->OrderBy('product_name_en','ASC')->paginate(3);
-    $categories=Category::OrderBy('category_name_en','ASC')->get();
+    $products=Product::where('status',1)->where('subcategory_id',$id)->
+    orderBY('id','DESC')->paginate(4);
 
-    return view('frontend.product.subcategory_view',compact('products','categories'));
+    
+     
+     $categories=Category::OrderBy('category_name_en','ASC')->get();
+     $subcategory=SubCategory::find($id);
+   
+
+     return view('frontend.product.subcategory_view',compact('products','categories','subcategory'));
+
+  
 
    }
 
