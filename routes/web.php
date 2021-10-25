@@ -172,5 +172,6 @@ Route::get('/language/english',[LanguageController::class,'English'])->name('eng
 Route::get('product/view/{id}',[IndexController::class,'ProductView'])->name('product.details');
 Route::get('product/tag/view/{tags}',[IndexController::class,'ProductTagsView'])->name('tagwise.product.view');
 Route::get('subcategory/product/view/{id}',[IndexController::class,'ProductSubCategoryView'])->name('subcategory.product.view');
+Route::get('subsubcategory/product/view/{id}',[IndexController::class,'ProductSubSubCategoryView'])->name('subsubcategory.product.view');
 
 //--------------------------------------------------------------------------------------------------------

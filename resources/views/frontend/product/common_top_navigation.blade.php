@@ -32,8 +32,11 @@
                   @foreach ($subsub as $subsubcategory)
               
                   <ul class="links list-unstyled">
-                    <li><a href="#">{{ session()->get('language')=='bangla'?  $subsubcategory->subsubcategory_name_ban:
+
+                    
+                    <li><a href="{{ route('subsubcategory.product.view',$subsubcategory->id) }}">{{ session()->get('language')=='bangla'?  $subsubcategory->subsubcategory_name_ban:
                     $subsubcategory->subsubcategory_name_en }}</a></li>
+                    
                     
                   </ul>
                   @endforeach
