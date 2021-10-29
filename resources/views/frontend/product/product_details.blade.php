@@ -438,6 +438,53 @@
                                         </div><!-- /.row -->
                                     </div><!-- /.price-container -->
 
+                 {{---- -----------product by color and size start ---------------------}}
+
+                  <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+							<label class="info-title control-label">Chose color <span>*</span></label>
+							<select class="form-control unicase-form-control selectpicker" style="display: none;">
+								<option>--Select color--</option>
+							     @if(session()->get('language')=='bangla')
+                                 @foreach ($product_color_ban as $color)
+                                     <option value="">{{ $color }}</option>
+                                 @endforeach
+
+                                 @else
+                                 @foreach ($product_color_en as $color)
+                                 <option value="">{{ $color }}</option>
+                             @endforeach
+
+                                 @endif
+							</select>
+						</div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <div class="form-group">
+							<label class="info-title control-label">Chose Size <span>*</span></label>
+							<select class="form-control unicase-form-control selectpicker" style="display: none;">
+								<option>--Select Size--</option>
+                                @if(session()->get('language')=='bangla')
+                                @foreach ($product_size_ban as $size)
+                                    <option value="">{{ $size }}</option>
+                                @endforeach
+
+                                @else
+                                @foreach ($product_size_en as $size)
+                                <option value="">{{ $size }}</option>
+                            @endforeach
+
+                                @endif
+								
+							</select>
+						</div>
+                      </div>
+                  </div>
+
+                   {{---- -----------product by color and size end---------------------}}
+
                                     <div class="quantity-container info-container">
                                         <div class="row">
 

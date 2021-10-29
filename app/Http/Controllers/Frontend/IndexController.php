@@ -99,9 +99,19 @@ class IndexController extends Controller
    }//end--Function 
 
    public function ProductView($id){
+
+
        $products=Product::findOrFail($id);
+
        $multiimgs=MultiImg::where('product_id',$id)->get(); 
-       return view('frontend.product.product_details',compact('products','multiimgs'));  
+       $product_color_en=explode(',', $products->product_color_en);
+       $product_color_ban=explode(',', $products->product_color_ban);
+       $product_size_en=explode(',',$products->product_size_en);
+       $product_size_ban=explode(',',$products->product_size_ban);
+
+
+       return view('frontend.product.product_details',compact('products','multiimgs',
+    'product_color_en','product_color_ban','product_size_en','product_size_ban'));  
    }//end function----------------------------------------------------------------------
 
    public function ProductTagsView($tags){
