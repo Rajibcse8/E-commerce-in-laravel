@@ -108,10 +108,11 @@ class IndexController extends Controller
        $product_color_ban=explode(',', $products->product_color_ban);
        $product_size_en=explode(',',$products->product_size_en);
        $product_size_ban=explode(',',$products->product_size_ban);
+       $releteed_product=Product::where('category_id',$products->category_id)->OrderBy('id','DESC')->get();
 
 
        return view('frontend.product.product_details',compact('products','multiimgs',
-    'product_color_en','product_color_ban','product_size_en','product_size_ban'));  
+    'product_color_en','product_color_ban','product_size_en','product_size_ban','releteed_product'));  
    }//end function----------------------------------------------------------------------
 
    public function ProductTagsView($tags){
