@@ -175,7 +175,17 @@ break;
  })
   //start--function
   function ProductView(id){
-     alert(id);
+    
+    $.ajax({
+      type: "GET",
+      url: "/product/view/modal/"+id,
+      dataType: "josn",
+      success: function (data) {
+        
+      }
+    });
+
+
   }
   //End function
 </script>

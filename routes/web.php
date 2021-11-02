@@ -175,3 +175,8 @@ Route::get('subcategory/product/view/{id}',[IndexController::class,'ProductSubCa
 Route::get('subsubcategory/product/view/{id}',[IndexController::class,'ProductSubSubCategoryView'])->name('subsubcategory.product.view');
 
 //--------------------------------------------------------------------------------------------------------
+
+//--------------------------------------------Ajax Route Start-------------------------------------------------
+
+Route::get('/product/view/modal/{id}',[IndexController::class,'ProductViewAjax']);
+//--------------------------------------------Ajax Route END-------------------------------------------------
