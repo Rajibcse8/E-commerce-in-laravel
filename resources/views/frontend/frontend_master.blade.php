@@ -98,7 +98,7 @@ break;
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Porduct Name</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><span id="pname"></span></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -109,17 +109,17 @@ break;
 
           <div class="col-md-4">
             <div class="card" style="width: 18rem;">
-              <img src="" class="card-img-top" alt="" style="height :200px; width:200px">
+              <img src="" class="card-img-top" alt="" style="height :200px; width:200px" id="pimage">
              
             </div>
           </div><!--End Col-->
           <div class="col-md-4">
             <ul class="list-group">
-              <li class="list-group-item">Product Price</li>
-              <li class="list-group-item">Product Code</li>
-              <li class="list-group-item">category</li>
-              <li class="list-group-item">Brand</li>
-              <li class="list-group-item">Stock</li>
+              <li class="list-group-item">Product Price :<span id="pprice"></span></li>
+              <li class="list-group-item">Product Price :<span id="pcode"></span></li>
+              <li class="list-group-item">Product Category :<span id="pcategory"></span></li>
+              <li class="list-group-item">Product Brand :<span id="pbrand"></span></li>
+              <li class="list-group-item">Product Stock :<span id="pstock"></span></li>
             </ul>
 
           </div><!--End Col-->
@@ -179,9 +179,21 @@ break;
     $.ajax({
       type: "GET",
       url: "/product/view/modal/"+id,
-      dataType: "josn",
+      dataType: "json",
       success: function (data) {
-        
+        //console.log(data);
+
+      $('#pname').text(data.product.product_name_en);
+      $('#pprice').text(data.product.selling_price);
+      $('#pcode').text(data.product.product_code);
+      $('#pcategory').text(data.product.category.category_name_en);
+      $('#pbrand').text(data.product.brand.brand_name_en);
+      $('#pstock').text(data.product.product_qty);
+      $('#pimage').attr('src','/'+data.product.product_thumbnail);
+      
+      
+
+
       }
     });
 
