@@ -126,23 +126,17 @@ break;
           <div class="col-md-4">
             <div class="form-group">
               <label for="exampleFormControlSelect1">Select Color</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+              <select class="form-control"  name="color">
+                
+            
+             </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" id="sizeArea">
               <label for="exampleFormControlSelect1">Select Size</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <select class="form-control"  name="size">
+              
+             
               </select>
             </div>
 
@@ -190,10 +184,30 @@ break;
       $('#pbrand').text(data.product.brand.brand_name_en);
       $('#pstock').text(data.product.product_qty);
       $('#pimage').attr('src','/'+data.product.product_thumbnail);
-      
-      
 
+      //color-------
+          $('select[name="color"]').empty();
+          $.each(data.color, function (key, value) { 
+          $('select[name="color"]').append(
+            '<option value='+'"'+value+'">'+value+'</option>')
+            });
+      //end color function
 
+         //size staer---
+         $('select[name="size"]').empty();
+         $.each(data.size,function(key,value){
+           $('select[name="size"]').append( '<option value="' +value+  '">'+value+ '</option>')
+           
+         });
+
+         if(data.size==""){
+           $("#sizeArea").hide();
+         }
+
+         else{
+          $("#sizeArea").show();
+         }      
+        //size end
       }
     });
 
