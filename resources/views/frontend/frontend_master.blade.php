@@ -123,7 +123,8 @@ break;
               <li class="list-group-item">Product Price :<span id="pcode"></span></li>
               <li class="list-group-item">Product Category :<span id="pcategory"></span></li>
               <li class="list-group-item">Product Brand :<span id="pbrand"></span></li>
-              <li class="list-group-item">Product Stock :<span id="pstock"></span></li>
+              <li class="list-group-item" id="available" ><strong class="text-info"> Available</strong> </li>
+              <li class="list-group-item" id="notavailable"><strong  class="text-danger" >Not Available</strong> </li>
             </ul>
 
           </div><!--End Col-->
@@ -186,16 +187,35 @@ break;
       $('#pcode').text(data.product.product_code);
       $('#pcategory').text(data.product.category.category_name_en);
       $('#pbrand').text(data.product.brand.brand_name_en);
-      $('#pstock').text(data.product.product_qty);
+      
       $('#pimage').attr('src','/'+data.product.product_thumbnail);
 
+    ///price--start
       if(data.product.discount_price==null){
+        $('#pprice').text('');
+        $('#poldprice').text('');
         $('#pprice').text(data.product.selling_price);
       }
       else{
         $('#pprice').text(data.product.selling_price-data.product.discount_price);
         $('#poldprice').text(data.product.selling_price);
       }
+
+      //price end----------
+
+      //stock-availablity--start--
+      if(data.product.product_qty>0){
+        $('#available').show();
+        $('#notavailable').hide();
+      }
+      else{
+
+        $('#available').hide();
+        $('#notavailable').show();
+
+      }
+
+      //stock-availability--end--
 
       //color-------
           $('select[name="color"]').empty();
@@ -220,7 +240,9 @@ break;
           $("#sizeArea").show();
          }      
         //size end
-      }
+     
+      }//ajax success function end------------
+ 
     });
 
 
