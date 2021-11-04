@@ -115,7 +115,11 @@ break;
           </div><!--End Col-->
           <div class="col-md-4">
             <ul class="list-group">
-              <li class="list-group-item">Product Price :<span id="pprice"></span></li>
+              <li class="list-group-item">Product Price :<strong class="text-info">$<span id="pprice"></span></strong>
+              <strong class="text-danger">$<del id="poldprice"></del></strong>
+              </li>
+
+
               <li class="list-group-item">Product Price :<span id="pcode"></span></li>
               <li class="list-group-item">Product Category :<span id="pcategory"></span></li>
               <li class="list-group-item">Product Brand :<span id="pbrand"></span></li>
@@ -178,12 +182,20 @@ break;
         //console.log(data);
 
       $('#pname').text(data.product.product_name_en);
-      $('#pprice').text(data.product.selling_price);
+      
       $('#pcode').text(data.product.product_code);
       $('#pcategory').text(data.product.category.category_name_en);
       $('#pbrand').text(data.product.brand.brand_name_en);
       $('#pstock').text(data.product.product_qty);
       $('#pimage').attr('src','/'+data.product.product_thumbnail);
+
+      if(data.product.discount_price==null){
+        $('#pprice').text(data.product.selling_price);
+      }
+      else{
+        $('#pprice').text(data.product.selling_price-data.product.discount_price);
+        $('#poldprice').text(data.product.selling_price);
+      }
 
       //color-------
           $('select[name="color"]').empty();
