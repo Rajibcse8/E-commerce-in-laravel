@@ -17,6 +17,8 @@ use App\Http\Controllers\Backend\SliderController;
 //------------------Frontend Controller-----------------------------
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
+use App\Http\Controllers\Frontend\CartController;
+
 //-------------------------------------------------------------------
 
 use App\Models\User;
