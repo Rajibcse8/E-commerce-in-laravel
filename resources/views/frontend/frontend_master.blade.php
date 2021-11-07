@@ -130,25 +130,28 @@ break;
           </div><!--End Col-->
           <div class="col-md-4">
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Select Color</label>
-              <select class="form-control"  name="color">
+              <label for="color">Select Color</label>
+              <select class="form-control"  id="color">
                 
             
              </select>
             </div>
 
             <div class="form-group" id="sizeArea">
-              <label for="exampleFormControlSelect1">Select Size</label>
-              <select class="form-control"  name="size">
+              <label for="size">Select Size</label>
+              <select class="form-control"  id="size">
               
              
               </select>
             </div>
 
             <div class="form-group">
-              <label for="exampleFormControlInput1">Product Quatity</label>
-              <input type="number" class="form-control" id="exampleFormControlInput1" value="1" min="1">
+              <label for="quantity">Product Quatity</label>
+              <input type="number" class="form-control" id="quantity" value="1" min="1">
+
             </div> 
+            <input type="hidden" id="product_id">
+            <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()">Add To Cart</button>
 
           </div><!--End Col-->
         </div>
@@ -187,6 +190,8 @@ break;
       $('#pcode').text(data.product.product_code);
       $('#pcategory').text(data.product.category.category_name_en);
       $('#pbrand').text(data.product.brand.brand_name_en);
+      $('product_id').val(id);
+      $('#quantity').val(1);
       
       $('#pimage').attr('src','/'+data.product.product_thumbnail);
 
@@ -247,7 +252,34 @@ break;
 
 
   }
-  //End function
+  //End view function---------------
+ 
+ function addToCart(){
+  var product_name =$('#pname').text();
+  var product_id =$('#product_id').val();
+  var color =$('#color opiton:selected').text();
+  var size =$('#size option:selected').text();
+  var quantity= $('#quantity').val();
+
+  // alert(product_id);
+
+  $.ajax({
+    type: "POST",
+    dataType:"json",
+    data:{
+      color:color,size:size,quantity:quantity,product_name:product_name
+    },
+    url:"",
+    success:function(data){
+      console.log(data);
+    },
+
+  })
+  
+
+ }
+
+
 </script>
 
 </body>
