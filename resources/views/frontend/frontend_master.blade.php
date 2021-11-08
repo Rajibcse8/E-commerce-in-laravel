@@ -257,11 +257,14 @@ break;
  function addToCart(){
   var product_name =$('#pname').text();
   var id =$('#product_id').val();
-  var color =$('#color opiton:selected').text();
+  var color =$('#color option:selected').text();
   var size =$('#size option:selected').text();
+
+
+
   var quantity= $('#quantity').val();
 
-    //alert(quantity);
+    //alert(size);
 
   $.ajax({
     type: "POST",
