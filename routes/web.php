@@ -181,4 +181,5 @@ Route::get('subsubcategory/product/view/{id}',[IndexController::class,'ProductSu
 //--------------------------------------------Ajax Route Start-------------------------------------------------
 
 Route::get('/product/view/modal/{id}',[IndexController::class,'ProductViewAjax']);
+Route::post('cart/data/store/{id}',[CartController::class,'AddToCart']);
 //--------------------------------------------Ajax Route END-------------------------------------------------

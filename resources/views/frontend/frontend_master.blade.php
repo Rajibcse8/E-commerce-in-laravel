@@ -99,7 +99,7 @@ break;
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><span id="pname"></span></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -131,7 +131,7 @@ break;
           <div class="col-md-4">
             <div class="form-group">
               <label for="color">Select Color</label>
-              <select class="form-control"  id="color">
+              <select class="form-control"  id="color" name="color">
                 
             
              </select>
@@ -139,7 +139,7 @@ break;
 
             <div class="form-group" id="sizeArea">
               <label for="size">Select Size</label>
-              <select class="form-control"  id="size">
+              <select class="form-control"  id="size" name="size">
               
              
               </select>
@@ -150,7 +150,7 @@ break;
               <input type="number" class="form-control" id="quantity" value="1" min="1">
 
             </div> 
-            <input type="hidden" id="product_id">
+            <input type="hidden" id="product_id" >
             <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()">Add To Cart</button>
 
           </div><!--End Col-->
@@ -190,7 +190,7 @@ break;
       $('#pcode').text(data.product.product_code);
       $('#pcategory').text(data.product.category.category_name_en);
       $('#pbrand').text(data.product.brand.brand_name_en);
-      $('product_id').val(id);
+      $('#product_id').val(id);
       $('#quantity').val(1);
       
       $('#pimage').attr('src','/'+data.product.product_thumbnail);
@@ -256,12 +256,12 @@ break;
  
  function addToCart(){
   var product_name =$('#pname').text();
-  var product_id =$('#product_id').val();
+  var id =$('#product_id').val();
   var color =$('#color opiton:selected').text();
   var size =$('#size option:selected').text();
   var quantity= $('#quantity').val();
 
-  // alert(product_id);
+    //alert(quantity);
 
   $.ajax({
     type: "POST",
@@ -269,8 +269,9 @@ break;
     data:{
       color:color,size:size,quantity:quantity,product_name:product_name
     },
-    url:"",
+    url:"/cart/data/store/"+id,
     success:function(data){
+      $('#closeModal').click();
       console.log(data);
     },
 
