@@ -141,7 +141,7 @@
                             </div><!-- /.gallery-holder -->
                             <div class='col-sm-6 col-md-7 product-info-block'>
                                 <div class="product-info">
-                                    <h1 class="name">
+                                    <h1 class="name" id="pname">
                                         {{ session()->get('language') == 'bangla' ? $products->product_name_ban : $products->product_name_en }}
                                     </h1>
 
@@ -225,9 +225,11 @@
 
                   <div class="row">
                       <div class="col-sm-6">
+
+                      @if($products->product_color_en)
                         <div class="form-group">
 							<label class="info-title control-label">Chose color <span>*</span></label>
-							<select class="form-control unicase-form-control selectpicker" style="display: none;">
+							<select class="form-control unicase-form-control selectpicker" style="display: none;" id="color">
 								<option>--Select color--</option>
 							     @if(session()->get('language')=='bangla')
                                  @foreach ($product_color_ban as $color)
@@ -242,12 +244,20 @@
                                  @endif
 							</select>
 						</div>
+                        @else
+
+                       @endif
+
                       </div>
 
                       <div class="col-sm-6">
+
+                         @if($products->product_size_en==null)
+                        
+                         @else
                         <div class="form-group">
 							<label class="info-title control-label">Chose Size <span>*</span></label>
-							<select class="form-control unicase-form-control selectpicker" style="display: none;">
+							<select class="form-control unicase-form-control selectpicker" style="display: none;" id="size">
 								<option>--Select Size--</option>
                                 @if(session()->get('language')=='bangla')
                                 @foreach ($product_size_ban as $size)
@@ -263,7 +273,11 @@
 								
 							</select>
 						</div>
+
+                      @endif  
                       </div>
+
+
                   </div>
 
                    {{---- -----------product by color and size end---------------------}}
@@ -286,14 +300,15 @@
                                                                     class="ir"><i
                                                                         class="icon fa fa-sort-desc"></i></span></div>
                                                         </div>
-                                                        <input type="text" value="1">
+                                                        < <input type="number" class="form-control" id="quantity" value="1" min="1">
                                                     </div>
                                                 </div>
                                             </div>
+                                            <input type="hidden" id="product_id" value="{{ $products->id }}">
 
                                             <div class="col-sm-7">
-                                                <a href="#" class="btn btn-primary"><i
-                                                        class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                                <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()" >Add-To-Cart</button>
+                                                
                                             </div>
 
 
