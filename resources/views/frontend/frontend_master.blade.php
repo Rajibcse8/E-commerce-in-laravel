@@ -63,6 +63,7 @@
 <script src="{{asset ('frontend/assets/js/bootstrap-select.min.js') }}"></script> 
 <script src="{{asset ('frontend/assets/js/wow.min.js') }}"></script> 
 <script src="{{asset ('frontend/assets/js/scripts.js') }}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -275,7 +276,34 @@ break;
     url:"/cart/data/store/"+id,
     success:function(data){
       $('#closeModal').click();
-      console.log(data);
+      //console.log(data);
+      
+      //Start Sweet-alert
+
+       const Toast=Swal.mixin({
+             toast:true,
+             position: 'top-end',
+             icon: 'success',
+             showConfirmButton: false,
+             timer: 3000,
+        })
+      
+      if($.isEmptyObject(data.success)){
+        Toast.fire({
+          type:'error',
+          title:data.error,
+        })
+      }
+
+      else{
+        Toast.fire({
+          type:'success',
+          title:data.success,
+        })
+      }
+       
+      //End Sweet-alert
+
     },
 
   })
