@@ -314,5 +314,22 @@ break;
 
 </script>
 
+<script type="text/javascript">
+
+function miniCart(){
+    $.ajax({
+      type:'GET',
+      dataType:'json',
+      url:'/product/mini/cart/',
+      success:function(data){
+         console.log(data);
+      }
+
+
+    })
+}
+
+</script>
+
 </body>
 </html>

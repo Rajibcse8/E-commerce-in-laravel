@@ -20,7 +20,7 @@ class CartController extends Controller
                 'id'=>$id,
                 'name'=>$request->product_name,
                 'qty'=>$request->quantity,
-                'price'=>$request->selling_price,
+                'price'=>$product->selling_price,
                 'weight' => 1, 
                 'option'=>[
                     'image'=>$product->product_thumbnail,
@@ -35,11 +35,11 @@ class CartController extends Controller
         }
         else{
 
-            Cart::add([
+           Cart::add([
                 'id'=>$id,
                 'name'=>$request->product_name,
                 'qty'=>$request->quantity,
-                'price'=>$request->selling_price-$request->discount_price,
+                'price'=>$product->selling_price-$product->discount_price,
                 'weight' => 1, 
                 'option'=>[
                     'image'=>$product->product_thumbnail,
@@ -48,10 +48,25 @@ class CartController extends Controller
 
                 ],
             ]);
+           
 
             return response()->json(['success'=> 'Product Added to Cart Successfully']);
 
         }
+    }//end--function---------------------------
+
+
+    public function AddminiCart(){
+        $carts=Cart::content();
+        $cart_qty=Cart::count();
+        $cart_total=Cart::total();
+
+        return response()->json(array(
+            'carts'=>$carts,
+            'cart_qty'=>$cart_qty,
+            'cart_total'=>round($cart_total),
+        ));
+
     }
 
 }
