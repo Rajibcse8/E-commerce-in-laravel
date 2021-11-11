@@ -22,12 +22,11 @@ class CartController extends Controller
                 'qty'=>$request->quantity,
                 'price'=>$product->selling_price,
                 'weight' => 1, 
-                'option'=>[
-                    'image'=>$product->product_thumbnail,
-                    'color'=>$request->color,
-                    'size'=>$request->size,
-
-                ],
+                'options' => [
+    				'pictutre' => $product->product_thumbnail,
+    				'color' => $request->color,
+    				'size' => $request->size,
+    			], 
             ]);
 
            return response()->json(['success'=> 'Product Added to Cart Successfully']);
@@ -40,13 +39,13 @@ class CartController extends Controller
                 'name'=>$request->product_name,
                 'qty'=>$request->quantity,
                 'price'=>$product->selling_price-$product->discount_price,
+                
                 'weight' => 1, 
-                'option'=>[
-                    'image'=>$product->product_thumbnail,
-                    'color'=>$request->color,
-                    'size'=>$request->size,
-
-                ],
+                'options' => [
+    				'image'=>$product->product_thumbnail,
+    				'color' => $request->color,
+    				'size' => $request->size,
+    			], 
             ]);
            
 
