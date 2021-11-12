@@ -108,10 +108,12 @@
                             data-toggle="dropdown">
                             <div class="items-cart-inner">
                                 <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
-                                <div class="basket-item-count"><span class="count">2</span></div>
+                                <div class="basket-item-count"><span class="count" id="cartqty"></span></div>
                                 <div class="total-price-basket"> <span class="lbl">cart -</span> <span
-                                        class="total-price"> <span class="sign">$</span><span
-                                            class="value">600.00</span> </span> </div>
+                                        class="total-price"> <span class="sign">$</span>
+                                        <span class="value" id="cartsubtotal">600.00</span> </span>
+                                    
+                                </div>
                             </div>
                         </a>
                         <ul class="dropdown-menu">
@@ -130,9 +132,8 @@
                                     <div class="pull-right"> <span class="text">Sub Total :</span><span
                                             class='price'>$600.00</span> </div>
                                     <div class="clearfix"></div>
-                                    <button type="submit" onclick="check()">Checkout</button>
-                                    {{-- <a href="checkout.html"
-                                        class="btn btn-upper btn-primary btn-block m-t-20" onchange="check()">Checkout</a> --}}
+                                    <a href="checkout.html"
+                                        class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
                                 </div>
                                 <!-- /.cart-total-->
 
