@@ -23,7 +23,7 @@ class CartController extends Controller
                 'price'=>$product->selling_price,
                 'weight' => 1, 
                 'options' => [
-    				'pictutre' => $product->product_thumbnail,
+    				'image' => $product->product_thumbnail,
     				'color' => $request->color,
     				'size' => $request->size,
     			], 

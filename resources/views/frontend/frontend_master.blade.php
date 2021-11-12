@@ -325,11 +325,12 @@ function miniCart(){
 
         var miniCart=""
         $.each(response.carts, function(key,value){
+         
           miniCart+= `<div class="cart-item product-summary">
                                     <div class="row">
                                         <div class="col-xs-4">
                                             <div class="image"> <a href="detail.html"><img
-                                                        src="/${value.options.pictutre}" alt=""></a> 
+                                                        src="${value.options.image}" alt=""></a> 
                                             </div>
                                         </div>
                                         <div class="col-xs-7">
@@ -341,7 +342,8 @@ function miniCart(){
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
-                                <hr>`
+                                <hr>`;
+                                //alert('http://127.0.0.1:8000/'+value.options.image);
         })
 
         $('#miniCart').html(miniCart);
@@ -354,6 +356,9 @@ function miniCart(){
  miniCart()
 
 </script>
+
+
+
 
 </body>
 </html>
