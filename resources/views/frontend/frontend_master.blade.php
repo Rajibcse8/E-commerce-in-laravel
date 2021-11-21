@@ -275,6 +275,7 @@ break;
     },
     url:"/cart/data/store/"+id,
     success:function(data){
+      miniCart();
       $('#closeModal').click();
       //console.log(data);
       
@@ -337,7 +338,7 @@ function miniCart(){
                                         </div>
                                         <div class="col-xs-7">
                                             <h3 class="name"><a href="index.php?page-detail">${value.name}</a></h3>
-                                            <div class="price">${value.price}</div>
+                                            <div class="price">${value.price *value.qty}</div>
                                         </div>
                                         <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a>
                                         </div>
