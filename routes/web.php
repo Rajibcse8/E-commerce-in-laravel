@@ -183,4 +183,5 @@ Route::get('subsubcategory/product/view/{id}',[IndexController::class,'ProductSu
 Route::get('/product/view/modal/{id}',[IndexController::class,'ProductViewAjax']);
 Route::post('/cart/data/store/{id}',[CartController::class,'AddToCart']);
 Route::get('product/mini/cart/',[CartController::class,'AddminiCart']);
+Route::get('mini-cart/product/remove/{rowid}',[CartController::class,'RemoveMiniCart']);
 //--------------------------------------------Ajax Route END-------------------------------------------------

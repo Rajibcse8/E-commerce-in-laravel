@@ -340,7 +340,8 @@ function miniCart(){
                                             <h3 class="name"><a href="index.php?page-detail">${value.name}</a></h3>
                                             <div class="price">${value.price *value.qty}</div>
                                         </div>
-                                        <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a>
+                                        <div class="col-xs-1 action">
+                                         <button type="submit" id="${value.rowId}" onclick="minicartRemove(this.id)"><i class="fa fa-trash"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -357,6 +358,51 @@ function miniCart(){
     });
 }
  miniCart()
+ //Mini Cart removeItem  Function---Start
+  
+  function minicartRemove(rowID){
+
+    $.ajax({
+      type:'GET',
+      url:'mini-cart/product/remove/'+rowID,
+      dataType:'json',
+      success:function(data){
+        minicart();
+
+
+        //Start Sweet-alert
+
+       const Toast=Swal.mixin({
+             toast:true,
+             position: 'top-end',
+             icon: 'success',
+             showConfirmButton: false,
+             timer: 3000,
+        })
+      
+      if($.isEmptyObject(data.success)){
+        Toast.fire({
+          type:'error',
+          title:data.error,
+        })
+      }
+
+      else{
+        Toast.fire({
+          type:'success',
+          title:data.success,
+        })
+      }
+       
+      //End Sweet-alert
+
+      },
+    })
+  }
+ 
+ //Mini Cart removeItem  Function---End
+
+
 
 </script>
 
