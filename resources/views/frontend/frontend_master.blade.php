@@ -406,6 +406,28 @@ function miniCart(){
 
 </script>
 
+<script type="text/javascript">
+//Start --Add-to-wishlist--function-----------
+   function AddToWishlist(id) {
+       
+       $.ajax({
+           
+           type:"POST",
+           dataType:"json",
+           url:"add/to/wishlist/"+id,
+           success:function(data){
+             
+           }
+           ,
+
+       })
+
+//END --Add-to-wishlist--function-----------
+    
+     }
+
+</script>
+
 
 
 

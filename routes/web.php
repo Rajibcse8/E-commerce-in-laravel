@@ -18,7 +18,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
-
+use App\Http\Controllers\User\WishlistController;
 //-------------------------------------------------------------------
 
 use App\Models\User;
@@ -184,4 +184,10 @@ Route::get('/product/view/modal/{id}',[IndexController::class,'ProductViewAjax']
 Route::post('/cart/data/store/{id}',[CartController::class,'AddToCart']);
 Route::get('product/mini/cart/',[CartController::class,'AddminiCart']);
 Route::get('mini-cart/product/remove/{rowid}',[CartController::class,'RemoveMiniCart']);
+
+//Wishlist--Route-Start
+
+Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']);
+//Wishlist--Route--End
+
 //--------------------------------------------Ajax Route END-------------------------------------------------
