@@ -411,13 +411,13 @@
         //Start --Add-to-wishlist--function-----------
         function AddToWishlist(id) {
 
-            $.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
+//             $.ajaxSetup({
+//   headers: {
+//     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//   }
+// });
 
-         alert(id);
+        
             $.ajax({
 
                 type: "post",
@@ -431,18 +431,20 @@
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
-                        icon: 'success',
+                        
                         showConfirmButton: false,
                         timer: 3000,
                     })
 
-                    if ($.isEmptyObject(data.success)) {
+                    if ($.isEmptyObject(data.error)) {
                         Toast.fire({
+                            icon: 'success',
                             type: 'success',
                             title: data.success,
                         })
                     } else {
                         Toast.fire({
+                            icon: 'error',
                             type: 'error',
                             title: data.error,
                         })
