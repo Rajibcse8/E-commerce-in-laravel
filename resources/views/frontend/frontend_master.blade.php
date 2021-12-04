@@ -420,9 +420,9 @@
         
             $.ajax({
 
-                type: "post",
-                dataType: "json",
-                url: "add/to/wishlist/"+id,
+                type: 'POST',
+                dataType: 'json',
+                url: '/add/to/wishlist/'+id,
                 success: function(data) {
 
 
