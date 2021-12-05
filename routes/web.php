@@ -188,6 +188,7 @@ Route::get('mini-cart/product/remove/{rowid}',[CartController::class,'RemoveMini
 //Wishlist--Route-Start
 
 Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']);
+Route::get('/Wishlist/view',[WishlistController::class,'ViewWishlist'])->name('wishlist');
 //Wishlist--Route--End
 
 //--------------------------------------------Ajax Route END-------------------------------------------------
