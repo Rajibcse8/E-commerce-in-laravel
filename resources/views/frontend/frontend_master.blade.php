@@ -463,6 +463,50 @@
     </script>
 
 
+<!--WishList Product Load  Start-->
+    <script type="text/javascript">
+
+    function wishlist(){
+        $.ajax({
+            type:'get',
+            url:'/load/wishlist/product',
+            dataType:'json',
+            success:function(response){
+            
+               var rows=""
+               $.each(response, function (key, value) { 
+                    rows+=`<tr>
+                                    <td class="col-md-2"><img
+                                            src="${value.product.product_thumbnail}" alt="imga">
+                                    </td>
+                                    <td class="col-md-7">
+                                        <div class="product-name"><a href="#">${value.product.product_name_en}</a></div>
+                                       
+                                        <div class="price">
+                                            $400.00
+                                            <span>$900.00</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-md-2">
+                                        <a href="#" class="btn-upper btn btn-primary">Add to cart</a>
+                                    </td>
+                                    <td class="col-md-1 close-btn">
+                                        <a href="#" class=""><i class="fa fa-times"></i></a>
+                                    </td>
+                                </tr>`
+               });
+
+               $('#wishlist').html(rows);
+
+            },
+        })
+    }
+
+    wishlist();
+      
+    </script>
+<!--Wishlist product load End-->
+
 
 
 </body>
