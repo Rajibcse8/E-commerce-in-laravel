@@ -475,9 +475,10 @@
             
                var rows=""
                $.each(response, function (key, value) { 
+                  //alert('127.0.0.1/'+value.product.product_thumbnail)
                     rows+=`<tr>
                                     <td class="col-md-2"><img
-                                            src="${value.product.product_thumbnail}" alt="imga">
+                                            src="/${value.product.product_thumbnail} " alt="image">
                                     </td>
                                     <td class="col-md-7">
                                         <div class="product-name"><a href="#">${value.product.product_name_en}</a></div>
