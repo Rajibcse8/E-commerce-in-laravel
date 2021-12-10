@@ -484,8 +484,11 @@
                                         <div class="product-name"><a href="#">${value.product.product_name_en}</a></div>
                                        
                                         <div class="price">
-                                            $400.00
-                                            <span>$900.00</span>
+                                            ${value.product.discount_price ==null ?
+                                             `$${value.product.selling_price}`  :
+                                             `$${value.product.selling_price-value.product.discount_price}<span>$${value.product.selling_price}</span>`
+                                            }
+                                           
                                         </div>
                                     </td>
                                     <td class="col-md-2">
