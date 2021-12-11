@@ -492,8 +492,9 @@
                                         </div>
                                     </td>
                                     <td class="col-md-2">
-                                        <a href="#" class="btn-upper btn btn-primary">Add to cart</a>
-                                    </td>
+                                        <button  class="btn btn-primary icon" id="${value.product_id}" onclick="ProductView(this.id)" type="button" title="Add Cart" data-toggle="modal" 
+                                         data-target="#exampleModal">Add_to_Cart</button>
+                                     </td>     
                                     <td class="col-md-1 close-btn">
                                         <a href="#" class=""><i class="fa fa-times"></i></a>
                                     </td>
