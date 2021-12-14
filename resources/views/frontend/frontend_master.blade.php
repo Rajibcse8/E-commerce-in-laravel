@@ -496,7 +496,7 @@
                                          data-target="#exampleModal">Add_to_Cart</button>
                                      </td>     
                                     <td class="col-md-1 close-btn">
-                                        <a href="#" class=""><i class="fa fa-times"></i></a>
+                                        <button type="submit" id="${value.product_id}" onclick="RemoveWishlistItem(this.id)"><i class="fa fa-times"></i></button>
                                     </td>
                                 </tr>`
                });
@@ -512,6 +512,47 @@
     </script>
 <!--Wishlist product load End-->
 
+<!--Wishllist product remove start-->
+<script type="text/javascript">
+ function RemoveWishlistItem(id){
+   $.ajax({
+       type: "get",
+       url: "/remove/wishlist/item/"+id,
+       dataType: "json",
+       success: function (response) {
+           wishlist();
+             //Start Sweet-alert
+
+             const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        
+                        showConfirmButton: false,
+                        timer: 3000,
+                    })
+
+                    if ($.isEmptyObject(response.error)) {
+                        Toast.fire({
+                            icon: 'success',
+                            type: 'success',
+                            title: response.success,
+                        })
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            type: 'error',
+                            title: response.error,
+                        })
+                    }
+
+                    //End Sweet-alert
+
+       }
+   });
+ }
+   
+</script>
+<!--Wishllist product remove start-->
 
 
 </body>
