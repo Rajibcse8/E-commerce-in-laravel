@@ -409,20 +409,12 @@
 
     <script type="text/javascript">
         //Start --Add-to-wishlist--function-----------
-        function AddToWishlist(id) {
-
-//             $.ajaxSetup({
-//   headers: {
-//     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//   }
-// });
-
-        
+        function AddToWishlist(id) {       
             $.ajax({
 
                 type: 'POST',
                 dataType: 'json',
-                url: '/add/to/wishlist/'+id,
+                url: '/user/add/to/wishlist/'+id,
                 success: function(data) {
 
 
@@ -469,7 +461,7 @@
     function wishlist(){
         $.ajax({
             type:'get',
-            url:'/load/wishlist/product',
+            url:'/user/load/wishlist/product',
             dataType:'json',
             success:function(response){
             
@@ -517,7 +509,7 @@
  function RemoveWishlistItem(id){
    $.ajax({
        type: "get",
-       url: "/remove/wishlist/item/"+id,
+       url: "/user/remove/wishlist/item/"+id,
        dataType: "json",
        success: function (response) {
            wishlist();
