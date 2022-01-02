@@ -42,7 +42,7 @@ class WishlistController extends Controller
         }
 
         else{
-            return response()->json(['error' => 'Plese Log in At First']);
+            return response()->json(['error'=>'Plese Login At First']);
         }
         
     }
