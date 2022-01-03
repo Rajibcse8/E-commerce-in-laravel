@@ -73,7 +73,7 @@ class CartController extends Controller
 
 
         Cart::remove($rowID);
-        return response()->json(['successes'=>'Successfully remove from Cart']);
+        return response()->json(['success'=>'Successfully remove from Cart']);
        
 
     }     

@@ -376,7 +376,7 @@
                
                 success: function(responses) {
 
-                    minicart();
+                    miniCart();
 
 
                   //Start Sweet-alert
@@ -389,19 +389,25 @@
                         timer: 3000,
                     })
 
-                    if ($.isEmptyObject(response.error)) {
-                        Toast.fire({
+                    Toast.fire({
                             icon: 'success',
                             type: 'success',
-                            title: response.success,
+                            title: responses.success,
                         })
-                    } else {
-                        Toast.fire({
-                            icon: 'error',
-                            type: 'error',
-                            title: response.error,
-                        })
-                    }
+
+                    // if ($.isEmptyObject(responses.error)) {
+                    //     Toast.fire({
+                    //         icon: 'success',
+                    //         type: 'success',
+                    //         title: response.success,
+                    //     })
+                    // } else {
+                    //     Toast.fire({
+                    //         icon: 'error',
+                    //         type: 'error',
+                    //         title: responses.error,
+                    //     })
+                    //}
 
                     //End Sweet-alert
 
