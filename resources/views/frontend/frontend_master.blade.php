@@ -414,6 +414,7 @@
 
                 },
 
+              
             })
         }
 
@@ -424,10 +425,9 @@
 
 
 
-
-
+<!--------------------------------Start Add to wishlist  function------------->
     <script type="text/javascript">
-        //Start --Add-to-wishlist--function-----------
+       
         function AddToWishlist(id) {       
             $.ajax({
 
@@ -436,6 +436,7 @@
                 url: '/user/add/to/wishlist/'+id,
                 success: function(data) {
 
+                    console.log(data.error)
 
                     //Start Sweet-alert
 
