@@ -429,41 +429,39 @@
     <script type="text/javascript">
        
         function AddToWishlist(id) {       
+
+            //alert(id)
             $.ajax({
 
-                type: 'POST',
+                type: 'post',
                 dataType: 'json',
-                url: '/user/add/to/wishlist/'+id,
+                url: '/add/to/wishlist/'+id,
                 success: function(data) {
 
-                    console.log(data.error)
+                   // console.log(data.error)
 
-                    //Start Sweet-alert
-
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        
-                        showConfirmButton: false,
-                        timer: 3000,
+                    // Start Message 
+                const Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      
+                      showConfirmButton: false,
+                      timer: 3000
                     })
-
-                    if ($.isEmptyObject(data.error)) {
-                        Toast.fire({
-                            icon: 'success',
-                            type: 'success',
-                            title: data.success,
-                        })
-                    } else {
-
-                        Toast.fire({
-                            icon: 'error',
-                            type: 'error',
-                            title: data.error,
-                        })
-                    }
-
-                    //End Sweet-alert
+                if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success
+                    })
+                }else{
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error
+                    })
+                }
+                // End Message 
 
                 },
 

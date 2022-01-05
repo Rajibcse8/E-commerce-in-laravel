@@ -41,7 +41,7 @@ class WishlistController extends Controller
         
         }
 
-        if(Auth::check()==false){
+        else{
             return response()->json(['error' => 'Plese Login At First']);
         }
         

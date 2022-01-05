@@ -194,9 +194,10 @@ Route::group(['prefix'=>'user','middleware'=>['auth','user'],'namespace'=>'User'
 Route::get('load/wishlist/product',[WishlistController::class,'GetWishlistProduct']);
 Route::get('/remove/wishlist/item/{id}',[WishlistController::class,'RemoveWishlistItem']);
 Route::get('/Wishlist/view',[WishlistController::class,'ViewWishlist'])->name('wishlist');
-Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']); 
+
 
 });
+Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']); 
  
 
 //Wishlist--Route--End
