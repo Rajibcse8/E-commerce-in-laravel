@@ -19,6 +19,8 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
+use App\Http\Controllers\User\CartPageController;
+
 //-------------------------------------------------------------------
 
 use App\Models\User;
@@ -202,4 +204,13 @@ Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']);
 
 //Wishlist--Route--End
 
+
+//CartPage--Route---Start
+   
+ Route::get('/mycartpage',[CartPageController::class,'MycartPage'])->name('mycartpage');
+
+//CatrPage--Route---End
+
+
 //--------------------------------------------Ajax Route END-------------------------------------------------
+
