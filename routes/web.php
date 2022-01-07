@@ -208,6 +208,7 @@ Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']);
 //CartPage--Route---Start
    
  Route::get('/mycartpage',[CartPageController::class,'MycartPage'])->name('mycartpage');
+ Route::get('/user/cartpage/product',[CartPageController::class,'GetCartProduct']);
 
 //CatrPage--Route---End
 

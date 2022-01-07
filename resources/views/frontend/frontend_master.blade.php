@@ -566,6 +566,97 @@
 <!--Wishllist product remove start-->
 
 
+<!------------------------- My Cart Page------------------------------------------------------------>
+
+
+
+<!--WishList Product Load  Start-->
+<script type="text/javascript">
+
+    function Cartpage(){
+        $.ajax({
+            type:'get',
+            url:'/user/cartpage/product/',
+            dataType:'json',
+            success:function(response){
+            
+               var rows=""
+               $.each(response.carts, function (key, value) { 
+                  //alert('127.0.0.1/'+value.product.product_thumbnail)
+                    rows+=`<tr>
+                                    <td class="col-md-2"><img
+                                            src="/${value.options.image} " alt="image">
+                                    </td>
+                                    <td class="col-md-7">
+                                        <div class="product-name"><a href="#">${value.product_name_en}</a></div>
+                                       
+                                        <div class="price">
+                                           ${value.name}
+                                           
+                                        </div>
+                                    </td>
+                                        
+                                    <td class="col-md-1 close-btn">
+                                        <button type="submit" id="${value.product_id}" onclick="RemoveWishlistItem(this.id)"><i class="fa fa-times"></i></button>
+                                    </td>
+                                </tr>`
+               });
+
+               $('#mycartpage').html(rows);
+
+            },
+        })
+    }
+
+    Cartpage();
+      
+    </script>
+<!--Wishlist product load End-->
+
+<!--Wishllist product remove start-->
+<script type="text/javascript">
+ function RemoveWishlistItem(id){
+   $.ajax({
+       type: "get",
+       url: "/user/remove/wishlist/item/"+id,
+       dataType: "json",
+       success: function (response) {
+           wishlist();
+             //Start Sweet-alert
+
+             const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        
+                        showConfirmButton: false,
+                        timer: 3000,
+                    })
+
+                    if ($.isEmptyObject(response.error)) {
+                        Toast.fire({
+                            icon: 'success',
+                            type: 'success',
+                            title: response.success,
+                        })
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            type: 'error',
+                            title: response.error,
+                        })
+                    }
+
+                    //End Sweet-alert
+
+       }
+   });
+ }
+   
+</script>
+<!--Wishllist product remove start-->
+
+
+<!-------------------My Cart Page End--------------------------------------------------------------->
 </body>
 
 </html>
