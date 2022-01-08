@@ -588,10 +588,10 @@
                                             src="/${value.options.image} " alt="image">
                                     </td>
                                     <td class="col-md-7">
-                                        <div class="product-name"><a href="#">${value.product_name_en}</a></div>
+                                        <div class="product-name"><a href="#">${value.name}</a></div>
                                        
                                         <div class="price">
-                                           ${value.name}
+                                           ${value.price}
                                            
                                         </div>
                                     </td>
