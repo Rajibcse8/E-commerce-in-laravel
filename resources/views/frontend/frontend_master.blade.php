@@ -585,7 +585,7 @@
                   //alert('127.0.0.1/'+value.product.product_thumbnail)
                     rows+=`<tr>
                                     <td class="col-md-2"><img
-                                            src="/${value.options.image} " alt="image">
+                                            src="/${value.options.image} " alt="img" style="width:60px;height:60px;">
                                     </td>
                                     <td class="col-md-7">
                                         <div class="product-name"><a href="#">${value.name}</a></div>
@@ -594,7 +594,26 @@
                                            ${value.price}
                                            
                                         </div>
+                         
+                                    
                                     </td>
+
+                                <td class="col-md-2">
+                                    ${value.options.color== null ? `<span>...</span>`:`<Strong>${value.options.size}</strong>`}
+
+                                </td>
+
+                                <td class="col-md-2">
+
+                                ${value.options.size== null ? `<span>...</span>`:`<Strong>${value.options.size}</strong>`}
+                                        
+                                </td>
+
+                                <td class="col-md-2">
+
+                                    <Strong>${value.qty}</strong>
+        
+                                </td>
                                         
                                     <td class="col-md-1 close-btn">
                                         <button type="submit" id="${value.product_id}" onclick="RemoveWishlistItem(this.id)"><i class="fa fa-times"></i></button>
