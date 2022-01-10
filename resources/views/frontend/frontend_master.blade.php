@@ -611,8 +611,16 @@
 
                                 <td class="col-md-2">
 
-                                    <Strong>${value.qty}</strong>
+                                <button type="submit" class="btn btn-success btn-sm">+</button>
+                                <input type="text" value="${value.qty}" min="0" max="100" disabled="" style="width:25px;">
+                                <button type="submit" class="btn btn-danger btn-sm">-</button>
         
+                                </td>
+
+                                <td class="col-md-2">
+
+                                   <strong>$${value.subtotal}/=</strong>
+                                
                                 </td>
                                         
                                     <td class="col-md-1 close-btn">
