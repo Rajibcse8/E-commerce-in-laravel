@@ -17,26 +17,37 @@
 
 <div class="body-content">
     <div class="container">
-        <div class="my-wishlist-page">
-            <div class="row">
-                <div class="col-md-12 my-wishlist">
+
+
+        <div class="row ">
+            <div class="shopping-cart">
+                <div class="shopping-cart-table ">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th colspan="4" class="heading-title">My-Cart</th>
+                                    <th class="cart-romove item">Remove</th>
+                                    <th class="cart-description item">Image</th>
+                                    <th class="cart-product-name item">Product Name</th>
+                                    <th class="cart-edit item">Edit</th>
+                                    <th class="cart-qty item">Quantity</th>
+                                    <th class="cart-sub-total item">Subtotal</th>
+                                    <th class="cart-total last-item">Grandtotal</th>
                                 </tr>
-                            </thead>
+                            </thead><!-- /thead -->
+
+
                             <tbody id="mycartpage">
-                                
-                                
-                              
+
+
+
                             </tbody>
                         </table>
+
                     </div>
-                </div>
-            </div><!-- /.row -->
-        </div><!-- /.sigin-in-->
+                </div><!-- /.row -->
+            </div><!-- /.sigin-in-->
+        </div>
     </div><!-- /.container -->
 </div><!-- /.body-content -->
 
