@@ -587,7 +587,7 @@
                                     <td class="col-md-2"><img
                                             src="/${value.options.image} " alt="img" style="width:60px;height:60px;">
                                     </td>
-                                    <td class="col-md-7">
+                                    <td class="col-md-2">
                                         <div class="product-name"><a href="#">${value.name}</a></div>
                                        
                                         <div class="price">
@@ -599,7 +599,7 @@
                                     </td>
 
                                 <td class="col-md-2">
-                                    ${value.options.color== null ? `<span>...</span>`:`<Strong>${value.options.size}</strong>`}
+                                    ${value.options.color== null ? `<span>...</span>`:`<Strong>${value.options.color}</strong>`}
 
                                 </td>
 
@@ -624,7 +624,7 @@
                                 </td>
                                         
                                     <td class="col-md-1 close-btn">
-                                        <button type="submit" id="${value.product_id}" onclick="RemoveWishlistItem(this.id)"><i class="fa fa-times"></i></button>
+                                        <button type="submit" id="${value.rowId}" onclick="CartPageRemove(this.id)"><i class="fa fa-times"></i></button>
                                     </td>
                                 </tr>`
                });
