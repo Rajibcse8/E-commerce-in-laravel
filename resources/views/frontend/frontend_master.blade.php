@@ -640,15 +640,16 @@
     </script>
 <!--Wishlist product load End-->
 
-<!--Wishllist product remove start-->
+<!--CartPage product remove start-->
 <script type="text/javascript">
- function RemoveWishlistItem(id){
+ function CartPageRemove(id){
    $.ajax({
        type: "get",
-       url: "/user/remove/wishlist/item/"+id,
+       url: "/remove/mycartpage/item/"+id,
        dataType: "json",
        success: function (response) {
-           wishlist();
+        Cartpage();
+        miniCart();
              //Start Sweet-alert
 
              const Toast = Swal.mixin({
@@ -681,6 +682,54 @@
    
 </script>
 <!--Wishllist product remove start-->
+
+
+
+
+
+<!--MycartPage product remove start-->
+<script type="text/javascript">
+    function RemoveWishlistItem(id){
+      $.ajax({
+          type: "get",
+          url: "/user/remove/wishlist/item/"+id,
+          dataType: "json",
+          success: function (response) {
+              wishlist();
+                //Start Sweet-alert
+   
+                const Toast = Swal.mixin({
+                           toast: true,
+                           position: 'top-end',
+                           
+                           showConfirmButton: false,
+                           timer: 3000,
+                       })
+   
+                       if ($.isEmptyObject(response.error)) {
+                           Toast.fire({
+                               icon: 'success',
+                               type: 'success',
+                               title: response.success,
+                           })
+                       } else {
+                           Toast.fire({
+                               icon: 'error',
+                               type: 'error',
+                               title: response.error,
+                           })
+                       }
+   
+                       //End Sweet-alert
+   
+          }
+      });
+    }
+      
+   </script>
+   <!--Mycartpage product remove start-->
+   
+
 
 
 <!-------------------My Cart Page End--------------------------------------------------------------->
