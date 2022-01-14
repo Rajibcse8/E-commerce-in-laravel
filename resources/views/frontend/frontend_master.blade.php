@@ -611,9 +611,9 @@
 
                                 <td class="col-md-2">
 
-                                <button type="submit" class="btn btn-success btn-sm">+</button>
-                                <input type="text" value="${value.qty}" min="0" max="100" disabled="" style="width:25px;">
-                                <button type="submit" class="btn btn-danger btn-sm">-</button>
+                                <button type="submit" class="btn btn-danger btn-sm" id="${value.rowId}" onclick="CartPageDec(this.id)">-</button>
+                                <input type="text" value="${value.qty}" min="0" max="100" disabled="" style="width:25px;"> 
+                                <button type="submit" class="btn btn-success btn-sm" id="${value.rowId}" onclick="CartPageInc(this.id)">+</button>
         
                                 </td>
 
@@ -679,6 +679,26 @@
        }
    });
  }
+
+
+//cart Inc-------------------------
+
+     
+     function CartPageInc(id){
+
+         $$.ajax({
+             type: "GET",
+             url: "",
+             dataType: "json",
+             success: function (response) {
+                 
+             }
+         });
+     }
+
+   
+//Cart inc end
+ 
    
 </script>
 <!--Wishllist product remove start-->
