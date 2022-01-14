@@ -210,6 +210,7 @@ Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']);
  Route::get('/mycartpage',[CartPageController::class,'MycartPage'])->name('mycartpage');
  Route::get('/user/cartpage/product',[CartPageController::class,'GetCartProduct']);
  Route::get('/remove/mycartpage/item/{id}',[cartPageController::class,'CartPageRemove']);
+ Route::get('/mycartpage/qty/inc/{id}',[CartPageController::class,'CartQtyInc']);
 
 //CatrPage--Route---End
 

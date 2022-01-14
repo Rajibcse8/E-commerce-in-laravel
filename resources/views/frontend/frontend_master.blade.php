@@ -685,12 +685,17 @@
 
      
      function CartPageInc(id){
-
-         $$.ajax({
+        
+         $.ajax({
              type: "GET",
-             url: "",
+             url: "/mycartpage/qty/inc/"+id,
              dataType: "json",
              success: function (response) {
+                 
+               //alert(response.msg);
+
+                Cartpage();
+                miniCart();
                  
              }
          });
