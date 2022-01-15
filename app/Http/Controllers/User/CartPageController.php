@@ -45,4 +45,18 @@ class CartPageController extends Controller
         
 
     }
+
+
+    public function CartQtyDec($id){
+        $cart_item=Cart::get($id);
+        if($cart_item->qty>1){
+          
+            Cart::update($id,$cart_item->qty-1);
+            return response()->json(['success'=>'Success']);
+        }
+
+        else{
+            return response()->json(['error'=>'Product Quantity Must be Greatert than  1']);
+        }
+    }
 }

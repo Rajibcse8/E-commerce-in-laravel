@@ -703,6 +703,50 @@
 
    
 //Cart inc end
+
+//Cart-page_Dec Start
+
+  function CartPageDec(id){
+
+ 
+     $.ajax({
+         type: "GET",
+         url: "/mycartpage/qty/dec/"+id,
+         dataType: "json",
+         success: function (response) {
+           if( $.isEmptyObject(response.error)){
+             
+                Cartpage();
+                miniCart();
+           }
+
+           else{
+
+
+            const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        
+                        showConfirmButton: false,
+                        timer: 3000,
+                    })
+
+                   
+                        Toast.fire({
+                            icon: 'error',
+                            type: 'alert',
+                            title: response.error,
+                        })
+               
+
+
+           }
+         }
+     });
+  
+  }
+
+//Cart-Page_Dec End
  
    
 </script>
