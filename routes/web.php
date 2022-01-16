@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\controllers\Backend\CouponController;
 //------------------------------------------------------------------
 
 
@@ -138,6 +139,14 @@ Route::prefix('product')->group(function(){
     Route::get('/makeinactive/{id}',[SliderController::class,'MakeInActive'])->name('makeinactive');
     Route::get('/makeactive/{id}',[SliderController::class,'MakeActive'])->name('makeactive');
 
+
+ });
+
+ //----------------------Coupon Route--------------------------------------------------------------
+
+ Route::prefix('coupons')->group(function(){
+
+  Route::get('/view',[CounponController::class,'Couponview'])->name('manage.coupon');
 
  });
 
