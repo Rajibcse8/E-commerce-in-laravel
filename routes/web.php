@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\controllers\Backend\CouponController;
+
 //------------------------------------------------------------------
 
 
@@ -146,7 +147,7 @@ Route::prefix('product')->group(function(){
 
  Route::prefix('coupons')->group(function(){
 
-  Route::get('/view',[CounponController::class,'Couponview'])->name('manage.coupon');
+  Route::get('/view',[CouponController::class,'Couponview'])->name('manage.coupon');
 
  });
 
