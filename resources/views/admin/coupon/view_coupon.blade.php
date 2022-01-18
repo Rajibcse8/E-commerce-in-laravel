@@ -77,7 +77,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="Post" action="" >
+                                <form method="Post" action="{{ route('coupon.store') }}" >
                                     @csrf
 
 
@@ -100,7 +100,7 @@
                                         <h5>Coupon Discount %<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="coupon_amount" class="form-control"
-                                                id="category_name_ban">
+                                                id="">
                                         </div>
                                         @error('coupon_amount')
                                             <span class="text-danger">{{ $message }}</span>
@@ -112,7 +112,7 @@
                                         <h5>Coupon Validity<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="date" name="coupon_validity" class="form-control"
-                                                id="category_name_ban">
+                                                id="" min={{ Carbon\Carbon::now()->format('Y-m-d') }}>
                                         </div>
                                         @error('coupon_validity')
                                             <span class="text-danger">{{ $message }}</span>

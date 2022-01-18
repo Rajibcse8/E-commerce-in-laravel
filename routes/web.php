@@ -148,6 +148,7 @@ Route::prefix('product')->group(function(){
  Route::prefix('coupons')->group(function(){
 
   Route::get('/view',[CouponController::class,'Couponview'])->name('manage.coupon');
+  Route::post('/store',[CouponController::class,'Store'])->name('coupon.store');
 
  });
 
