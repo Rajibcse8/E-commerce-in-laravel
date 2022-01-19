@@ -51,7 +51,7 @@
                     
                                                 <td>
                                                     <a href="{{ route('coupon.edit',$data->id) }}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a href="" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('coupon.delete',$data->id) }}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 

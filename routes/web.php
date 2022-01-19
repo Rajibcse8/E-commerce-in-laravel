@@ -151,6 +151,7 @@ Route::prefix('product')->group(function(){
   Route::post('/store',[CouponController::class,'Store'])->name('coupon.store');
   Route::get('/edit/{id}',[CouponController::class,'Edit'])->name('coupon.edit');
   Route::post('/update/{id}',[CouponController::class,'Update'])->name('coupon.update');
+  Route::get('/delete/{id}',[CouponController::class,'Delete'])->name('coupon.delete');
 
 
  });
