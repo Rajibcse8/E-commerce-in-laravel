@@ -45,4 +45,42 @@ class CouponController extends Controller
 
     }
 
+    public function Edit($id){
+
+        $coupons=Coupon::FindOrFail($id);
+
+        return view('admin.coupon.edit_coupon',compact('coupons'));
+    }
+
+
+    public function Update(Rrequest $request, $id){
+
+
+        $request->validate([
+            'coupon_name'=>'required',
+            'coupon_amount'=>'required',
+            'coupon_validity'=>'required',
+            
+           ]);
+   
+           Coupon::findOrFail($id)->update([
+               'coupon_name'=>strtoupper($request->coupon_name),
+               'coupon_amount'=>$request->coupon_amount,
+               'coupon_validity'=>$request->coupon_validity,
+               'updated_at'=>Carbon::now(), 
+           ]);
+   
+           $notifiaction=array([
+              'messege'=>'Coupon Edited Successful',
+              'alert'=>'success',
+           ]);
+   
+   
+           return  redirect()->route('manage.coupon')->with($notifiaction);
+
+
+    }
+
+
+
 }
