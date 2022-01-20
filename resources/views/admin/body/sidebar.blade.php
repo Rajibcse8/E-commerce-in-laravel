@@ -107,6 +107,21 @@
                 </ul>
             </li>
 
+            <li class="treeview {{ ($prefix=='/shipping') ? 'active':'' }}">
+                <a href="#">
+                    <i data-feather="file"></i>
+                    <span>Shipping Area</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ $routeName=='manage.shipping' ? 'active':'' }}"><a href="{{ route('manage.shipping') }}"><i class="ti-more"></i>Manage-Coupons</a></li>
+                   
+                    
+                </ul>
+            </li>
+
             <!--Coupon Li End-->
 
             <li class="header nav-small-cap">User Interface</li>

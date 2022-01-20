@@ -53,7 +53,7 @@ class CouponController extends Controller
     }
 
 
-    public function Update(Rrequest $request, $id){
+    public function Update(Request $request, $id){
 
 
         $request->validate([

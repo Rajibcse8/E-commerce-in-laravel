@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\controllers\Backend\CouponController;
+use App\Http\controllers\Backend\ShippingAreaController;
 
 //------------------------------------------------------------------
 
@@ -153,6 +154,15 @@ Route::prefix('product')->group(function(){
   Route::post('/update/{id}',[CouponController::class,'Update'])->name('coupon.update');
   Route::get('/delete/{id}',[CouponController::class,'Delete'])->name('coupon.delete');
 
+
+ });
+
+ //------------------Shipping-Area Route-------------------------------------------------------
+
+ Route::prefix('shipping')->group(function(){
+
+    Route::get('/area/view',[ShippingAreaController::class,'AreaView'])->name('manage.shipping');
+    
 
  });
 
