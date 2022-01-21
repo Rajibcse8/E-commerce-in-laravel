@@ -24,13 +24,14 @@ class CouponController extends Controller
          'coupon_name'=>'required',
          'coupon_amount'=>'required',
          'coupon_validity'=>'required',
-         'created_at'=>Carbon::now(),
+         
         ]);
 
         Coupon::insert([
             'coupon_name'=>strtoupper($request->coupon_name),
             'coupon_amount'=>$request->coupon_amount,
             'coupon_validity'=>$request->coupon_validity, 
+            'created_at'=>Carbon::now(),
         ]);
 
         $notifiaction=array([

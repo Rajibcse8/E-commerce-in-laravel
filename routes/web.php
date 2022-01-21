@@ -162,7 +162,7 @@ Route::prefix('product')->group(function(){
  Route::prefix('shipping')->group(function(){
 
     Route::get('/area/view',[ShippingAreaController::class,'AreaView'])->name('manage.shipping');
-    
+    Route::post('/area/store',[ShippingAreaController::class,'DivStore'])->name('shipping.store');   
 
  });
 
