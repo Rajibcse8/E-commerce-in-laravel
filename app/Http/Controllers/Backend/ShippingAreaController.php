@@ -46,6 +46,8 @@ class ShippingAreaController extends Controller
 
     public function DivUpdate(Request $request,$id){
 
+       
+
         ShipDivision::findorFail($id)->update([
           'division_name'=>$request->division_name,
         ]);

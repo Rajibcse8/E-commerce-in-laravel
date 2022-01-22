@@ -116,7 +116,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ $routeName=='manage.shipping' ? 'active':'' }}"><a href="{{ route('manage.shipping') }}"><i class="ti-more"></i>Manage-Coupons</a></li>
+                    <li class="{{ $routeName=='manage.shipping' ? 'active':'' }}"><a href="{{ route('manage.shipping') }}"><i class="ti-more"></i>Manage-Division</a></li>
                    
                     
                 </ul>
