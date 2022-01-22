@@ -162,7 +162,13 @@ Route::prefix('product')->group(function(){
  Route::prefix('shipping')->group(function(){
 
     Route::get('/area/view',[ShippingAreaController::class,'AreaView'])->name('manage.shipping');
-    Route::post('/area/store',[ShippingAreaController::class,'DivStore'])->name('shipping.store');   
+    Route::post('/area/store',[ShippingAreaController::class,'DivStore'])->name('shipping.store'); 
+    Route::get('/division/edit/{id}',[ShippingAreaController::class,'DivEdit'])->name('divison.edit');
+    Route::post('/division/update/{id}',[ShippingAreaController::class,'DivUpdate'])->name('divison.update');
+    Route::get('/division/delete/{id}',[ShippingAreaController::class,'DivDelete'])->name('division_delete');
+    
+    
+      
 
  });
 

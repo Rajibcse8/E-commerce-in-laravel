@@ -36,8 +36,8 @@
                                                 <td><span><i class="">{{ $data->division_name }}</i></span></td>
                     
                                                 <td>
-                                                    <a href="" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a href="" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('divison.edit',$data->id) }}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{{ route('division_delete',$data->id) }}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
