@@ -166,6 +166,9 @@ Route::prefix('product')->group(function(){
     Route::get('/division/edit/{id}',[ShippingAreaController::class,'DivEdit'])->name('divison.edit');
     Route::post('/division/update/{id}',[ShippingAreaController::class,'DivUpdate'])->name('division.update');
     Route::get('/division/delete/{id}',[ShippingAreaController::class,'DivDelete'])->name('division_delete');
+
+
+    Route::get('/area/district',[ShippingAreaController::class,'DistrictView'])->name('ship.district');
     
     
       
