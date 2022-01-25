@@ -35,10 +35,10 @@
                                         @foreach ($districts as $data)
                                             <tr>
                                                 <td><span><i class="">{{ $data->district_name }}</i></span></td>
-                                                <td><span><i class="">{{ $data->diviison_id }}</i></span></td>
+                                                <td><span><i class="">{{ $data->division->division_name }}</i></span></td>
                     
                                                 <td>
-                                                    <a href="{{--  --}}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{{ route('district.edit',$data->id) }}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
                                                     <a href="{{--  --}}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
@@ -65,7 +65,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="Post" action="{{--  --}}" >
+                                <form method="Post" action="{{ route('district.store') }}" >
                                   
                                    @csrf
 
@@ -73,19 +73,19 @@
                                     <div class="form-group">
                                         <h5>District Name<span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="division_name" class="form-control"
+                                            <input type="text" name="district_name" class="form-control"
                                                 id="" required>
-                                        {{-- </div>
+                                       </div>
                                         @error('division_name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
-                                    </div> --}}
+                                    </div> 
 
 
                                     <div class="form-froup">
                                         <h5>Division Name <span class="text-danger">*</span> </h5>
                                         <div class="controls">
-                                           <select name="division_name" id="" class="form-control">
+                                           <select name="division_id" id="" class="form-control">
                                                 <option value="" >Selcet Division Name</option>
 
                                                @foreach ($divisions as $division)
@@ -94,7 +94,7 @@
                                                @endforeach
                                              
                                          </select>        
-                                         @error('division_name')
+                                         @error('division_id')
                                               <span class="text-danger">{{ $messag  }}</span>
                                          @enderror                            
                                     </div>

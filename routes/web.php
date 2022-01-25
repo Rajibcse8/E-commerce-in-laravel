@@ -169,6 +169,8 @@ Route::prefix('product')->group(function(){
 
 
     Route::get('/area/district',[ShippingAreaController::class,'DistrictView'])->name('ship.district');
+    Route::post('/area/district/store',[ShippingAreaController::class,'DistrictStore'])->name('district.store');
+    Route::get('/area/district/edit/{id}',[ShippingAreaController::class,'DistrictEdit'])->name('district.edit');
     
     
       
