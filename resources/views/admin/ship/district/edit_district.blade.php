@@ -31,7 +31,7 @@
 					<div class="table-responsive">
 
 
- <form method="post" action="{{--  --}}" >
+ <form method="post" action="{{ route('district.update',$districts->id) }}" >
 	 	@csrf
 
 
@@ -50,7 +50,7 @@
     <div class="form-froup">
         <h5>Division Name <span class="text-danger">*</span> </h5>
         <div class="controls">
-           <select name="division_id" id="" class="form-control">
+           <select name="division_id" id="" class="form-control" required>
                 <option value="" >Selcet Division Name</option>
 
                @foreach ($divisions as $division)

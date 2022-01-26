@@ -119,4 +119,37 @@ class ShippingAreaController extends Controller
 
     }
 
+
+    public function DistrictUpdate(Request $request,$id){
+
+        ShipDistrict::findOrFail($id)->update([
+          
+            'division_id'=>$request->division_id,
+            'district_name'=>$request->district_name,
+        ]);
+
+        $notification=array(
+            'message'=>'District Data Edited uccessfully',
+            'alert'=>'success',
+         );
+
+         return redirect()->route('ship.district')->with($notification);
+    }
+
+
+    public function DistrictDelete ($id)
+    {
+
+        ShipDistrict::findOrFail($id)->delete();
+
+        
+        $notification=array(
+            'message'=>'District Deleted Successfully',
+            'alert'=>'danger',
+         );
+
+         return redirect()->route('ship.district')->with($notification);
+
+    }
+
 }

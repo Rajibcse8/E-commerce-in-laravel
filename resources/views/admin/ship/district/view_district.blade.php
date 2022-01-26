@@ -39,7 +39,7 @@
                     
                                                 <td>
                                                     <a href="{{ route('district.edit',$data->id) }}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                    <a href="{{--  --}}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('district.delete',$data->id) }}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
@@ -104,7 +104,7 @@
                                    
                                    
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Coupon">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add District">
                                     </div>
                                 </form>
 
