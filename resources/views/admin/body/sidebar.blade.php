@@ -118,6 +118,7 @@
                 <ul class="treeview-menu">
                     <li class="{{ $routeName=='manage.shipping' ? 'active':'' }}"><a href="{{ route('manage.shipping') }}"><i class="ti-more"></i>Manage-Division</a></li>
                     <li class="{{ $routeName=='ship.district' ? 'active':'' }}"><a href="{{ route('ship.district') }}"><i class="ti-more"></i>Manage-District</a></li>
+                    <li class="{{ $routeName=='ship.state' ? 'active':'' }}"><a href="{{ route('ship.state') }}"><i class="ti-more"></i>Manage-State</a></li>
                    
                     
                 </ul>
