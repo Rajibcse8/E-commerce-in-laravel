@@ -166,6 +166,27 @@ class ShippingAreaController extends Controller
 
  }
 
+ public function StateStore(Request $request){
+  
+    //  dd($request->all());
+       
+    ShipState::insert([
+        'state_name'=>$request->state_name,
+        'division_id'=>$request->division_id,
+        'district_id'=>$request->district_id,
+    ]);
+
+
+    $notification=array(
+        'message'=>'State added Successfully',
+        'alert'=>'success',
+     );
+
+     return redirect()->back()->with($notification);
+
+
+ }
+
 
 
 

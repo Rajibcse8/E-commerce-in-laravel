@@ -176,6 +176,9 @@ Route::prefix('product')->group(function(){
 
   
     Route::get('/area/state',[ShippingAreaController::class,'StateView'])->name('ship.state');
+    Route::post('/area/state/store',[ShippingAreaController::class,'StateStore'])->name('ship.store');
+    
+    
     
     
     
