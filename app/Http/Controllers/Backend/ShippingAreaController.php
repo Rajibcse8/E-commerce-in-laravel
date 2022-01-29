@@ -188,6 +188,8 @@ class ShippingAreaController extends Controller
  }
 
  public function StateEdit($id){
+
+  
      $states=ShipState::findOrFail($id);
      $divisions=ShipDivision::get();
      $districts=ShipDistrict::get();
@@ -196,6 +198,36 @@ class ShippingAreaController extends Controller
  }
 
 
+ public function StateUpdate(Request $request ,$id){
+
+    //dd($request->all());
+
+    ShipState::findOrFail($id)->update([
+        'state_name'=>$request->state_name,
+        'division_id'=>$request->division_id,
+        'district_id'=>$request->district_id,
+    ]);
+
+    $notification=array(
+        'message'=>'State Edited Successfully',
+        'alert'=>'success',
+     );
+
+     return redirect()->route('ship.state')->with($notification);
+ }
+
+
+ public function Statedel($id){
+    
+    ShipState::findOrFail($id)->delete();
+
+    $notification=array(
+        'message'=>'State Deleted Successfully',
+        'alert'=>'danger',
+     );
+
+     return redirect()->route('ship.state')->with($notification);
+ }
 
 
 }

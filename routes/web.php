@@ -178,6 +178,8 @@ Route::prefix('product')->group(function(){
     Route::get('/area/state',[ShippingAreaController::class,'StateView'])->name('ship.state');
     Route::post('/area/state/store',[ShippingAreaController::class,'StateStore'])->name('state.store');
     Route::get('/area/state/edit/{id}',[ShippingAreaController::class,'StateEdit'])->name('state.edit');
+    Route::post('/area/state/update/{id}',[ShippingAreaController::class,'StateUpdate'])->name('state.update');
+    Route::get('.area/state/delete/{id}',[ShippingAreaController::class,'Statedel'])->name('state.delete');
     
 
     
