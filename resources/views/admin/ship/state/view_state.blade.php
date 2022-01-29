@@ -35,11 +35,11 @@
                                     <tbody>
                                         @foreach ($states as $data)
                                             <tr><td><span><i class="">{{ $data->state_name }}</i></span></td>
-                                                <td><span><i class="">{{ $data->division_id }}</i></span></td>
-                                                <td><span><i class="">{{ $data->district_id}}</i></span></td>
+                                                <td><span><i class="">{{ $data->division->division_name }}</i></span></td>
+                                                <td><span><i class="">{{ $data->district->district_name}}</i></span></td>
                     
                                                 <td>
-                                                    <a href="{{--  --}}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{{ route('state.edit',$data->id) }}" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
                                                     <a href="{{--  --}}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
@@ -66,7 +66,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <form method="Post" action="{{ route('ship.store') }}" >
+                                <form method="Post" action="{{ route('state.store') }}" >
                                   
                                    @csrf
 

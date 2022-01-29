@@ -187,6 +187,14 @@ class ShippingAreaController extends Controller
 
  }
 
+ public function StateEdit($id){
+     $states=ShipState::findOrFail($id);
+     $divisions=ShipDivision::get();
+     $districts=ShipDistrict::get();
+
+     return view('admin.ship.state.edit_state',compact('states','divisions','districts'));
+ }
+
 
 
 
