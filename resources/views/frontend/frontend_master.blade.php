@@ -799,9 +799,36 @@
    <!--Mycartpage product remove start-->
    
 
+<!-------------------My Cart Page End --------------------------------------------------------------->
 
 
-<!-------------------My Cart Page End--------------------------------------------------------------->
+<!--Frontend Coupon Apply Start--------------------------------------------------------------------->
+   
+<script type="text/javascript">
+
+   function applyCoupon(){
+
+       var coupon_name=$('#coupon_name').val();
+      // alert(coupon_name);
+      
+    $.ajax({
+        type:POST,
+        dataType:json,
+        data:{coupon_name:coupon_name},
+        url:"{{ url('/coupon-apply') }}",
+        success:function(data){
+            
+        },
+
+    })
+   }
+
+</script>
+
+<!--Frontend Coupon Apply End--------------------------------------------------------------------->
+
+
+
 </body>
 
 </html>

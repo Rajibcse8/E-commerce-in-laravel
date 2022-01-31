@@ -265,6 +265,11 @@ Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']);
 
 //CatrPage--Route---End
 
+//Coupon-Apply-Start
+ 
+Route::post('/coupon-apply',[CartController::class,'CouponApply']);
+
+//Coupon-Apply-End
 
 //--------------------------------------------Ajax Route END-------------------------------------------------
 
