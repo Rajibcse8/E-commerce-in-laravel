@@ -812,11 +812,37 @@
       // alert(coupon_name);
       
     $.ajax({
-        type:POST,
-        dataType:json,
+        type:'POST',
+        dataType:'json',
         data:{coupon_name:coupon_name},
         url:"{{ url('/coupon-apply') }}",
         success:function(data){
+
+             //Start Sweet-alert
+   
+             const Toast = Swal.mixin({
+                           toast: true,
+                           position: 'top-end',
+                           
+                           showConfirmButton: false,
+                           timer: 3000,
+                       })
+   
+                       if ($.isEmptyObject(data.error)) {
+                           Toast.fire({
+                               icon: 'success',
+                               type: 'success',
+                               title: data.success,
+                           })
+                       } else {
+                           Toast.fire({
+                               icon: 'error',
+                               type: 'error',
+                               title: data.error,
+                           })
+                       }
+   
+                       //End Sweet-alert
             
         },
 
