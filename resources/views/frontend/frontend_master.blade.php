@@ -819,7 +819,7 @@
         success:function(data){
 
              //Start Sweet-alert
-   
+                  alert(data.success);
              const Toast = Swal.mixin({
                            toast: true,
                            position: 'top-end',

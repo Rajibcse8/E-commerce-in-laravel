@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Coupon;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
+
 
 class CartController extends Controller
 {
@@ -84,12 +85,16 @@ class CartController extends Controller
     public function CouponApply(Request $request){
 
          
-
+        // return response()->json(['success'=>$request->coupon_name]);
                 
-         $coupon=Coupon::where('coupon_name',$request->coupon_name)->where('coupon_v','>=',Carbon::now()->format('Y-m-d'))->first();
 
+         $coupon=Coupon::where('coupon_name',$request->coupon_name)->where('coupon_validity','>=',Carbon::now()->format('Y-m-d'))->first();
+
+        // return response()->json(['success'=>$request->coupon_name]);
+        
          if($coupon){
-             
+           
+            
             Session::put('coupon',[
                 'coupon_name'=>$coupon->coupon_name,
                 'coupon_amount'=>$coupon->coupon_amount,
@@ -105,7 +110,7 @@ class CartController extends Controller
 
          else{
 
-            return response()->json(['error'=>'InValid Coupon']);
+             return response()->json(['error'=>'InValid Coupon']);
          }
 
     }
