@@ -819,8 +819,8 @@
         success:function(data){
 
              //Start Sweet-alert
-                  alert(data.success);
-             const Toast = Swal.mixin({
+                 
+                          const Toast = Swal.mixin({
                            toast: true,
                            position: 'top-end',
                            
@@ -847,6 +847,20 @@
         },
 
     })
+   }
+
+
+   function Couponcalculations(){
+       $.ajax({
+
+           type:'GET',
+           url:'{{ url('/coupon/calculations') }}',
+           dataType:'json',
+           success:function(data){
+              
+
+           },
+       })
    }
 
 </script>

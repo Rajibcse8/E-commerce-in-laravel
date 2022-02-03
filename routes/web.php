@@ -268,6 +268,7 @@ Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']);
 //Coupon-Apply-Start
  
 Route::post('/coupon-apply',[CartController::class,'CouponApply']);
+Route::get('/coupon/calculations',[CartController::class,'CouponCalculations']);
 
 //Coupon-Apply-End
 
