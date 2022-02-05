@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
+use App\Models\Coupon;
+use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
+
 class CartPageController extends Controller
 {
     public function MycartPage(){
@@ -41,6 +45,19 @@ class CartPageController extends Controller
         $cart_item= Cart::get($id);
         Cart::update($id,$cart_item->qty+1);
 
+        if(Session::has('coupon')){
+
+            $coupon_name=Session::get('coupon')['coupon_name'];
+            $coupon=Coupon::where('coupon_name',$coupon_name)->first();
+            Session::put('coupon',
+            [
+                'coupon_name'=>$coupon->coupon_name,
+                'coupon_amount'=>$coupon->coupon_amount,
+                'discount_amount'=>round (Cart::total() * $coupon->coupon_amount/100),
+                'total_amount'=> round( Cart::total() - (Cart::total() * $coupon->coupon_amount/100))
+            ]);
+        }
+
        return response()->json(['msg'=>'hello']);
         
 
@@ -52,6 +69,22 @@ class CartPageController extends Controller
         if($cart_item->qty>1){
           
             Cart::update($id,$cart_item->qty-1);
+
+            if(Session::has('coupon')){
+
+                $coupon_name=Session::get('coupon')['coupon_name'];
+                $coupon=Coupon::where('coupon_name',$coupon_name)->first();
+                Session::put('coupon',
+                [
+                    'coupon_name'=>$coupon->coupon_name,
+                    'coupon_amount'=>$coupon->coupon_amount,
+                    'discount_amount'=>round (Cart::total() * $coupon->coupon_amount/100),
+                    'total_amount'=> round( Cart::total() - (Cart::total() * $coupon->coupon_amount/100))
+                ]);
+            }
+
+
+
             return response()->json(['success'=>'Success']);
         }
 

@@ -720,6 +720,7 @@
                 Cartpage();
                 miniCart();
                 Couponcalculations();
+                
            }
 
            else{
