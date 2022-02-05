@@ -269,6 +269,7 @@ Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']);
  
 Route::post('/coupon-apply',[CartController::class,'CouponApply']);
 Route::get('/coupon/calculations',[CartController::class,'CouponCalculations']);
+Route::get('/coupon-remove',[CartCOntroller::class,'CouponRemove']);
 
 //Coupon-Apply-End
 

@@ -696,6 +696,7 @@
 
                 Cartpage();
                 miniCart();
+                Couponcalculations();
                  
              }
          });
@@ -718,6 +719,7 @@
              
                 Cartpage();
                 miniCart();
+                Couponcalculations();
            }
 
            else{
@@ -817,6 +819,9 @@
         data:{coupon_name:coupon_name},
         url:"{{ url('/coupon-apply') }}",
         success:function(data){
+            Couponcalculations();
+           
+            $('#CouponInputField').hide();
 
              //Start Sweet-alert
                  
@@ -861,41 +866,44 @@
 
                if(data.total){
                    
-                   $.('#Coponcallfield').html(
-                       `  <tr>
-                                    <th>
-                                        <div class="cart-sub-total">
-                                            Subtotal<span class="inner-left-md">$${data.total}/span>
-                                        </div>
-                                        <div class="cart-grand-total">
-                                            Grand Total<span class="inner-left-md">$${data.total}</span>
-                                        </div>
-                                    </th>
-                                </tr>`
+                   $('#Coponcallfield').html(
+                       ` <tr>
+                <th>
+                    <div class="cart-sub-total">
+                        Subtotal<span class="inner-left-md">$ ${data.total}</span>
+                    </div>
+                    <div class="cart-grand-total">
+                        Grand Total<span class="inner-left-md">$ ${data.total}</span>
+                    </div>
+                </th>
+            </tr>`
                    )
                }
 
                else{
 
-                  $.('#Coponcallfield').html(
-                       `  <tr>
-                                    <th>
-                                        <div class="cart-sub-total">
-                                            Subtotal<span class="inner-left-md">$${data.total}/span>
-                                        </div>
-                                        <div class="cart-grand-total">
-                                            Coupon Name<span class="inner-left-md">$${data.coupon_name}</span>
-                                        </div>
+                  $('#Coponcallfield').html(
 
-                                        <div class="cart-grand-total">
-                                            Discount Amount<span class="inner-left-md">$${data.discount_amount}</span>
-                                        </div>
-                                        <div class="cart-grand-total">
-                                            Grand Total<span class="inner-left-md">$${data.total_amount}</span>
-                                        </div>
-                                    </th>
-                                </tr>`
+                       `<tr>
+        <th>
+            <div class="cart-sub-total">
+                Subtotal<span class="inner-left-md">$ ${data.subtotal}</span>
+            </div>
+            <div class="cart-sub-total">
+                Coupon<span class="inner-left-md"> ${data.coupon_name}</span>
+                <button type="submit" onclick="couponRemove()"><i class="fa fa-times"></i>  </button>
+            </div>
+             <div class="cart-sub-total">
+                Discount Amount<span class="inner-left-md">$ ${data.discount_amount}</span>
+            </div>
+            <div class="cart-grand-total">
+                Grand Total<span class="inner-left-md">$ ${data.total_amount}</span>
+            </div>
+        </th>
+            </tr>`
                    )
+
+                 
 
                }
               
@@ -910,7 +918,67 @@
 
 <!--Frontend Coupon Apply End--------------------------------------------------------------------->
 
+<!--------------------Strat Coupon Remove--------------------------------------------------------->
 
+<script type="text/javascript">
+
+        
+        function couponRemove(){
+
+         
+       
+          
+
+                $.ajax({
+                    type: "get",
+                    url:'{{ url('/coupon-remove') }}',
+                    dataType: "json",
+                    success: function (data) {
+
+                        
+                       
+                         $('#CouponInputField').show();
+                         $('#coupon_name').val('');
+                         Couponcalculations();
+                       
+
+
+                        //Start Sweet-alert
+                 
+                        const Toast = Swal.mixin({
+                           toast: true,
+                           position: 'top-end',
+                           
+                           showConfirmButton: false,
+                           timer: 3000,
+                       })
+   
+                       if ($.isEmptyObject(data.error)) {
+                           Toast.fire({
+                               icon: 'success',
+                               type: 'success',
+                               title: data.success,
+                           })
+                       } else {
+                           Toast.fire({
+                               icon: 'error',
+                               type: 'error',
+                               title: data.error,
+                           })
+                       }
+   
+                       //End Sweet-alert
+                        
+                    }
+                });
+
+          }
+
+
+</script>
+
+
+<!--------------------END Coupon Remove--------------------------------------------------------->
 
 </body>
 

@@ -52,7 +52,7 @@
                         @if(Session::has('coupon'))
                             
                         @else
-                        <table class="table">
+                        <table class="table" id="CouponInputField">
                             <thead>
                                 <tr>
                                     <th>
