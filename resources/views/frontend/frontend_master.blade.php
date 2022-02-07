@@ -650,6 +650,7 @@
        success: function (response) {
         Cartpage();
         miniCart();
+        Couponcalculations()
              //Start Sweet-alert
 
              const Toast = Swal.mixin({
@@ -770,6 +771,8 @@
           dataType: "json",
           success: function (response) {
               wishlist();
+             
+              
                 //Start Sweet-alert
    
                 const Toast = Swal.mixin({

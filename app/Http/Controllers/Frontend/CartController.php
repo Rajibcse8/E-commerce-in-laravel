@@ -150,6 +150,22 @@ class CartController extends Controller
 
         if(Auth::check()){
 
+            if(Cart::total()>0){
+
+            }
+
+            else{
+
+                $notification=array(
+                    'message'=>'You Cart is Empty',
+                    'alert-type'=>'error'
+                );
+    
+                 return redirect()->to('/')->with($notification);
+
+
+            }
+
         }
 
         else{
