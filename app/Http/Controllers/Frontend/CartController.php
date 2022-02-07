@@ -9,6 +9,7 @@ use App\Models\Coupon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
+use Auth;
 
 
 class CartController extends Controller
@@ -139,6 +140,27 @@ class CartController extends Controller
     public function CouponRemove(){
         Session::forget('coupon');
         return response()->json(['success' => 'Coupon Remove Successfully']);
+    }
+
+    //----------------------------------------------------Checkout Controller------------------------------
+
+
+
+    public function CheckoutCreate(){
+
+        if(Auth::check()){
+
+        }
+
+        else{
+            $notification=array(
+                'message'=>'You must Login At first',
+                'alert-type'=>'error'
+            );
+
+             return redirect()->route('login')->with($notification);
+        }
+
     }
 
 }

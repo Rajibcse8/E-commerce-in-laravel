@@ -275,3 +275,7 @@ Route::get('/coupon-remove',[CartCOntroller::class,'CouponRemove']);
 
 //--------------------------------------------Ajax Route END-------------------------------------------------
 
+
+//Check-out Route
+
+Route::get('/checkout',[CartController::class,'CheckoutCreate'])->name('checkout');
