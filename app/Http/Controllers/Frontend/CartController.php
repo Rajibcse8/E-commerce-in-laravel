@@ -152,6 +152,11 @@ class CartController extends Controller
 
             if(Cart::total()>0){
 
+                $carts=Cart::content();
+                $cart_qty=Cart::count();
+                $cart_total=Cart::total();
+                    
+                return view('frontend.checkout.checkout_view',compact('carts','cart_qty','cart_total'));
             }
 
             else{
