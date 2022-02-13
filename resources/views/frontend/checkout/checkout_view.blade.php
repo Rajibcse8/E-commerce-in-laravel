@@ -108,11 +108,39 @@
 		    	<h4 class="unicase-checkout-title">Your Checkout Progress</h4>
 		    </div>
 		    <div class="">
+
 				<ul class="nav nav-checkout-progress list-unstyled">
-					<li><a href="#">Billing Address</a></li>
-					<li><a href="#">Shipping Address</a></li>
-					<li><a href="#">Shipping Method</a></li>
-					<li><a href="#">Payment Method</a></li>
+
+					@foreach ($carts as $item)
+						
+				    <li>
+						<strong>Image:</strong>
+						<img src="{{ asset($item->options->image) }}"  style="height:50px; wight:50px;" alt="">
+					</li>
+					<li><strong>Qty:</strong>{{ $item->qty }}</li>
+					<li><strong>Color:</strong>{{ $item->options->color }}</li>
+					<li><strong>Size:</strong>{{ $item->options->size }}</li>
+					<hr>
+										
+				
+					@endforeach
+
+					<li>
+						@if(Session::has('coupon'))
+							<strong>SubTOtal:</strong>{{ $cart_total }} <hr>
+							<strong>Coupon:</strong>{{ Session::get('coupon')['coupon_name'] }} 
+							({{ Session::get('coupon')['coupon_amount'] }})% <hr>
+							<strong>Discount Amount:</strong>{{ Session::get('coupon')['discount_amount'] }} <hr>
+							<strong>Grand Total:</strong>{{ Session::get('coupon')['total_amount'] }} <hr>
+							
+
+							@else
+							<strong>SubTOtal:</strong>{{ $cart_total }} <hr>
+							<strong>GrandTotal:</strong>{{ $cart_total }} <hr>
+							
+
+						@endif
+					</li>
 				</ul>		
 			</div>
 		</div>
