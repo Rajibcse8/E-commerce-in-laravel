@@ -36,33 +36,39 @@
 	    <div class="panel-body">
 			<div class="row">		
 
-				<!-- guest-login -->			
-				<div class="col-md-6 col-sm-6 guest-login">
-					<h4 class="checkout-subtitle">Guest or Register Login</h4>
-					<p class="text title-tag-line">Register with us for future convenience:</p>
-
-					<!-- radio-form  -->
+				<!-- guest-login -->	
+				<div class="col-md-6 col-sm-6 already-registered-login">
+					<h4 class="checkout-subtitle">Shipping Address</h4>
 					<form class="register-form" role="form">
-					    <div class="radio radio-checkout-unicase">  
-					        <input id="guest" type="radio" name="text" value="guest" checked>  
-					        <label class="radio-button guest-check" for="guest">Checkout as Guest</label>  
-					          <br>
-					        <input id="register" type="radio" name="text" value="register">  
-					        <label class="radio-button" for="register">Register</label>  
-					    </div>  
+						<div class="form-group">
+					    <label class="info-title" for="exampleInputEmail1">Shipping Name<span>*</span></label>
+					    <input type="text" class="form-control unicase-form-control text-input" name="shipping_name" placeholder="Shipping name"
+						placeholder="Shipping Name" value="{{ Auth()->user()->name }}" required>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="info-title" for="exampleInputEmail1">Shipping Email<span>*</span></label>
+					    <input type="email" class="form-control unicase-form-control text-input" name="shipping_email" placeholder="Shipping Email"
+						placeholder="Shipping Email" value="{{ Auth()->user()->email }}" required>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="info-title" for="exampleInputEmail1">Shipping Phone<span>*</span></label>
+					    <input type="number" class="form-control unicase-form-control text-input" name="shipping_phone" placeholder="Shipping Phone"
+						placeholder="Shipping Phone" value="{{ Auth()->user()->phone }}" required>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="info-title" for="exampleInputEmail1">Shipping Phone<span>*</span></label>
+					    <input type="number" class="form-control unicase-form-control text-input" name="post_code" placeholder="Post Code"
+						placeholder="Post Code"  required>
+					  </div>
+					  
+
+					  <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
 					</form>
-					<!-- radio-form  -->
-
-					<h4 class="checkout-subtitle outer-top-vs">Register and save time</h4>
-					<p class="text title-tag-line ">Register with us for future convenience:</p>
-					
-					<ul class="text instruction inner-bottom-30">
-						<li class="save-time-reg">- Fast and easy check out</li>
-						<li>- Easy access to your order history and status</li>
-					</ul>
-
-					<button type="submit" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">Continue</button>
-				</div>
+				</div>		
+				
 				<!-- guest-login -->
 
 				<!-- already-registered-login -->
