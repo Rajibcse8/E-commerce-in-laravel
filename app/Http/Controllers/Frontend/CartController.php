@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Coupon;
+use App\Models\ShipDivision;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
@@ -155,8 +156,9 @@ class CartController extends Controller
                 $carts=Cart::content();
                 $cart_qty=Cart::count();
                 $cart_total=Cart::total();
+                $divisions = ShipDivision::orderBy('division_name','ASC')->get();
                     
-                return view('frontend.checkout.checkout_view',compact('carts','cart_qty','cart_total'));
+                return view('frontend.checkout.checkout_view',compact('carts','cart_qty','cart_total','divisions'));
             }
 
             else{
