@@ -228,6 +228,43 @@
 
 
 
+    <script>
+        $(document).ready(function() {
+            
+            $('select[name="division_id"]').on('change', function() {
+                
+                $('select[name="district_id"]').empty();
+                var division_id = $(this).val();
+               // alert(division_id);
+                if (division_id) {
+                    $.ajax({
+                        type: "GET",
+                        url: "{{ url('division/find/formdistrict') }}/" + division_id,
+                        dataType: "json",
+                        success: function(data) {
+                            var d = $('select[name="district_id"]').empty();
+                            $.each(data, function(key, value) {
+
+                                $('select[name="district_id"]').append(
+                                    '<option value="' + value.id + '">' + value
+                                    .district_id + '</option>');
+
+                            });
+                        },
+                    });
+                } else {
+                    alert('error');
+                }
+
+
+            });
+
+           
+        });
+    </script>
+
+
+
 
 
 

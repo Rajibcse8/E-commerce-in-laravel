@@ -217,6 +217,10 @@ Route::post('user/password/update',[IndexController::class,'Updatepass'])->name(
 //Product-view-Route-------------------------------
 
 
+//------------------------------------------Check-out Route------------------------------------------------------------------------------
+
+Route::get('division/find/formdistrict/{division_id}',[CartController::class,'find_district']);
+
 
 
 
