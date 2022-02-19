@@ -242,25 +242,71 @@
                         url: "{{ url('division/find/formdistrict') }}/" + division_id,
                         dataType: "json",
                         success: function(data) {
+                            
                             var d = $('select[name="district_id"]').empty();
                             $.each(data, function(key, value) {
 
                                 $('select[name="district_id"]').append(
                                     '<option value="' + value.id + '">' + value
-                                    .district_id + '</option>');
+                                    .district_name + '</option>');
 
                             });
                         },
                     });
                 } else {
+                    
                     alert('error');
                 }
 
 
             });
 
+
+
+            $('select[name="district_id"]').on('change', function () { 
+            
+            var district_id= $('select[name="district_id"]').val();
+
+
+          if(district_id){
+            
+   
+            $.ajax({
+                type: "GET",
+                url: "{{ url('getstate/from/district') }}/" +district_id,
+                dataType: "json",
+                success: function (response) {
+                    var dd = $('select[name="state_id"]').empty(); 
+                    $.each(response, function (key, value) { 
+
+
+                        $('select[name="state_id"]').append(
+                                    '<option value="' + response.id + '">' + response
+                                    .state_name + '</option>');
+                        
+                    });
+                   
+                },
+            });//end ship_state ajax function
+
+          }
+          else{
+              alert('error');
+          }
+        
+           
+       });
+
+
+         
            
         });
+
+  
+       
+
+
+
     </script>
 
 
