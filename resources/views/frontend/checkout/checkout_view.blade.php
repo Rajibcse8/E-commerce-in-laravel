@@ -41,7 +41,8 @@
                                         <!-- guest-login -->
                                         <div class="col-md-6 col-sm-6 already-registered-login">
                                             <h4 class="checkout-subtitle">Shipping Address</h4>
-                                            <form class="register-form" role="form">
+                                            <form class="register-form" action=""  method="POST" >
+                                                @csrf
                                                 <div class="form-group">
                                                     <label class="info-title" for="exampleInputEmail1">Shipping
                                                         Name<span>*</span></label>
@@ -142,13 +143,12 @@
 
 
             
-                                            <button type="submit"
-                                                class="btn-upper btn btn-primary checkout-page-button">Login</button>
+                                            
 
 
 
                                         </div>
-                                        </form>
+                                       
                                         <!-- already-registered-login -->
 
                                     </div>
@@ -219,6 +219,76 @@
                     </div>
                     <!-- checkout-progress-sidebar -->
                 </div>
+
+
+
+
+
+
+
+
+
+
+                <!--Select payment Methood-->
+                
+                
+                
+                <div class="col-md-4">
+                    <!-- checkout-progress-sidebar -->
+                    <div class="checkout-progress-sidebar ">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="unicase-checkout-title">Select Payment methood</h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="">Stripe</label>
+                                        <input type="radio" name="payment_method" value="stripe">
+                                        <img src="{{ asset('frontend/assets/images/payments/2.png') }}" alt="">
+
+                                    </div> <!--End col-md-4-->
+
+                                    
+                                    <div class="col-md-4">
+
+                                        <label for="">Card</label>
+                                        <input type="radio" name="payment_method" value="card">
+                                        <img src="{{ asset('frontend/assets/images/payments/3.png') }}" alt="">
+
+                                    </div> <!--End col-md-4-->
+                                    
+                                    
+                                    <div class="col-md-4">
+
+                                        <label for="">Cash</label>
+                                        <input type="radio" name="payment_method" value="cash">
+                                        <img src="{{ asset('frontend/assets/images/payments/4.png') }}" alt="">
+
+                                    </div> <!--End col-md-4-->
+
+                                   
+                                </div><!--End Row-->
+
+                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Payment Proceed</button>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                  <!-- checkout-progress-sidebar -->
+
+                    <!--ENd Payemt Process--->
+
+
+                </form>
+                
+                
+   
+                
+              
+
+
             </div><!-- /.row -->
         </div><!-- /.checkout-box -->
 
@@ -234,6 +304,7 @@
             $('select[name="division_id"]').on('change', function() {
                 
                 $('select[name="district_id"]').empty();
+                $('select[name="state_id"]').empty();
                 var division_id = $(this).val();
                // alert(division_id);
                 if (division_id) {
@@ -276,12 +347,12 @@
                 url: "{{ url('getstate/from/district') }}/" +district_id,
                 dataType: "json",
                 success: function (response) {
-                    var dd = $('select[name="state_id"]').empty(); 
+                    var d =$('select[name="state_id"]').empty();
                     $.each(response, function (key, value) { 
 
 
                         $('select[name="state_id"]').append(
-                                    '<option value="' + response.id + '">' + response
+                                    '<option value="' + value.id + '">' + value
                                     .state_name + '</option>');
                         
                     });

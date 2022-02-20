@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ShipDivision;
 use App\Models\ShipDistrict;
-use App\Models\ShipStateShipState;
+use App\Models\ShipState;
 class CheckoutController extends Controller
 {
     
