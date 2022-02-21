@@ -41,7 +41,7 @@
                                         <!-- guest-login -->
                                         <div class="col-md-6 col-sm-6 already-registered-login">
                                             <h4 class="checkout-subtitle">Shipping Address</h4>
-                                            <form class="register-form" action=""  method="POST" >
+                                            <form class="register-form" action="{{ route('checkout.store') }}"  method="POST" >
                                                 @csrf
                                                 <div class="form-group">
                                                     <label class="info-title" for="exampleInputEmail1">Shipping

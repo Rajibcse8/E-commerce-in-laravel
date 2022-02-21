@@ -221,6 +221,7 @@ Route::post('user/password/update',[IndexController::class,'Updatepass'])->name(
 
 Route::get('division/find/formdistrict/{division_id}',[CheckoutController::class,'find_district']);
 Route::get('getstate/from/district/{district_id}',[CheckoutController::class,'find_state']);
+Route::post('checkout/payment',[CheckoutController::class,'CheckoutStore'])->name('checkout.store');
 
 
 
