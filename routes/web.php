@@ -24,6 +24,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\StripeController;
 
 //-------------------------------------------------------------------
 
@@ -221,7 +222,13 @@ Route::post('user/password/update',[IndexController::class,'Updatepass'])->name(
 
 Route::get('division/find/formdistrict/{division_id}',[CheckoutController::class,'find_district']);
 Route::get('getstate/from/district/{district_id}',[CheckoutController::class,'find_state']);
-Route::post('checkout/payment',[CheckoutController::class,'CheckoutStore'])->name('checkout.store');
+
+Route::group(['middleware'=>['auth','user'],'namespace'=>'User'],function(){
+
+    Route::post('checkout/payment',[CheckoutController::class,'CheckoutStore'])->name('checkout.store');
+    Route::post('stripe/order',[StripeController::class,'StripeOrder'])->name('stripe.order');
+});
+
 
 
 
