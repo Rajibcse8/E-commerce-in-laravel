@@ -12,7 +12,7 @@ class StripeController extends Controller
     public function StripeOrder(Request  $request){
 
      
-   \Stripe\Stripe::setApiKey('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+   \Stripe\Stripe::setApiKey('sk_test_51KX71JD0xQ6Aup57GRP2ivUrhvtbSfQ4TpXUnKq2TF7DZ9f7uF1mW1Xmyh3b18FwfUtYFN7ZAxM3Cdv6BMcsGvu000Ht9Xrqa5');
 
    $token = $_POST['stripeToken'];
    $charge = \Stripe\Charge::create([
