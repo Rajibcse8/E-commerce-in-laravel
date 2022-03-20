@@ -20,7 +20,7 @@ class CreateOrderItemsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('color');
             $table->string('size');
-            $table->string('quantity');
+            $table->string('qty');
             $table->float('price',8,2);
             $table->timestamps();
         });
