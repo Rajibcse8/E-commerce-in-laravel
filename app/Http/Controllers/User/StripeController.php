@@ -41,7 +41,7 @@ class StripeController extends Controller
 
     $order_id=Order::insertGetId([
        
-      'user_id'=>Auth::id,
+      'user_id'=>Auth::id(),
       'division_id'=>$request->division_id,
       'district_id'=>$request->district_id,
       'state_id'=>$request->state_id,
@@ -75,12 +75,14 @@ class StripeController extends Controller
 
     ]);
 
+    //dd($order_id);
+
     $carts=Cart::content();
 
     foreach($carts as $cart){
          
       OrderItem::insert([
-        'order_id '=>$order_id,
+        'order_id'=>$order_id,
         'product_id'=>$cart->id,
         'color'=>$cart->options->color,
         'size'=>$cart->options->size,
