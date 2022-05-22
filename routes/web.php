@@ -25,7 +25,7 @@ use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
-
+use App\Http\Controllers\User\AlluserController;
 //-------------------------------------------------------------------
 
 use App\Models\User;
@@ -262,6 +262,10 @@ Route::get('/remove/wishlist/item/{id}',[WishlistController::class,'RemoveWishli
 Route::get('/Wishlist/view',[WishlistController::class,'ViewWishlist'])->name('wishlist');
 
 
+//-----------------All _User-Controller-------------------------------------
+
+Route::get('/my/order',[AlluserController::class,'Myorders'])->name('my.order');
+//---------------End All user Controller
 });
 Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']); 
  

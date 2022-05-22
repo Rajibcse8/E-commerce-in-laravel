@@ -74,8 +74,8 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1">Shipping
-                                                        Phone<span>*</span></label>
+                                                    <label class="info-title" for="exampleInputEmail1">Postal
+                                                        Code<span>*</span></label>
                                                     <input type="number"
                                                         class="form-control unicase-form-control text-input"
                                                         name="post_code" placeholder="Post Code" placeholder="Post Code"
