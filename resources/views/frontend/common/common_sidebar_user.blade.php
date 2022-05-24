@@ -1,6 +1,11 @@
+@php
+    $id = Auth::user()->id;
+    $user = App\Models\User::find($id);
+@endphp
+
 <div class="col-md-2"><br>
-    <img src="{{ (!empty($data->profile_photo_path)) ?
-     url('upload/user_images').'/'.$data->profile_photo_path : url('upload/no_image.jpg')  }}" 
+    <img src="{{ (!empty($user->profile_photo_path)) ?
+     url('upload/user_images').'/'.$user->profile_photo_path : url('upload/no_image.jpg')  }}" 
      class="card-img-top" style="border-radius=50%" height="100px" widht="100px">
      <ul class="list-group list-group-flush"><br>
          <a href="{{ route('home') }}" class="btn btn-primary btn-sm btn-block">Home</a>
