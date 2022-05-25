@@ -21,4 +21,11 @@ class AlluserController extends Controller
         $orders=Order::where('user_id',Auth::id())->orderBy('id','DESC')->get();
         return view('frontend.user.order.order_view',compact('orders'));
     }
+
+    public function OrderView($order_id){
+         
+        $order=Order::where('id',$order_id)->where('user_id',Auth::id())->first();
+        $order_item=OrderItem::where('order_id',$order_id)->orderBy('id','DESC')->get();
+        return view('frontend.user.order.order_item',compact('order','order_item'));
+    }
 }

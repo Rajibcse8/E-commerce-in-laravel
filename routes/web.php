@@ -265,6 +265,7 @@ Route::get('/Wishlist/view',[WishlistController::class,'ViewWishlist'])->name('w
 //-----------------All _User-Controller-------------------------------------
 
 Route::get('/my/order',[AlluserController::class,'Myorders'])->name('my.order');
+Route::get('order/view/{order_id}',[AlluserController::class,'OrderView'])->name('order.view');
 //---------------End All user Controller
 });
 Route::post('add/to/wishlist/{id}',[WishlistController::class,'AddToWishList']); 
