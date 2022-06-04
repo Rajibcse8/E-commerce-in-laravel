@@ -26,6 +26,7 @@ use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\AlluserController;
+use App\Http\Controllers\User\ReviewController;
 //-------------------------------------------------------------------
 
 use App\Models\User;
