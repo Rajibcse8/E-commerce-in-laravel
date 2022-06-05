@@ -299,3 +299,12 @@ Route::get('/coupon-remove',[CartCOntroller::class,'CouponRemove']);
 //Check-out Route
 
 Route::get('/checkout',[CartController::class,'CheckoutCreate'])->name('checkout');
+
+
+
+//---------------Review route---------------------------------------------
+
+ 
+Route::post('review/store',[ReviewController::class,'ReviewStore'])->name('review.store');
+
+//---------------Revire Route enf------------------------------------------

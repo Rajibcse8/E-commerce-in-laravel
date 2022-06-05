@@ -381,8 +381,10 @@
                                                      <p><b>For add Review you must have to login First</b><a href="{{ route('login') }}">click for login</a></p> 
                                                         @else
                                                         <div class="form-container">
-                                                            <form role="form" class="cnt-form">
-    
+                                                            <form role="form" class="cnt-form" method="post" action="{{ route('review.store') }}">
+                                                               @csrf
+                                                               <input type="hidden" name="product_id" id="product_id" value="{{ $products->id }}">
+
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                       
@@ -391,7 +393,7 @@
                                                                             <label for="exampleInputSummary">Summary <span
                                                                                     class="astk">*</span></label>
                                                                             <input type="text" class="form-control txt"
-                                                                                id="exampleInputSummary" placeholder="">
+                                                                                id="exampleInputSummary" placeholder="" name="summary" required>
                                                                         </div><!-- /.form-group -->
                                                                     </div>
     
@@ -401,13 +403,13 @@
                                                                                     class="astk">*</span></label>
                                                                             <textarea class="form-control txt txt-review"
                                                                                 id="exampleInputReview" rows="4"
-                                                                                placeholder=""></textarea>
+                                                                                placeholder="" name="comment" required></textarea>
                                                                         </div><!-- /.form-group -->
                                                                     </div>
                                                                 </div><!-- /.row -->
     
                                                                 <div class="action text-right">
-                                                                    <button class="btn btn-primary btn-upper">SUBMIT
+                                                                    <button class="btn btn-primary btn-upper" type="submit">SUBMIT
                                                                         REVIEW</button>
                                                                 </div><!-- /.action -->
     
