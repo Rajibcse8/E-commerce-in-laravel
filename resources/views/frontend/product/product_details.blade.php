@@ -353,15 +353,38 @@
                                             <div class="product-reviews">
                                                 <h4 class="title">Customer Reviews</h4>
 
+                                                @php
+
+                                                $reviews=App\Models\Review::where('product_id',$products->id)->latest()->limit(5)->get();
+
+                                                @endphp
+
                                                 <div class="reviews">
+                                                    @foreach ($reviews as  $review)
+
+                                                    @if($review->status==0)
+                                                        
+                                                    @else
+                                                        
+                                                    
                                                     <div class="review">
-                                                        <div class="review-title"><span class="summary">We love
-                                                                this product</span><span class="date"><i
-                                                                    class="fa fa-calendar"></i><span>1 days
-                                                                    ago</span></span></div>
-                                                        <div class="text">"Lorem ipsum dolor sit amet,
-                                                            consectetur adipiscing elit.Aliquam suscipit."</div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <img   style="border-radius:50%" alt=""
+                                                                src="{{ (!empty($review->user->profile_photo_path)) ? url('upload/user_images').'/'.$review->user->profile_photo_path : url('upload/no_image.jpg')  :: url('upload/no_image.jpg') }}"
+                                                                width="40px;" height="40px;"><b>{{ $review->user->name }}</b>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="review-title"><span class="summary">{{ $review->summary }} </span><span class="date"><i
+                                                                    class="fa fa-calendar"></i><span> {{ Carbon\Carbon::parse($review->created_at)->diffForHumans() }}</span></span></div>
+                                                        <div class="text">{{ $review->comment }}</div>
                                                     </div>
+
+                                                    @endif
+
+                                                    @endforeach
 
                                                 </div><!-- /.reviews -->
                                             </div><!-- /.product-reviews -->
